@@ -23,65 +23,35 @@ path {
         stroke-dashoffset: 1050;
     }
 
-    90% {
-        fill: rgba(255, 255, 255, 0);
-    }
-
     100% {
         opacity: 10;
-        fill: rgba(255, 255, 255, 1);
+        fill: none;
         stroke-dashoffset: 0;
     }
 }
 
 .fade-in {
-  animation: fadeIn ease 7s;
-  -webkit-animation: fadeIn ease 7s;
-  -moz-animation: fadeIn ease 7s;
-  -o-animation: fadeIn ease 7s;
-  -ms-animation: fadeIn ease 7s;
+    animation: fadeIn ease 5s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
+    0% {
+        opacity:0;
+    }
+
+    100% {
+        opacity:1;
+    }
 }
 
-@-moz-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
-}
-
-@-o-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
-}
-
-@-ms-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
+.hiiii {
+    font-family: 'Crimson Text', serif;
+    font-size: 75px;
+    font-weight: regular;
+    text-align: center;
+    animation: fadeIn ease 5s;
+    animation-delay: 6s;
+    animation-fill-mode: both;
 }
