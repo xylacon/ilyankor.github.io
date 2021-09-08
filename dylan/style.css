@@ -1,0 +1,57 @@
+.wrapper {
+    text-align: center;
+}
+
+path {
+    stroke: #00d4d4;
+    fill: #none;
+    stroke-dasharray: 1050;
+    opacity: 1;
+    animation: animate 3s cubic-bezier(.5,0,.5,1);
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 1050;
+    }
+
+    30% {
+        opacity: 1;
+        fill: none;
+        stroke-dashoffset: 1050;
+    }
+
+    100% {
+        opacity: 10;
+        fill: none;
+        stroke-dashoffset: 0;
+    }
+}
+
+.fade-in {
+    animation: fadeIn ease 5s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+
+    100% {
+        opacity:1;
+    }
+}
+
+.hiiii {
+    font-family: 'Crimson Text', serif;
+    font-size: 60px;
+    font-weight: regular;
+    text-align: center;
+    animation: fadeIn ease 5s;
+    animation-delay: 6s;
+    animation-fill-mode: both;
+}
