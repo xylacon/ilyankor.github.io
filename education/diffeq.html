@@ -1,166 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="University of Houston - MATH 3331" />
-  <title>Differential equations</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
+<html lang="en">
+	<head>
+  		<meta charset="UTF-8">
+		<meta name="generator" content="pandoc" />
+		<meta name="description" content="Personal website of Miles Bi">
+        <meta name="author" content="Miles Bi">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="notes.css">
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+        </script>
+
+		<title>Education | Differential equations</title>
+
+	</head>
 <body>
 <header id="title-block-header">
 <h1 class="title">Differential equations</h1>
@@ -192,9 +46,9 @@ an unknown function (the dependent variable) of a single independent
 variable that includes one or more derivatives.</p>
 <p>The <strong>order</strong> of an ordinary differential equation is
 the order of the highest derivative that appears.</p>
-<p>Let <span class="math inline">\(n\)</span> be the highest order,
-<span class="math inline">\(t\)</span> the independent variable, and
-<span class="math inline">\(y\)</span> the dependent variable. The
+<p>Let <span >\(n\)</span> be the highest order,
+<span >\(t\)</span> the independent variable, and
+<span >\(y\)</span> the dependent variable. The
 <strong>general form</strong> of an ordinary differential equation is
 <span class="math display">\[f(t, y, y&#39;, \dots, y^{(n)}) = 0
 .\]</span></p>
@@ -202,7 +56,7 @@ the order of the highest derivative that appears.</p>
 is <span class="math display">\[y^{(n)} = f(t, y, y&#39;, \dots,
 y^{(n-1)}).\]</span></p>
 <p>The <strong>solution</strong> of an ordinary differential equation is
-a function <span class="math inline">\(y(t)\)</span> that satisfies
+a function <span >\(y(t)\)</span> that satisfies
 <span class="math display">\[f(t, y, y&#39;, \dots, y^{(n)}) = 0
 .\]</span></p>
 </div>
@@ -217,11 +71,11 @@ could influence the particular solution, they must be removed.</p>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="classes" label="classes"></span></p>
-<p>Let <span class="math inline">\(t\)</span> be the independent
-variable and <span class="math inline">\(y\)</span> be the dependent
+<p>Let <span >\(t\)</span> be the independent
+variable and <span >\(y\)</span> be the dependent
 variable.</p>
-<p>Let <span class="math inline">\(p_0 (t), p_1 (t), \dots, p_n
-(t)\)</span> and <span class="math inline">\(g(t)\)</span> be arbitraty
+<p>Let <span >\(p_0 (t), p_1 (t), \dots, p_n
+(t)\)</span> and <span >\(g(t)\)</span> be arbitraty
 differentiable functions. A differential equation is
 <strong>linear</strong> if it is of the form <span
 class="math display">\[p_0 (t) y + p_1 (t) y&#39; + \cdots + p_n (t)
@@ -234,7 +88,7 @@ class="math display">\[f(t, y, y&#39;, \dots, y^{(n)}) = 0
 .\]</span></p>
 <p>It is <strong>inhomogenous</strong> if it is of the form <span
 class="math display">\[f(t, y, y&#39;, \dots, y^{(n-1)}) =
-g(t),\]</span> where <span class="math inline">\(g(t) \neq 0\)</span>
+g(t),\]</span> where <span >\(g(t) \neq 0\)</span>
 and is called the <strong>forcing term</strong>.</p>
 </div>
 <h1 id="first-order-differential-equations">First order differential
@@ -244,18 +98,18 @@ differential equation whose highest order derivative is 1.</p>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="1stexistence" label="1stexistence"></span></p>
-<p>Let <span class="math inline">\(f\)</span> be a real number. So,
+<p>Let <span >\(f\)</span> be a real number. So,
 <span class="math display">\[f = f\]</span></p>
 </div>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="1stunique" label="1stunique"></span></p>
-<p>Let <span class="math inline">\(f\)</span> be a real number. So,
+<p>Let <span >\(f\)</span> be a real number. So,
 <span class="math display">\[f = f\]</span></p>
 </div>
 <h2 id="seperable">Seperable</h2>
-<p>Let <span class="math inline">\(f\)</span> and <span
-class="math inline">\(g\)</span> be nonzero differentiable functions. A
+<p>Let <span >\(f\)</span> and <span
+>\(g\)</span> be nonzero differentiable functions. A
 first order differential equation is <strong>separable</strong> if it is
 of the form <span class="math display">\[y&#39; = f(t)g(y).\]</span>
 Steps to solving a separable differential equation:</p>
@@ -264,7 +118,7 @@ Steps to solving a separable differential equation:</p>
 class="math display">\[\frac{1}{g(y)} \ \mathrm{d}y = f(t) \
 \mathrm{d}t\]</span></p></li>
 <li><p>Integrate both sides.</p></li>
-<li><p>Solve for <span class="math inline">\(y(t)\)</span>.</p></li>
+<li><p>Solve for <span >\(y(t)\)</span>.</p></li>
 </ol>
 <h2 id="integrating-factor">Integrating factor</h2>
 <p>If a first order differential equation has the form <span
@@ -280,11 +134,11 @@ class="math display">\[\mu =\]</span> If, <span
 class="math display">\[\mu =\]</span></p>
 <h2 id="applications">Applications</h2>
 <h3 class="unnumbered" id="radioactive-decay">Radioactive decay</h3>
-<p>Let <span class="math inline">\(A(t)\)</span> be the mass of a
-radioactive object and <span class="math inline">\(\lambda &gt;
+<p>Let <span >\(A(t)\)</span> be the mass of a
+radioactive object and <span >\(\lambda &gt;
 0\)</span> a constant. Radioactive decay is represented by <span
 class="math display">\[A&#39; = -\lambda A.\]</span> Let <span
-class="math inline">\(A_0\)</span> be the initial mass. The solution is
+>\(A_0\)</span> be the initial mass. The solution is
 <span class="math display">\[A(t) = A_0 \mathrm{e}^{- \lambda
 t}.\]</span> Half-life is the time it takes for the original mass to
 decay to half of it’s original size. <span
@@ -292,12 +146,12 @@ class="math display">\[t_{\text{half}} = \frac{\ln
 2}{\lambda}.\]</span></p>
 <h3 class="unnumbered" id="newtons-law-of-cooling">Newton’s law of
 cooling</h3>
-<p>Let <span class="math inline">\(T(t)\)</span> be the temperature of
-the object, <span class="math inline">\(A\)</span> the constant ambient
-temperature, and <span class="math inline">\(k\)</span> a constant.
+<p>Let <span >\(T(t)\)</span> be the temperature of
+the object, <span >\(A\)</span> the constant ambient
+temperature, and <span >\(k\)</span> a constant.
 Then, Newton’s law of cooling states that <span
 class="math display">\[T&#39;(t) = - k(T - A).\]</span> Let <span
-class="math inline">\(T_0\)</span> be the initial temperature of the
+>\(T_0\)</span> be the initial temperature of the
 object. The solution is <span class="math display">\[T(t) = A + (T_0 -
 A)\mathrm{e}^{-kt}.\]</span></p>
 <h3 class="unnumbered" id="projectile-motion">Projectile motion</h3>
@@ -336,18 +190,18 @@ equations</h2>
 equation. Depending on the roots of the characteristic equation, there
 are different real-valued solutions.</p>
 <ul>
-<li><p>two distinct real roots, <span class="math inline">\(\lambda_1 ,
+<li><p>two distinct real roots, <span >\(\lambda_1 ,
 \lambda_2\)</span> <span class="math display">\[y = C_1
 \mathrm{e}^{\lambda_1 t} + C_2 \mathrm{e}^{\lambda_2 t
 }\]</span></p></li>
-<li><p>complex roots, <span class="math inline">\(\lambda = a \pm b
+<li><p>complex roots, <span >\(\lambda = a \pm b
 \mathrm{i}\)</span> <span class="math display">\[\begin{aligned}
     y &amp;= C_1 \operatorname{Re} \left(\mathrm{e}^{\lambda t} \right)
 + C_2 \operatorname{Im} \left(\mathrm{e}^{\lambda t} \right) \\
     &amp;= \mathrm{e}^{at} \left[ C_1 \cos (bt) + C_2 \sin (bt) \right]
 \\
   \end{aligned}\]</span></p></li>
-<li><p>one real root, <span class="math inline">\(\lambda\)</span> <span
+<li><p>one real root, <span >\(\lambda\)</span> <span
 class="math display">\[y = C_1 \mathrm{e}^{\lambda t} + C_2 t
 \mathrm{e}^{\lambda t }\]</span></p></li>
 </ul>
@@ -367,37 +221,37 @@ coefficients</h2>
 <div class="mdframed">
 <p><span id="harmonicmotionterms"
 label="harmonicmotionterms"></span></p>
-<p>Let <span class="math inline">\(m\)</span> be the mass, <span
-class="math inline">\(\mu\)</span> the damping constant, <span
-class="math inline">\(k\)</span> the spring constant, and <span
-class="math inline">\(F(t)\)</span> an external force. Then, the
+<p>Let <span >\(m\)</span> be the mass, <span
+>\(\mu\)</span> the damping constant, <span
+>\(k\)</span> the spring constant, and <span
+>\(F(t)\)</span> an external force. Then, the
 equation for the motion of vibrating spring is <span
 class="math display">\[mx&#39;&#39; + \mu x&#39; + kx = F(t).\]</span>
-Let <span class="math inline">\(c = \dfrac{\mu}{2m}, \ \omega_0 =
-\sqrt{\dfrac{k}{m}}\)</span> and <span class="math inline">\(f(t) =
+Let <span >\(c = \dfrac{\mu}{2m}, \ \omega_0 =
+\sqrt{\dfrac{k}{m}}\)</span> and <span >\(f(t) =
 \dfrac{1}{m} F(t)\)</span>, where <span
-class="math inline">\(\omega_0\)</span> is called the <strong>nautral
+>\(\omega_0\)</span> is called the <strong>nautral
 frequency</strong> of the spring. The resulting equation is <span
 class="math display">\[x&#39;&#39; + 2cx&#39; + \omega_{0}^2 x =
 f(t).\]</span></p>
 <ul>
-<li><p>if <span class="math inline">\(f(t) = 0\)</span>, it is
+<li><p>if <span >\(f(t) = 0\)</span>, it is
 <strong>unforced</strong>.</p></li>
-<li><p>if <span class="math inline">\(f(t) \neq 0\)</span>, it is
+<li><p>if <span >\(f(t) \neq 0\)</span>, it is
 <strong>forced</strong>. The forcing term will be <span
-class="math inline">\(f(t) = A \cos (\omega t)\)</span> or <span
-class="math inline">\(f(t) = A \sin (\omega t)\)</span>.</p></li>
-<li><p>if <span class="math inline">\(\omega = \omega_0\)</span>, the
+>\(f(t) = A \cos (\omega t)\)</span> or <span
+>\(f(t) = A \sin (\omega t)\)</span>.</p></li>
+<li><p>if <span >\(\omega = \omega_0\)</span>, the
 spring experiences <strong>resonance</strong>.</p></li>
-<li><p>if <span class="math inline">\(c = 0\)</span>, it is
+<li><p>if <span >\(c = 0\)</span>, it is
 <strong>undamped</strong>.</p></li>
-<li><p>if <span class="math inline">\(c \neq 0\)</span>, it is
+<li><p>if <span >\(c \neq 0\)</span>, it is
 <strong>damped</strong>.</p></li>
-<li><p>if <span class="math inline">\(c &lt; \omega_0\)</span>, it is
+<li><p>if <span >\(c &lt; \omega_0\)</span>, it is
 <strong>underdamped</strong>.</p></li>
-<li><p>if <span class="math inline">\(c &gt; \omega_0\)</span>, it is
+<li><p>if <span >\(c &gt; \omega_0\)</span>, it is
 <strong>overdamped</strong>.</p></li>
-<li><p>if <span class="math inline">\(c = \omega_0\)</span>, it is
+<li><p>if <span >\(c = \omega_0\)</span>, it is
 <strong>critically damped</strong>.</p></li>
 </ul>
 </div>
@@ -406,16 +260,16 @@ be solved with the technique in the above section.</p>
 <p>amplitude, phase angle</p>
 <p>Unforced with no damping regular sin/cos curves.</p>
 <p>Unforced with damping</p>
-<p>Underdamped (<span class="math inline">\(c &lt;
+<p>Underdamped (<span >\(c &lt;
 \omega_0\)</span>).</p>
-<p>Overdamped (<span class="math inline">\(c &gt;
+<p>Overdamped (<span >\(c &gt;
 \omega_0\)</span>).</p>
-<p>Critically damped (<span class="math inline">\(c =
+<p>Critically damped (<span >\(c =
 \omega_0\)</span>).</p>
-<p>Forced with no damping If <span class="math inline">\(\omega \neq
+<p>Forced with no damping If <span >\(\omega \neq
 \omega_0\)</span>, <strong>beats</strong> happens. Physical phenomenon.
 Superposition of two waves causes interference. Consider intial values
-<span class="math inline">\(x(0) = x&#39;(0) = 0\)</span></p>
+<span >\(x(0) = x&#39;(0) = 0\)</span></p>
 <p>Let <strong>mean fequency</strong> be <span
 class="math display">\[\overline{\omega} = \frac{1}{2} \left( \omega_0 +
 \omega \right).\]</span> Let <strong>half difference</strong> be <span
@@ -427,7 +281,7 @@ class="math display">\[\delta = \frac{1}{2} \left|\omega_0 - \omega
 <p>And the solution has an <strong>envelope</strong>.</p>
 <p><span class="math display">\[E(t) = \left| \frac{A}{2
 \overline{\omega} \delta} \sin (\delta t) \right|.\]</span></p>
-<p>If <span class="math inline">\(\omega = \omega_0\)</span>,
+<p>If <span >\(\omega = \omega_0\)</span>,
 <strong>resonance</strong> happens.</p>
 <p>Forced with damping. The phase angle is <span
 class="math display">\[\phi = \operatorname{arccot}
@@ -437,9 +291,9 @@ class="math display">\[\phi = \operatorname{arccot}
 (2c\omega)^2}}.\]</span> Then, the particular solution is <span
 class="math display">\[x_{\text{p}} (t) = G A \cos (\omega t - \phi)
 .\]</span> In the general solution, the homogenous solution <span
-class="math inline">\(x_{\text{h}}\)</span> is called the
-<strong>transient term</strong>, since as <span class="math inline">\(t
-\rightarrow \infty\)</span>, <span class="math inline">\(x_{\text{h}}
+>\(x_{\text{h}}\)</span> is called the
+<strong>transient term</strong>, since as <span >\(t
+\rightarrow \infty\)</span>, <span >\(x_{\text{h}}
 \rightarrow 0\)</span> and the particular solution is called the
 <strong>steady-state term</strong>, since it does not decay.</p>
 <h1 id="systems-of-differential-equations">Systems of differential
@@ -452,21 +306,21 @@ of first order equations.</p>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="exporder" label="exporder"></span></p>
-<p>Let <span class="math inline">\(f: \mathbb{R} \rightarrow
+<p>Let <span >\(f: \mathbb{R} \rightarrow
 \mathbb{R}\)</span> be a function. The function is of
 <strong>exponential order</strong> if there exists <span
-class="math inline">\(C, a \in \mathbb{R}\)</span> such that for all
-<span class="math inline">\(t &gt; 0\)</span>, <span
+>\(C, a \in \mathbb{R}\)</span> such that for all
+<span >\(t &gt; 0\)</span>, <span
 class="math display">\[\left| f(t) \right| \leq C
 \mathrm{e}^{at}.\]</span></p>
 </div>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="laplace" label="laplace"></span></p>
-<p>Let <span class="math inline">\(f: (0, \infty) \rightarrow
+<p>Let <span >\(f: (0, \infty) \rightarrow
 \mathbb{R}\)</span> be a piecewise differentiable function of
 exponential order. The Laplace transform of <span
-class="math inline">\(f\)</span> is <span
+>\(f\)</span> is <span
 class="math display">\[\mathcal{L}\{f(t)\} = \int_{0}^{\infty} f(t)
 \mathrm{e}^{-st} \ \mathrm{d}t.\]</span></p>
 </div>
@@ -474,64 +328,64 @@ class="math display">\[\mathcal{L}\{f(t)\} = \int_{0}^{\infty} f(t)
 <thead>
 <tr class="header">
 <th style="text-align: center;"><span
-class="math inline">\(f(t)\)</span></th>
+>\(f(t)\)</span></th>
 <th style="text-align: center;"><span
-class="math inline">\(\mathcal{L}\{f(t)\} = F(s)\)</span></th>
+>\(\mathcal{L}\{f(t)\} = F(s)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span
-class="math inline">\(t^n\)</span></td>
+>\(t^n\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(\dfrac{n!}{s^{n+1}}\)</span></td>
+>\(\dfrac{n!}{s^{n+1}}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span
-class="math inline">\(\mathrm{e}^{at}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\dfrac{1}{s
+>\(\mathrm{e}^{at}\)</span></td>
+<td style="text-align: center;"><span >\(\dfrac{1}{s
 - a}\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\sin
+<td style="text-align: center;"><span >\(\sin
 (at)\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(\dfrac{a}{s^2 + a^2}\)</span></td>
+>\(\dfrac{a}{s^2 + a^2}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\cos
+<td style="text-align: center;"><span >\(\cos
 (at)\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(\dfrac{s}{s^2 + a^2}\)</span></td>
+>\(\dfrac{s}{s^2 + a^2}\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(t^n
+<td style="text-align: center;"><span >\(t^n
 \mathrm{e}^{at}\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(\dfrac{n!}{(s - a)^{n+1}}\)</span></td>
+>\(\dfrac{n!}{(s - a)^{n+1}}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span
-class="math inline">\(\mathrm{e}^{at} \sin (bt)\)</span></td>
+>\(\mathrm{e}^{at} \sin (bt)\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(\dfrac{b}{(s-a)^2 + b^2}\)</span></td>
+>\(\dfrac{b}{(s-a)^2 + b^2}\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span
-class="math inline">\(\mathrm{e}^{at} \cos (bt)\)</span></td>
+>\(\mathrm{e}^{at} \cos (bt)\)</span></td>
 <td style="text-align: center;"><span
-class="math inline">\(\dfrac{s-a}{(s-a)^2 + b^2}\)</span></td>
+>\(\dfrac{s-a}{(s-a)^2 + b^2}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">\(f(t)
+<td style="text-align: center;"><span >\(f(t)
 \mathrm{e}^{at}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(F(s -
+<td style="text-align: center;"><span >\(F(s -
 a)\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(t^n
+<td style="text-align: center;"><span >\(t^n
 f(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\((-1)^n
+<td style="text-align: center;"><span >\((-1)^n
 F^{(n)}(s)\)</span></td>
 </tr>
 </tbody>
@@ -557,24 +411,24 @@ solution.</p></li>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="eulermethod" label="eulermethod"></span></p>
-<p>Consider the differential equation <span class="math inline">\(y&#39;
-= f(t, y)\)</span> with <span class="math inline">\(y(t_0) =
-y_0\)</span> and let <span class="math inline">\(h\)</span> be the step
+<p>Consider the differential equation <span >\(y&#39;
+= f(t, y)\)</span> with <span >\(y(t_0) =
+y_0\)</span> and let <span >\(h\)</span> be the step
 size. The recursive formula for <strong>Euler’s method</strong> is <span
 class="math display">\[y_{n+1} = y_n + hf(t_n, y_n).\]</span></p>
 </div>
 <p>Euler’s method is a first order numerical method. <span
-class="math inline">\(E \propto h\)</span>. To compute Euler’s method by
+>\(E \propto h\)</span>. To compute Euler’s method by
 hand, table.</p>
 <h3 id="runge-kutta">Runge-Kutta</h3>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="rungekutta2" label="rungekutta2"></span></p>
-<p>Consider the differential equation <span class="math inline">\(y&#39;
-= f(t, y)\)</span> with <span class="math inline">\(y(t_0) =
-y_0\)</span> and let <span class="math inline">\(h\)</span> be the step
-size. Define <span class="math inline">\(s_1\)</span> and <span
-class="math inline">\(s_2\)</span> by <span
+<p>Consider the differential equation <span >\(y&#39;
+= f(t, y)\)</span> with <span >\(y(t_0) =
+y_0\)</span> and let <span >\(h\)</span> be the step
+size. Define <span >\(s_1\)</span> and <span
+>\(s_2\)</span> by <span
 class="math display">\[\begin{aligned}
     s_1 &amp;= f(t_n, y_n) \\
     s_2 &amp;= f(t_n + h, y_n + hs_1)
@@ -582,16 +436,16 @@ class="math display">\[\begin{aligned}
 Runge-Kutta method is <span class="math display">\[y_{n+1} = y_n +
 \frac{1}{2}h(s_1 + s_2).\]</span></p>
 </div>
-<p><span class="math inline">\(E \propto h^2\)</span>. To compute the
+<p><span >\(E \propto h^2\)</span>. To compute the
 second order Runge-Kutta method by hand, table.</p>
 <p><span> </span> <span> </span></p>
 <div class="mdframed">
 <p><span id="rungekutta4" label="rungekutta4"></span></p>
-<p>Consider the differential equation <span class="math inline">\(y&#39;
-= f(t, y)\)</span> with <span class="math inline">\(y(t_0) =
-y_0\)</span> and let <span class="math inline">\(h\)</span> be the step
-size. Define <span class="math inline">\(s_1, s_2, s_3\)</span> and
-<span class="math inline">\(s_4\)</span> by <span
+<p>Consider the differential equation <span >\(y&#39;
+= f(t, y)\)</span> with <span >\(y(t_0) =
+y_0\)</span> and let <span >\(h\)</span> be the step
+size. Define <span >\(s_1, s_2, s_3\)</span> and
+<span >\(s_4\)</span> by <span
 class="math display">\[\begin{aligned}
     s_1 &amp;= f(t_n, y_n) \\
     s_2 &amp;= f(t_n + \frac{1}{2}h, y_n + \frac{1}{2}hs_1) \\
@@ -601,7 +455,7 @@ class="math display">\[\begin{aligned}
 Runge-Kutta method is <span class="math display">\[y_{n+1} = y_n +
 \frac{1}{6}h(s_1 + 2s_2 + 2s_3 + s_4).\]</span></p>
 </div>
-<p><span class="math inline">\(E \propto h^4\)</span>. To compute the
+<p><span >\(E \propto h^4\)</span>. To compute the
 fourth order Runge-Kutta method by hand, table.</p>
 </body>
 </html>
