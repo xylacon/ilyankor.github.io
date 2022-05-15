@@ -12,7 +12,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-        <script src="main.js"></script>
+        <script src="main.js" defer></script>
 
         <title>Miles Bi</title>
     </head>
@@ -20,19 +20,26 @@
         <div class="container">
             <div>
                 <header>
-                    <nav>
-                        <a class="active" href="https://ilyankor.github.io">Home</a>
-                        <a href="about/index">About</a>
-                        <a href="projects/index">Projects</a>
-                        <a href="music/index">Music</a>
-                        <a href="education/index">Education</a>
-                        <a href="blog/index">Blog</a>
+                    <nav class="navbar">
+                        <input type="checkbox" id="sidebar-toggle"/>
+                        <label class="sidebar-button-container" for="sidebar-toggle">
+                            <div class="sidebar-button"></div>
+                        </label>
+                        <ul class="menu-items">
+                            <li><a class="active" href="https://ilyankor.github.io">Home</a></li>
+                            <li><a href="about/index">About</a></li>
+                            <li><a href="projects/index">Projects</a></li>
+                            <li><a href="music/index">Music</a></li>
+                            <li><a href="education/index">Education</a></li>
+                            <li><a href="blog/index">Blog</a></li>
+                        </ul>
                     </nav>
-                    <button onclick="lightdark()">Light/dark</button>
+                    
                     <h1>MILES BI</h1>
                 </header>
                 <main>
                     <p>Welcome to my website! My name is Miles Bi.</p>
+                    <button onclick="lightdark()">Light/dark</button>
                 </main>
             </div>
             <footer>
