@@ -84,12 +84,12 @@ nav a:visited {
 }
 
 .sidebar-button::before {
-    margin-top: -6px;
+    margin-top: -8px;
     content: "";
 }
 
 .sidebar-button::after {
-    margin-top: 6px;
+    margin-top: 8px;
     content: "";
 }
 
@@ -98,12 +98,12 @@ nav a:visited {
 }
 
 #sidebar-toggle:checked + .sidebar-button-container .sidebar-button::before {
-    transform: translate3d(0,6px,0) rotate(-45deg);
+    transform: translate3d(0,8px,0) rotate(-45deg);
     transform-origin: center;
 }
 
 #sidebar-toggle:checked + .sidebar-button-container .sidebar-button::after {
-    transform: translate3d(0,-6px,0) rotate(45deg);
+    transform: translate3d(0,-8px,0) rotate(45deg);
     transform-origin: center;
 }
 
@@ -151,7 +151,7 @@ nav a:visited {
     .sidebar-button-container {
         visibility: visible;
 
-        padding: 20px 0 0 10px;
+        margin: 20px 0 0 10px;
     }
 
     #sidebar-toggle:checked ~ .menu-items {
@@ -271,19 +271,4 @@ footer {
 
 footer p{
     margin: 0;
-}
-
-/* ABOUT */
-
-h3 a{
-    text-decoration: none;
-    color: black
-}
-
-h3 a:hover {
-    color: rgb(139,0,0) !important;
-}
-
-h3 a:visited{
-    color: black;;
 }
