@@ -221,7 +221,7 @@ main {
 }
 
 .inline-link {
-    color: rgb(87,196,160);
+    color: rgb(90,150,200);
     text-decoration: none;
 }
 
@@ -230,7 +230,7 @@ main {
 }
 
 .inline-link:visited {
-    color: rgb(87,196,160);
+    color: rgb(90,150,200);
 }
 
 .circle-picture {
