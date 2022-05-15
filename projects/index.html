@@ -12,6 +12,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
+        <script src="main.js" defer></script>
+
         <title>Miles Bi | Projects</title>
     </head>
     <body>
@@ -20,7 +22,7 @@
                 <header>
                     <nav class="navbar">
                         <input type="checkbox" id="sidebar-toggle"/>
-                        <label class="sidebar-button-container" for="sidebar-toggle">
+                        <label class="sidebar-button-container" for="sidebar-toggle" onclick="removeColor(event)">
                             <div class="sidebar-button"></div>
                         </label>
                         <ul class="menu-items">
@@ -52,6 +54,7 @@
                         <p>An electronic piece for fixed media using data from numerically solved partial differential equation.
                             The usage of earthquake seismogram data as audio.
                             Animation of solution of the partial differential equation.
+                            Using FFMPEG, a video was put together.
                             More description will be added, link to GitHub and YouTube of animation.</p>
                         <p><a href="https://youtu.be/D9m-8KyO65s" target="_blank">View the animation on YouTube</a>  </p>
                 </main>

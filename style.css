@@ -24,6 +24,10 @@ nav a:visited {
     align-items: center;
 }
 
+.navbar ul{
+    padding: 0;
+}
+
 .menu-items {
     display: flex;
     flex-direction: row;
@@ -73,7 +77,6 @@ nav a:visited {
     background-color: black;
 }
 
-
 .sidebar-button-container:not(.no-hover):hover .sidebar-button,
 .sidebar-button-container:not(.no-hover):hover .sidebar-button::before,
 .sidebar-button-container:not(.no-hover):hover .sidebar-button::after {
@@ -109,6 +112,10 @@ nav a:visited {
         justify-content: left;
     }
 
+    .navbar ul{
+        padding-top: 80px;
+    }
+
     .menu-items {
         position: fixed;
         top: 0;
@@ -117,21 +124,21 @@ nav a:visited {
         width: 0;
         margin: 0;
         padding: 0;
-        padding-top: 5vh;
+        padding-top: 30px;
         overflow: hidden;
 
         flex-direction: column;
         justify-content: flex-start;
         align-items: left;
 
-        background-color: rgba(255,255,255,0.9);
+        background-color: rgba(255,255,255,0.95);
         transition: width 350ms, padding 350ms;
     }
 
     .menu-items li {
         width: 100%;
         text-align: left;
-        padding: 5vh 10px 0 0;
+        padding: 30px 10px 0 0;
 
         opacity: 0;
         transition: opacity 350ms;
@@ -212,6 +219,20 @@ body {
 main {
     margin: 0 15vw;
 }
+
+.inline-link {
+    color: #FF9B42;
+    text-decoration: none;
+}
+
+.inline-link:hover{
+    color: rgb(139,0,0) !important;
+}
+
+.inline-link:visited {
+    color: #FF9B42;
+}
+
 
 @media only screen and (max-width: 700px)  {
     main {
