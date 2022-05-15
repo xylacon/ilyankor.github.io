@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  		<meta charset="UTF-8">
+		<meta name="generator" content="pandoc" />
+		<meta name="description" content="Personal website of Miles Bi">
+        <meta name="author" content="Miles Bi">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="notes.css">
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+        </script>
+
+		<title>Education | Linear Algebra</title>
+
+	</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Linear algebra</h1>
+<p class="author">University of Houston - MATH 2331</p>
+<p class="date">Spring 2020</p>
+</header>
+<p>Textbook: Lay - Linear Algebra and Its Applications, 5th edition</p>
+<p>Chapters covered: 1.1-5, 1.7-9, 2.1-4, 2.8-9, 3, 4.1-6, 4.9, 5.1-3,
+5.5, 6.1-6, 7.1-4</p>
+<p>*The contents in these notes do not correspond exactly to the
+textbook</p>
+<h1 id="matrices">Matrices</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:matrix" label="defi:matrix"></span></p>
+<p>A <strong>matrix</strong> is a rectangular array of objects. Let
+<span >\(A_{ij}\)</span> denote a matrix with <span
+>\(i = \{ 1, \dots , m\}\)</span> and <span
+>\(j = \{ 1, \dots , n  \}\)</span>. Then <span
+>\(A\)</span> is an <span >\(m
+\times n\)</span> matrix with <span >\(m\)</span>
+rows and <span >\(n\)</span> columns and <span
+>\((i,j)\)</span>-entries.</p>
+<p><span class="math display">\[A_{i,j} = \begin{bmatrix}
+  a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+  a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n}
+\end{bmatrix}\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:zeromatrix" label="defi:zeromatrix"></span></p>
+<p>A <strong>zero matrix</strong> has all 0s in its entries.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:identitymatrix"
+label="defi:identitymatrix"></span></p>
+<p>An <strong>identity matrix</strong> <span
+>\(I_n\)</span> is an <span >\(n
+\times n\)</span> matrix such that for any <span >\(n
+\times n\)</span> matrix <span >\(A\)</span>, <span
+>\(AI = IA = A\)</span>. <span
+class="math display">\[I_{n} = \begin{bmatrix}
+  1 &amp; 0 &amp; \cdots &amp; 0 \\
+  0 &amp; 1 &amp; \cdots &amp; 0 \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  0 &amp; 0 &amp; \cdots &amp; 1
+\end{bmatrix}\]</span></p>
+<p>A <strong>permutation matrix</strong> is an identity matrix that has
+its rows permuted.</p>
+<p>An <strong>elementary matrix</strong> is an identity matrix with
+exactly one row operation performed.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:triangularmatrix"
+label="defi:triangularmatrix"></span></p>
+<p>A <strong>triangular matrix</strong> is an <span
+>\(n \times n\)</span> matrix with all zeros below or
+above the diagonal.</p>
+<p>An <strong>upper triangular matrix</strong> looks like <span
+class="math display">\[U_{i,j} = \begin{bmatrix}
+  a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+  0 &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  0 &amp; 0 &amp; \cdots &amp; a_{n,n}
+\end{bmatrix}\]</span></p>
+<p>A <strong>lower triangular matrix</strong> looks like <span
+class="math display">\[L_{i,j} = \begin{bmatrix}
+  a_{1,1} &amp; 0 &amp; \cdots &amp; 0 \\
+  a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; 0 \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n}
+\end{bmatrix}\]</span></p>
+</div>
+<h2 id="row-reduction">Row reduction</h2>
+<p><strong>Row reduction</strong> (also known as Gaussian elimination)
+is the process of using elementary row operations to transform a matrix
+into another form.</p>
+<p>The <strong>elementary row operations</strong> are:</p>
+<ul>
+<li><p>replacement - add a multiple of a row to another row</p></li>
+<li><p>exchange - swap the position of two rows</p></li>
+<li><p>scaling - multiply a row by a nonzero constant</p></li>
+</ul>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:rref" label="defi:rref"></span></p>
+<p>A matrix is in <strong>echelon form</strong> if it has the following
+three properties:</p>
+<ol>
+<li><p>All rows of only zeros are at the bottom of the matrix.</p></li>
+<li><p>Every leading entry of a row is in a column to the right of the
+leading entry of the row above it. (Each leading entry is now a
+<strong>pivot</strong> – their positions do not change.)</p></li>
+<li><p>All entries in a column below a leading are zeros.</p></li>
+</ol>
+<p>A matrix is in <strong>row reduced echelon form</strong> if it also
+satisfies the following:</p>
+<ol start="4">
+<li><p>The leading entry in each nonzero row is 1.</p></li>
+<li><p>Each leading 1 is the only nonzero entry in its column.</p></li>
+</ol>
+</div>
+<h3 class="unnumbered" id="algorithm-for-row-reduction">Algorithm for
+row reduction</h3>
+<p>The row operations can be performed in any order to get to reduced
+row echelon form. Here is an example of a systematic algorithm for row
+reduction. Depending on the entries of the matrix, other ways may be
+more efficient.</p>
+<ol>
+<li><p>Put all rows of only zero at the bottom.</p></li>
+<li><p>Make the first row of the matrix have a leading entry of
+1.</p></li>
+<li><p>Add multiples of the first row to every row below it so that the
+rest of the first column is 0.</p></li>
+<li><p>Make the second row of the matrix have a leading entry of
+1.</p></li>
+<li><p>Add multiples of the second row to every row above and below it
+such that the rest of the second column is 0.</p></li>
+<li><p>Repeat the process and exchange rows until the matrix is in
+reduced row echelon form.</p></li>
+</ol>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:rref" label="theo:rref"></span></p>
+<p>Each matrix is row equivalent to one and only one reduced echelon
+matrix.</p>
+</div>
+<h2 id="solving-the-matrix-equation">Solving the matrix equation</h2>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix and let <span
+>\(\mathbf{x}, \mathbf{b}\)</span> be vectors in
+<span >\(\mathbb{R}^n\)</span>. An important equation
+is <span class="math display">\[A \mathbf{x} = \mathbf{b}.\]</span></p>
+<p>The goal is to solve for <span
+>\(\mathbf{x}\)</span> given <span
+>\(A\)</span> and <span
+>\(\mathbf{b}\)</span>.</p>
+<ol>
+<li><p>Arrange <span >\(A\)</span> and <span
+>\(\mathbf{b}\)</span> into an augmented matrix.
+<span class="math display">\[\begin{bmatrix}
+    A &amp; \mathbf{b}
+  \end{bmatrix}\]</span></p></li>
+<li><p>Row reduce the augmented matrix until it is in row reduced
+echelon form.</p></li>
+<li><p>The last column on the right is the solution.</p></li>
+</ol>
+<p>*If the ending matrix has a row <span
+>\(\begin{bmatrix}
+  0 &amp; 0 &amp; \cdots &amp; k
+\end{bmatrix}\)</span>, then there is no solution to the equation.</p>
+<h3 class="unnumbered" id="properties-of-a-mathbfx">Properties of <span
+>\(A \mathbf{x}\)</span></h3>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix, let <span
+>\(\mathbf{u}, \mathbf{v}\)</span> be vectors in
+<span >\(\mathbb{R}^n\)</span>, and let <span
+>\(c\)</span> be a scalar.</p>
+<ul>
+<li><p><span >\(A (\mathbf{u} + \mathbf{v}) = A
+\mathbf{u} + A \mathbf{v}\)</span></p></li>
+<li><p><span >\(A (c \mathbf{v}) = c(A
+\mathbf{v})\)</span></p></li>
+</ul>
+<h2 id="matrix-algebra">Matrix algebra</h2>
+<h3 class="unnumbered" id="addition">Addition</h3>
+<p>To add to matrices of the same size, add the corresponding
+entries.</p>
+<h3 class="unnumbered" id="scalar-multiplication">Scalar
+multiplication</h3>
+<p>Multiply each entry in the matrix by the scalar.</p>
+<h3 class="unnumbered" id="matrix-multiplication">Matrix
+multiplication</h3>
+<p>Matrix multiplication is not commutative. The matrices also have to
+be a certain dimension; the left matrix is <span >\(m
+\times n\)</span>, the right matrix is <span >\(n
+\times r\)</span>, and the resulting matrix is <span
+>\(m \times r\)</span>.</p>
+<p>Let <span >\(A\)</span> and <span
+>\(B\)</span> be matrices with the appropriate
+dimensions.</p>
+<ul>
+<li><p><strong>right-multiplication</strong>: <span
+>\(AB\)</span> is multiplying <span
+>\(A\)</span> by <span
+>\(B\)</span> from the right.</p></li>
+<li><p><strong>left-multiplication</strong>: <span
+>\(BA\)</span> is multiplying <span
+>\(A\)</span> by <span
+>\(B\)</span> from the left.</p></li>
+</ul>
+<p>Steps to matrix multiplication:</p>
+<ol>
+<li><p>Multiply <span >\(a_{1,1}\)</span> by <span
+>\(b_{1,1}\)</span> and enter it into <span
+>\(c_{1,1}\)</span>.</p></li>
+<li><p>Multiply <span >\(a_{2,1}\)</span> by <span
+>\(b_{1,1}\)</span> and enter it into <span
+>\(a_{2,1}\)</span>.</p></li>
+<li><p>Repeat until the entire first column of <span
+>\(A\)</span> has been multiplied.</p></li>
+<li><p>Multiply <span >\(a_{1,1}\)</span> by <span
+>\(b_{1,2}\)</span> and enter it into <span
+>\(c_{1,2}\)</span>.</p></li>
+<li><p>Multiply <span >\(a_{2,1}\)</span> by <span
+>\(b_{1,2}\)</span> and enter it into <span
+>\(c_{2,2}\)</span>.</p></li>
+<li><p>Repeat until the all columns of the first row of <span
+>\(B\)</span> has been multiplied. This completes the
+first matrix</p></li>
+<li><p>Repeat the process with the second column of <span
+>\(A\)</span> and the second row of <span
+>\(B\)</span>. This completes the second
+matrix</p></li>
+<li><p>Repeat until all the columns of <span
+>\(A\)</span> have been completed.</p></li>
+<li><p>Add up all the individual matrices.</p></li>
+</ol>
+<h1 id="vector-spaces">Vector spaces</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:vectorspace" label="defi:vectorspace"></span></p>
+<p>A vector space <span >\(V\)</span> is a nonempty
+set of objects (called <strong>vectors</strong>) on which addition and
+scalar multiplication is defined. A vector space must fulfill all of the
+following axioms:</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:subspace" label="defi:subspace"></span></p>
+<p>Let <span >\(V\)</span> be a vector space. Then
+<span >\(H\)</span> is a <strong>subspace</strong> of
+<span >\(V\)</span> if and only if</p>
+<ol>
+<li><p>The zero vector of <span >\(V\)</span> is also
+in <span >\(H\)</span>.</p></li>
+<li><p><span >\(H\)</span> is closed under vector
+addition. (For every <span >\(\mathbf{u}, \mathbf{v}
+\in H\)</span>, <span >\(\mathbf{u} + \mathbf{v} \in
+H\)</span> ).</p></li>
+<li><p><span >\(H\)</span> is closed under scalar
+multiplication. (For every <span >\(\mathbf{v} \in
+H\)</span>, <span >\(c \mathbf{v} \in H\)</span>
+).</p></li>
+</ol>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:linearindependence"
+label="defi:linearindependence"></span></p>
+<p>A set of vectors <span >\(\{\mathbf{v}_{1},
+\mathbf{v}_{2}, \dots , \mathbf{v}_{n}\}\)</span> is <strong>linearly
+independent</strong> if an only if the trivial solution (that is, <span
+>\(\mathbf{0}\)</span>) is the only solution to <span
+class="math display">\[c_1 \mathbf{v}_{1} + c_2 \mathbf{v}_{2} + \cdots
++ c_n \mathbf{v}_{n} = \mathbf{0}.\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:span" label="defi:span"></span></p>
+<p>Let a set of vectors be <span >\(\{\mathbf{v}_{1},
+\mathbf{v}_{2}, \dots , \mathbf{v}_{n}\}\)</span>. Then <span
+>\(\operatorname{Span} \{\mathbf{v}_{1},
+\mathbf{v}_{2}, \dots , \mathbf{v}_{n}\}\)</span> is the set of all
+vectors <span >\(\mathbf{x}\)</span> such that <span
+class="math display">\[\mathbf{x} = c_1 \mathbf{v}_{1} + c_2
+\mathbf{v}_{2} + \cdots + c_n \mathbf{v}_{n}.\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:basis" label="defi:basis"></span></p>
+<p>Let <span >\(H\)</span> be a vector space. A
+<strong>basis</strong> is set of vectors <span
+>\(\mathcal{B} = \{\mathbf{b}_{1}, \mathbf{b}_{2},
+\dots , \mathbf{b}_{n}\}\)</span> such that <span
+>\(\mathcal{B}\)</span> spans <span
+>\(H\)</span> and is linearly independent.</p>
+</div>
+<p>Every basis can be interpreted as coordinate system for a vector
+space. Let <span >\(\mathbf{x}\)</span> be in the
+vector space. Then the coordinates of <span
+>\(\mathbf{x}\)</span> relative to <span
+>\(\mathcal{B}\)</span> is the set of weights such
+that</p>
+<p><span class="math display">\[\mathbf{x} = c_1 \mathbf{b}_{1} + c_2
+\mathbf{b}_{2} + \cdots + c_n \mathbf{b}_{n}\]</span></p>
+<p>Steps to finding coordinates:</p>
+<ol>
+<li><p>Organize the basis into a matrix.</p></li>
+<li><p>Solve</p>
+<p><span class="math display">\[\begin{bmatrix}
+  \mathbf{b}_{1} &amp; \mathbf{b}_{2} &amp; \cdots &amp; \mathbf{b}_{n}
+  \end{bmatrix}
+  \begin{bmatrix}
+  c_1 \\
+  c_2 \\
+  \vdots \\
+  c_n
+  \end{bmatrix} = \mathbf{x}\]</span></p></li>
+</ol>
+<h2 id="fundamental-subspaces">Fundamental subspaces</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:columnspace" label="defi:columnspace"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix such that <span
+class="math display">\[A = \begin{bmatrix}
+  \mathbf{a}_{1} &amp; \mathbf{a}_{2} &amp; \cdots &amp; \mathbf{a}_{n}
+  \end{bmatrix} .\]</span></p>
+<p>Then the <strong>column space</strong> of <span
+>\(A\)</span> is the span of the columns of <span
+>\(A\)</span>, that is,</p>
+<p><span class="math display">\[\operatorname{Col}{A} =
+\operatorname{Span} \{\mathbf{a}_{1}, \mathbf{a}_{2}, \dots ,
+\mathbf{a}_{n}\}\]</span></p>
+</div>
+<p>Since each column vector of <span >\(A\)</span>
+has <span >\(m\)</span> entries, the column space of
+a matrix is a subspace of <span
+>\(\mathbb{R}^{m}\)</span>.</p>
+<p><span >\(\operatorname{Col}{A} =
+\mathbb{R}^{m}\)</span> if and only if <span >\(A
+\mathbf{x} = \mathbf{b}\)</span> has a solution for all <span
+>\(\mathbf{b} \in \mathbb{R}^{m}\)</span>.</p>
+<p><span >\(\operatorname{dim}{\operatorname{Col}{A}}
+\leq m\)</span> is always true.</p>
+<p>Steps to find a basis for <span
+>\(\operatorname{Col}{A}\)</span>:</p>
+<ol>
+<li><p>Row reduce <span >\(A\)</span></p></li>
+<li><p>Find the pivot columns</p></li>
+</ol>
+<p>The corresponding pivot columns in <span
+>\(A\)</span> form a basis for <span
+>\(\operatorname{Col}{A}\)</span>.</p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:nullspace" label="defi:nullspace"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix. The <strong>null
+space</strong> of <span >\(A\)</span> is the set of
+all solutions to <span >\(A \mathbf{x} =
+\mathbf{0}\)</span>.</p>
+</div>
+<p>Since each row vector of <span >\(A\)</span> has
+<span >\(n\)</span> entries, the null space of a
+matrix is a subspace of <span
+>\(\mathbb{R}^{n}\)</span>.</p>
+<p>Steps to find a basis for <span
+>\(\operatorname{Nul}{A}\)</span>:</p>
+<ol>
+<li><p>Augment the matrix by <span >\(A =
+\begin{bmatrix}
+  A &amp; \mathbf{0}
+  \end{bmatrix} .\)</span></p></li>
+<li><p>Row reduce the augmented matrix.</p></li>
+<li><p>Solve for <span >\(x_{1}, x_{2}, \dots,
+x_{n}\)</span>.</p></li>
+<li><p>Create the general solution in parametric form.</p></li>
+</ol>
+<p>The vectors attached to the free variables in the general solution
+form a basis for <span
+>\(\operatorname{Nul}{A}\)</span>.</p>
+<h2 id="linear-transformations">Linear transformations</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:lineartransformation"
+label="defi:lineartransformation"></span></p>
+<p>Let <span >\(T:V \rightarrow W\)</span> be a
+function. Then <span >\(T\)</span> is a
+<strong>linear transformation</strong> that assigns each <span
+>\(\mathbf{x} \in V\)</span> to a vector <span
+>\(T(\mathbf{x})\)</span> if and only if</p>
+<ol>
+<li><p><span >\(T(\mathbf{u} + \mathbf{v}) =
+T(\mathbf{u}) + T(\mathbf{v})\)</span></p></li>
+<li><p><span >\(T(c \mathbf{u})\)</span> = c <span
+>\(T(\mathbf{u})\)</span></p></li>
+</ol>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:kernelrange" label="defi:kernelrange"></span></p>
+<p>Let <span >\(T:V \rightarrow W\)</span> be a
+linear transformation. Then the <strong>kernel</strong> of the
+transformation is the set of all <span >\(\mathbf{x}
+\in V\)</span> such that <span >\(T(\mathbf{u}) =
+\mathbf{0}\)</span>.</p>
+<p>If <span >\(T(\mathbf{x}) = A(\mathbf{x})\)</span>
+for some matrix <span >\(A\)</span>, then <span
+>\(\operatorname{Ker}{T} = \operatorname{Nul}{A}
+.\)</span></p>
+<p>The <strong>range</strong> of the transformation is the set of all
+vectors in <span >\(W\)</span> such that there exists
+<span >\(\mathbf{x} \in V\)</span> with <span
+>\(T(\mathbf{x}) \in W\)</span>.</p>
+<p>If <span >\(T(\mathbf{x}) = A(\mathbf{x})\)</span>
+for some matrix <span >\(A\)</span>, then <span
+>\(\operatorname{Range}{T} = \operatorname{Col}{A}
+.\)</span></p>
+</div>
+<p>Let <span >\(T:V \rightarrow W\)</span> be a
+linear transformation. Steps to find a transformation matrix:</p>
+<ol>
+<li><p>Determine a basis for <span
+>\(V\)</span>.</p></li>
+<li><p>Transform each basis vector to a vector in <span
+>\(W\)</span>.</p></li>
+<li><p>Put the resulting vectors in the corresponding columns</p></li>
+</ol>
+<p>A basis can be used as coordinates! The standard basis is <span
+>\(\mathbf{e}_1 , \mathbf{e}_2 , \dots
+\mathbf{e}_n\)</span> is the familiar <span
+>\(x\)</span> and <span
+>\(y\)</span> coordinates extended to <span
+>\(n\)</span> dimensions. However, if a basis spans
+<span >\(\mathbb{R}^n\)</span>, that basis can be
+used as a coordinate system for <span
+>\(\mathbb{R}^n\)</span>.</p>
+<p>Steps to find the coordinates <span >\((c_1, c2,
+\dots, c_n)\)</span> relative to a basis <span
+>\(\mathcal{B}\)</span>. Let <span
+>\(B\)</span> be the change of coordinates
+matrix.</p>
+<p><span class="math display">\[P = \begin{bmatrix}
+  \mathbf{b}_1 &amp; \mathbf{b}_2 &amp; \cdots &amp; \mathbf{b}_n
+\end{bmatrix}\]</span></p>
+<p>Note that <span >\(P\)</span> is a bijective (one
+to one and onto) linear transformation from <span
+>\(V\)</span> to <span
+>\(\mathbb{R}^n\)</span>. This is called an
+<strong>isomorphism</strong> from <span >\(V\)</span>
+onto <span >\(\mathbb{R}^n\)</span>.</p>
+<h1 id="determinants">Determinants</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:determinant" label="defi:determinant"></span></p>
+<p>The <strong>determinant</strong> is a number that is found by doing
+operations on the entries of an <span >\(n \times
+n\)</span> matrix. It demonstrates some properties of the matrix. The
+defining properties of the determinant are:</p>
+<ol>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</div>
+<p>Other properties of the determinant:</p>
+<ul>
+<li><p>if two rows of <span >\(A\)</span> are equal,
+then <span >\(\operatorname{det}{A} =
+0\)</span></p></li>
+<li><p>if <span >\(B\)</span> is obtained from <span
+>\(A\)</span> by subtracting a multiple of one row
+from another row, then <span >\(\operatorname{det}{B}
+= \operatorname{det}{A}\)</span>.</p></li>
+<li><p>if <span >\(A\)</span> has a row of zeros,
+<span >\(\operatorname{det}{A} = 0\)</span></p></li>
+<li><p>if <span >\(A\)</span> is upper triangular or
+lower triangular, then <span
+>\(\operatorname{det}{A}\)</span> is the product of
+the main diagonal.</p></li>
+<li><p>if <span >\(A\)</span> is singular, then <span
+>\(\operatorname{det}{A} = 0\)</span>. If<span
+>\(A\)</span> is invertible then <span
+>\(\operatorname{det}{A} \neq 0\)</span>.</p></li>
+<li><p><span >\(\operatorname{det}{(AB)} =
+\operatorname{det}{A} \times \operatorname{det}{B}\)</span>, if <span
+>\(A\)</span> and <span
+>\(B\)</span> are <span >\(n
+\times n matrices\)</span>.</p></li>
+<li><p><span >\(\operatorname{det}{A^\top} =
+\operatorname{det}{A}\)</span></p></li>
+</ul>
+<h1 id="eigenvector-eigenvalue-eigenspace">Eigenvector, eigenvalue,
+eigenspace</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:eigen" label="defi:eigen"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> matrix. Let <span
+>\(\lambda\)</span> be a scalar and <span
+>\(\mathbf{x}\)</span> be a nonzero vector. If</p>
+<p><span class="math display">\[A \mathbf{x} = \lambda
+\mathbf{x}\]</span></p>
+<p>then <span >\(\lambda\)</span> is called an
+<strong>eigenvalue</strong> of <span >\(A\)</span>
+and <span >\(\mathbf{x}\)</span> is an
+<strong>eigenvector</strong> corresponding to <span
+>\(\lambda\)</span>. The set of all <span
+>\(\mathbf{x}\)</span> such that <span
+>\(A \mathbf{x} = \lambda \mathbf{x}\)</span> for a
+certain eigenvalue is called an <strong>eigenspace</strong>. An
+eigenspace is also the set of all solutions to</p>
+<p><span class="math display">\[\left(A - \lambda I \right) \mathbf{x} =
+\mathbf{0}\]</span></p>
+<p>or <span >\(\operatorname{Nul}{\left(A - \lambda I
+\right)}\)</span></p>
+</div>
+<p>algebraic multiplicity: the multiplicity of the eigenvalue in the
+characteristic polynomial geometric multiplicity: the dimension of the
+eigenspace corresponding to the eigenvalue</p>
+<p>If a matrix is triangular, then the eigenvalues lie on the
+diagonal.</p>
+<p>If there are two eigenvectors corresponding to distinct eigenvalues,
+then the eigenvectors are linearly independent.</p>
+<p>Steps to finding eigenvalues, eigenvectors, and a basis for the
+eigenspace:</p>
+<ol>
+<li><p>Solve the <strong>characteristic equation</strong> <span
+>\(\operatorname{det}{\left(A - \lambda I \right)} =
+0\)</span> for <span >\(\lambda\)</span>. <span
+>\(\lambda\)</span> is a variable and the solutions
+are the roots of a polynomial.</p></li>
+<li><p>Plug in a value for <span >\(\lambda\)</span>
+into <span >\(A - \lambda I\)</span>.</p></li>
+<li><p>Find the null space of the resulting matrix. This is the
+eigenspace of <span >\(A\)</span> corresponding to
+<span >\(\lambda\)</span>.</p></li>
+<li><p>Set the free variables in the general parameterized solution to
+any nonzero constant. The resulting vector is an eigenvector
+corresponding to <span >\(\lambda\)</span>.</p></li>
+</ol>
+<h3 id="complex-eigenvalues">Complex eigenvalues</h3>
+<p>A matrix can have complex eigenvalues. Let <span
+>\(A\)</span> be a <span >\(2
+\times 2\)</span> matrix with complex eigenvalues.</p>
+<p>The process of finding eigenvalues is the same as normal, except
+there will be imaginary components to the eigenvalues. (Solve the
+characteristic equation for the eigenvalues).</p>
+<p>To find the eigenvectors,</p>
+<ol>
+<li><p>Find <span >\(A - \lambda I\)</span></p></li>
+<li><p>Find the null space of <span >\(A - \lambda
+I\)</span>.</p></li>
+<li><p>Solve the resulting linear equation by inspection.</p></li>
+<li><p>Choose one of the equations. Set a variable equation to 1 or
+another constant.</p></li>
+<li><p>Solve for the other variable. The resulting 2 variables are the
+components of the eigenvectors.</p></li>
+</ol>
+<h3 class="unnumbered" id="similarity">Similarity</h3>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:similarity" label="defi:similarity"></span></p>
+<p>Let <span >\(A\)</span> and <span
+>\(B\)</span> be matrices. <span
+>\(A\)</span> is <strong>similar</strong> to <span
+>\(B\)</span> if and only if there exists an
+invertible matrix <span >\(P\)</span> such that <span
+class="math display">\[A = PBP^{-1} .\]</span></p>
+<p>Similarity is an equivalence relation.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:similarity" label="theo:similarity"></span></p>
+<p>Let <span >\(A\)</span> and <span
+>\(B\)</span> be matrices. If <span
+>\(A\)</span> is similar to <span
+>\(B\)</span>, then <span
+>\(A\)</span> and <span
+>\(B\)</span> have the same eigenvalues</p>
+</div>
+<p>Note: this is not a biconditional! If <span
+>\(A\)</span> and <span
+>\(B\)</span> have the same eigenvalues, it does NOT
+necessarily mean that <span >\(A\)</span> and <span
+>\(B\)</span> are similar!</p>
+<h1 id="orthogonality">Orthogonality</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:innerproduct" label="defi:innerproduct"></span></p>
+<p>Let <span >\(V\)</span> be a vector space and let
+<span >\(F\)</span> be <span
+>\(\mathbb{R}\)</span> or <span
+>\(\mathbb{C}\)</span>. Let <span
+>\(\mathbf{u} , \mathbf{v} \in V\)</span>. The
+<strong>inner product</strong> of <span
+>\(\mathbf{u}\)</span> and <span
+>\(\mathbf{v}\)</span> is a function such that</p>
+<p><span class="math display">\[\langle \mathbf{u} , \mathbf{v} \rangle
+: V \times V \rightarrow F\]</span></p>
+<p>The inner product must fulfill the following properties</p>
+<ul>
+<li><p>positive definite</p>
+<p><span class="math display">\[\langle \mathbf{v} , \mathbf{v} \rangle
+&gt; 0 \ \textrm{and} \langle \mathbf{v} , \mathbf{v} \rangle = 0 \
+\textrm{if and only if} \  \mathbf{v} = 0\]</span></p></li>
+<li><p>linear in the first argument</p>
+<p><span class="math display">\[\langle a\mathbf{u} , \mathbf{v} \rangle
+= a \langle \mathbf{u} , \mathbf{v} \rangle\]</span></p>
+<p><span class="math display">\[\langle \mathbf{u} + \mathbf{v},
+\mathbf{w} \rangle =  \langle \mathbf{u} , \mathbf{w} \rangle + \langle
+\mathbf{v} , \mathbf{w} \rangle\]</span></p></li>
+<li><p>conjugate symmetry</p>
+<p><span class="math display">\[\langle \mathbf{u} , \mathbf{v} \rangle
+= \overline{\langle \mathbf{v} , \mathbf{u} \rangle}\]</span></p></li>
+</ul>
+<p>In <span >\(\mathbb{R}^n\)</span>, the inner
+product is the <strong>dot product</strong>. It is defined as</p>
+<p><span class="math display">\[\mathbf{u} \cdot \mathbf{v} =
+\mathbf{u}^{\top} \mathbf{v} = u_1 v_1 + u_2 v_2 + \cdots u_n
+v_n\]</span></p>
+</div>
+<p>The length (or norm) of a vector is</p>
+<p><span class="math display">\[\left\lVert\mathbf{v}\right\rVert =
+\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}\]</span></p>
+<p>Note also that</p>
+<p><span class="math display">\[\left\lVert vect{v}\right\rVert^{2} =
+\mathbf{v} \cdot \mathbf{v}\]</span></p>
+<p>A unit vector is</p>
+<p><span
+class="math display">\[\frac{1}{\left\lVert\mathbf{v}\right\rVert}
+\mathbf{v}\]</span></p>
+<p>The distance bewtween two points is</p>
+<p><span class="math display">\[\left\lVert\mathbf{u} - \mathbf{v}
+\right\rVert\]</span></p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:orthogonal" label="defi:orthogonal"></span></p>
+<p>Let <span >\(\mathbf{u} , \mathbf{v} \in
+\mathbb{R}\)</span>. Then <span
+>\(\mathbf{u}\)</span> and <span
+>\(\mathbf{v}\)</span> are
+<strong>orthogonal</strong> if and only if</p>
+<p><span class="math display">\[\mathbf{u} \cdot \mathbf{v} =
+0\]</span></p>
+<p>If <span >\(\mathbf{u} , \mathbf{v}\)</span> are
+orthogonal and they have magnitude 1, then they are
+<strong>orthonormal</strong>.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:projection" label="defi:projection"></span></p>
+<p>Let <span >\(\mathbf{u} , \mathbf{v} \in
+\mathbb{R}\)</span>. The <strong>projection</strong> of <span
+>\(\mathbf{u}\)</span> onto <span
+>\(\mathbf{v}\)</span> is defined as</p>
+<p><span
+class="math display">\[\operatorname{proj}_{\mathbf{v}}{\mathbf{u}} =
+\frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}
+\mathbf{v}\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:projection" label="theo:projection"></span></p>
+<p>Let <span >\(W\)</span> be a subspace of <span
+>\(\mathbb{R}^n\)</span> with an orthogonal basis
+<span >\(\{\mathbf{u}_1 , \mathbf{u}_2, \dots
+\mathbf{u}_n \}\)</span>. Then every <span
+>\(\mathbf{y} \in W\)</span> can be written as</p>
+<p><span class="math display">\[\mathbf{y} = \sum_{i=1}^{n}
+\operatorname{proj}_{\mathbf{u}_i}{\mathbf{y}}\]</span></p>
+<p>And every <span >\(\mathbf{x} \in
+\mathbb{R}\)</span> can be written as</p>
+<p><span class="math display">\[\mathbf{x} = \sum_{i=1}^{n}
+\operatorname{proj}_{\mathbf{u}_i}{\mathbf{x}} + \mathbf{w}\]</span></p>
+<p>where <span >\(\mathbf{w} \perp W\)</span> and is
+the orthogonal projection of <span
+>\(\mathbf{x}\)</span> onto <span
+>\(W\)</span>.</p>
+<p>The shortest distance from <span
+>\(\vec{x}\)</span> to <span
+>\(W\)</span> is <span
+>\(\left\lVert\mathbf{x} - \mathbf{y}\right\rVert =
+\left\lVert\mathbf{w}\right\rVert\)</span>.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:orthmatrix" label="defi:orthmatrix"></span></p>
+<p>Let <span >\(U\)</span> be an <span
+>\(m \times n\)</span> matrix. <span
+>\(U\)</span> is an <strong>orthogonal
+matrix</strong> if the columns of <span >\(U\)</span>
+are all othogonal. <span >\(U\)</span> is an
+<strong>orthonormal matrix</strong> if the columns of <span
+>\(U\)</span> are orthonormal.</p>
+<p>A property of <strong>orthonormal matrix</strong>. Let <span
+>\(U\)</span> be an orthonormal matrix. then</p>
+<p><span class="math display">\[U^{\top} U = I\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:orthoproj" label="theo:orthoproj"></span></p>
+<p>Let <span >\(W\)</span> be a subspace of <span
+>\(\mathbb{R}^n\)</span> and <span
+>\(U\)</span> be a matrix with orthonormal columns
+that form a basis for <span >\(W\)</span>. Let <span
+>\(\mathbf{y} \in \mathbb{R}^n\)</span>. Then</p>
+<p><span class="math display">\[\operatorname{proj}_{W}{\mathbf{y}} = U
+U^{\top} \mathbf{y}\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:gramschmidt" label="defi:gramschmidt"></span></p>
+<p>The Gram-Schmidt process takes any basis of a subspace of <span
+>\(\mathbb{R}^{n}\)</span> and produces an orthogonal
+basis that spans the same subspace.</p>
+<p>Let <span >\(\beta = \{ \mathbf{x}_{1} ,
+\mathbf{x}_{2} , \dots \mathbf{x}_{k} \}\)</span> be a basis for a
+subspace <span >\(S\)</span> of <span
+>\(\mathbb{R}^{n}\)</span>.</p>
+<p>Steps for Gram-Schmidt:</p>
+<ol>
+<li><p>Let <span >\(\mathbf{v}_{1} =
+\mathbf{x}_{1}\)</span>.</p></li>
+<li><p>Project <span >\(\mathbf{x}_{2}\)</span> onto
+<span >\(\mathbf{v}_{1}\)</span> and define <span
+>\(\mathbf{v}_{2} = \mathbf{x}_{2} -
+\operatorname{proj}_{\mathbf{v}_1} \mathbf{x}_2\)</span>.</p></li>
+<li><p>Keep projecting the next vector <span
+>\(\mathbf{x}_p\)</span> onto each every orthogonal
+vector before it and substract all the projections from <span
+>\(\mathbf{x}_p\)</span>.</p></li>
+</ol>
+<p>In general, for <span >\(1 &lt; p \leq k\)</span>,
+the process is <span class="math display">\[\mathbf{v}_{p} =
+\mathbf{x}_{p} - \sum_{i = 1}^{p - 1} \operatorname{proj}_{\mathbf{v}_i}
+\mathbf{x}_p\]</span></p>
+</div>
+<h1 id="symmetric-matrices">Symmetric matrices</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:symmetric" label="defi:symmetric"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> matrix such that <span
+>\(A = A^\top\)</span>. Then <span
+>\(A\)</span> is a <strong>symmetric</strong>
+matrix.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:symmetric" label="theo:symmetric"></span></p>
+<p>Let <span >\(A\)</span> be a matrix. If <span
+>\(A\)</span> is a symmetric matrix, then any two
+eigenvectors from distinct eigenspaces are orthogonal (<span
+>\(A\)</span> has mutually orthogonal
+eigenspaces).</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:orthodiagsym" label="theo:orthodiagsym"></span></p>
+<p>Let <span >\(A\)</span> be a matrix. <span
+>\(A\)</span> is a symmetric matrix if and only if it
+is orthogonally diagonalizable.</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:spectral" label="theo:spectral"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> symmetric matrix. Then <span
+>\(A\)</span> has the following properties:</p>
+<ul>
+<li><p>It has <span >\(n\)</span> real eigenvalues
+(sometimes called <strong>spectra</strong>).</p></li>
+<li><p>The dimension of every eigenspace is equivalent to the algebraic
+multiplicity of the corresponding eigenvalue.</p></li>
+<li><p><span >\(A\)</span> has mutually orthogonal
+eigenspaces.</p></li>
+</ul>
+</div>
+<h2 id="quadratic-forms">Quadratic forms</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:quadraticform" label="defi:quadraticform"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> symmetric matrix. A quadratic
+form is a function <span >\(Q : \mathbb{R}^n
+\rightarrow \mathbb{R}\)</span> such that <span class="math display">\[Q
+( \mathbf{x} ) = \mathbf{x}^{\top} A \mathbf{x}\]</span></p>
+</div>
+<h3 class="unnumbered"
+id="classification-of-quadratic-forms">Classification of quadratic
+forms</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">classification</th>
+<th style="text-align: center;">description</th>
+<th style="text-align: center;">eigenvalues of <span
+>\(A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">positive definite</td>
+<td style="text-align: center;"><span
+>\(Q(\mathbf{x}) &gt; 0\)</span> for all <span
+>\(\mathbf{x} \neq \mathbf{0}\)</span></td>
+<td style="text-align: center;">positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">positive semidefinite</td>
+<td style="text-align: center;"><span
+>\(Q(\mathbf{x}) &gt; 0\)</span> for all <span
+>\(\mathbf{x} \neq \mathbf{0}\)</span></td>
+<td style="text-align: center;">nonnegative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">negative definite</td>
+<td style="text-align: center;"><span
+>\(Q(\mathbf{x}) &lt; 0\)</span> for all <span
+>\(\mathbf{x} \neq \mathbf{0}\)</span></td>
+<td style="text-align: center;">negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">negative semidefinite</td>
+<td style="text-align: center;"><span
+>\(Q(\mathbf{x}) &lt; 0\)</span> for all <span
+>\(\mathbf{x} \neq \mathbf{0}\)</span></td>
+<td style="text-align: center;">nonpositive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">indefinite</td>
+<td style="text-align: center;"><span
+>\(Q(\mathbf{x})\)</span> is positive/negative</td>
+<td style="text-align: center;">positive/negative</td>
+</tr>
+</tbody>
+</table>
+<h1 id="applications">Applications</h1>
+<h2 id="systems-of-linear-equations">Systems of linear equations</h2>
+<p>a linear system has</p>
+<ul>
+<li><p>no solutions</p></li>
+<li><p>a unique solutions</p></li>
+<li><p>infinite solutions</p></li>
+</ul>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:deifion" label="defi:deifion"></span></p>
+<p>a linear system with no solutions</p>
+</div>
+<p>solving linear systems is the same as solving the equation</p>
+<p><span class="math display">\[A \mathbf{x} = \mathbf{b}\]</span></p>
+<p>coefficient matrix is a matrix with all the coefficients of the
+equations.</p>
+<p>augmented matric is the matric with the coefficients and the other
+side of the equation.</p>
+<p><span class="math display">\[\begin{bmatrix}
+
+  A \ \mathbf{b}
+
+\end{bmatrix}\]</span></p>
+<h2 id="markov-chains">Markov chains</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:stochasticmatrix"
+label="defi:stochasticmatrix"></span></p>
+<p>An <span >\(n \times n\)</span> matrix whose
+columns are probability vectors (vectors whose components are nonegative
+and add to 1).</p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:markovchain" label="defi:markovchain"></span></p>
+<p>Let <span >\(P\)</span> be a stochastic matrix.
+Then a <strong>Markov chain</strong> is a sequence of probability
+vectors such that given an initial vector <span
+>\(\mathbf{x}_0\)</span>,</p>
+<p><span class="math display">\[\mathbf{x}_{k+1} = P
+\mathbf{x}_k\]</span></p>
+</div>
+<p>Construction of a stochastic matrix for a Markov chain:</p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:steadystate" label="defi:steadystate"></span></p>
+<p>A <strong>steady-state vector</strong> is a probability vector such
+that <span class="math display">\[P \mathbf{x}_s =
+\mathbf{x}_s\]</span></p>
+<p>Let <span >\(\mathbf{x}_0\)</span> be any
+probability vector. Then, the <strong>steady-state vector</strong>
+is</p>
+<p><span class="math display">\[\lim_{n \to \infty} P^{n} \mathbf{x}_0 =
+\mathbf{x}_s\]</span></p>
+</div>
+<p>Steps to calculate the steady-state vector:</p>
+<ol>
+<li><p>Calculate <span >\(P - I\)</span>.</p></li>
+<li><p>To simplify calculations, multiply <span >\(P
+- I\)</span> by some power of 10.</p></li>
+<li><p>Row reduce and find a basis for null space of the resulting
+matrix (should be one-dimensional).</p></li>
+<li><p>Take the vector in the basis and divide all the components by the
+sum of the components to turn it into a probability vector.</p></li>
+</ol>
+<p>The resulting vector is the steady state vector of <span
+>\(P\)</span>.</p>
+<h2 id="least-squares">Least-squares</h2>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix and let <span
+>\(\mathbf{x} \in \mathbb{R}^n\)</span> and <span
+>\(\mathbf{b} \in \mathbb{R}^m\)</span>. If <span
+>\(A\mathbf{x} = \mathbf{b}\)</span> has no solution,
+an approximation for <span >\(\mathbf{x}\)</span> can
+be made by using least-squares. The goal is to minimize <span
+>\(\left\lVert A\mathbf{x} -
+\mathbf{b}\right\rVert\)</span>.</p>
+<p>Steps for least squares:</p>
+<ol>
+<li><p>Left multiply both sides of the equation by <span
+>\(A^{\top}\)</span>. (The resulting equation is
+called the <strong>normal equation</strong>.)</p>
+<p><span class="math display">\[A^{\top} A \mathbf{x} = A^{\top}
+\mathbf{b}\]</span></p></li>
+<li><p>Solve for <span >\(\mathbf{x}\)</span> in the
+normal equation.</p></li>
+</ol>
+<p>This will give the closest solution for the original <span
+>\(\mathbf{x}\)</span>. The error is found by doing
+<span >\(\left\lVert A\mathbf{x} -
+\mathbf{b}\right\rVert\)</span>.</p>
+<p>An alternative method using <span >\(QR\)</span>
+factorization.</p>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix with linearly
+independent columns.</p>
+<ol>
+<li><p>Factorize <span >\(A\)</span> using <span
+>\(QR\)</span> factorization.</p></li>
+<li><p>Set up the equation</p>
+<p><span class="math display">\[R \mathbf{x} = Q^{\top} \mathbf{b} \
+\textrm{(This is easily derived from the normal
+equation)}\]</span></p></li>
+<li><p>Solve for <span >\(\mathbf{x}\)</span> in the
+new equation.</p></li>
+</ol>
+<h3 class="unnumbered" id="curve-fitting">Curve fitting</h3>
+<p>Let <span >\(\{(x_1, y_1), (x_2, y_2), \dots,
+(x_n, y_n)\}\)</span> be a set of points in <span
+>\(\mathbb{R}^2\)</span> and let <span
+>\(F(x) = \alpha_1 f_1 (x) + \alpha_2 f_2 (x) +
+\cdots + \alpha_k f_k (x)\)</span> be the curve to be fitted to.</p>
+<p>Steps to curve fitting:</p>
+<ol>
+<li><p>Set up the following matrix. (The leftmost matrix is not
+necessarily square, and the goal is to solve for <span
+>\(\alpha\)</span>)</p></li>
+<li><p>Construct the normal equation.</p></li>
+<li><p>Solve the normal equaton for <span
+>\(\alpha_1, \alpha_2, \dots,
+\alpha_k\)</span>.</p></li>
+</ol>
+<h2 id="constrained-optimization">Constrained optimization</h2>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> symmetric matrix with
+diagonalization <span >\(A = P D P^{\top}\)</span>,
+<span >\(D\)</span> arranged from greatest to least
+eigenvalue of <span >\(A\)</span> and <span
+>\(P\)</span> such that <span >\(P
+= \begin{bmatrix}
+\mathbf{u}_1 &amp; \mathbf{u}_2 &amp; \cdots &amp; \mathbf{u}_n
+\end{bmatrix}\)</span>. Let <span >\(Q(\mathbf{x}) =
+\mathbf{x}^{\top} A \mathbf{x}\)</span> and constrained by <span
+>\(\mathbf{x}^{\top} \mathbf{x} = 1\)</span> (the
+unit sphere in <span >\(\mathbb{R}^n)\)</span>).</p>
+<p>The maximum of <span >\(Q\)</span> is the greatest
+eigenvalue of <span >\(A\)</span>. The minimum of
+<span >\(Q\)</span> is the least eigenvalue of <span
+>\(A\)</span>. If <span
+>\(Q\)</span> is constrained also by <span
+>\(\mathbf{x}^\top \mathbf{u}_k, 1 \leq k \leq
+n\)</span>, then the maximum of <span >\(Q\)</span>
+is <span >\(\lambda_{k+1}\)</span>.</p>
+<h1 id="theorems">Theorems</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:ranknullity" label="theo:ranknullity"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix. Then <span
+class="math display">\[\operatorname{rank}{A} +
+\operatorname{dim}{\operatorname{Nul}{A}} = n.\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:invertible" label="theo:invertible"></span></p>
+<p>An <span >\(n \times n\)</span> matrix is
+<strong>invertible</strong> if and only if any of the following is
+true.</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li><p><span
+>\(\operatorname{dim}{\operatorname{Nul}{A}} =
+0\)</span></p></li>
+<li><p><span >\(\operatorname{Nul}{A} =
+\{\mathbf{0}\}\)</span></p></li>
+<li><p><span >\(\operatorname{rank}{A} =
+n\)</span></p></li>
+<li><p><span
+>\(\operatorname{dim}{\operatorname{Col}{A}} =
+n\)</span></p></li>
+<li><p><span >\(\operatorname{Col}{A} =
+\mathbb{R}^n\)</span></p></li>
+<li><p>The columns of <span >\(A\)</span> form a
+basis for <span >\(\mathbb{R}^n\)</span></p></li>
+<li><p><span >\(\det A \neq 0\)</span></p></li>
+<li><p><span >\(0\)</span> is not an eigenvalue of
+<span >\(A\)</span></p></li>
+<li><p><span
+>\(\left(\operatorname{Col}{A}\right)^{\perp} =
+\{\mathbf{0}\}\)</span></p></li>
+<li><p><span
+>\(\left(\operatorname{Nul}{A}\right)^{\perp} =
+\mathbb{R}^{n}\)</span></p></li>
+<li><p><span >\(\operatorname{Row}{A} =
+\mathbb{R}^{n}\)</span></p></li>
+<li><p><span >\(A\)</span> has <span
+>\(n\)</span> nonzero singular values.</p></li>
+</ul>
+</div>
+<h1 id="matrix-factorizations">Matrix factorizations</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:qrfactor" label="defi:qrfactor"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(m \times n\)</span> matrix with linearly
+independent columns. Then</p>
+<p><span class="math display">\[A = QR \qquad \textrm{where} \ Q \
+\textrm{is orthonormal and} \ R \ \textrm{is upper
+triangular.}\]</span></p>
+<p>Steps for <span >\(QR\)</span> factorization:</p>
+<p>Let <span >\(A = \begin{bmatrix}
+    \mathbf{v}_{1} &amp; \mathbf{v}_{2} &amp; \cdots &amp;
+\mathbf{v}_{n}
+  \end{bmatrix}\)</span>.</p>
+<ol>
+<li><p>Start with <span >\(\mathbf{v}_1\)</span> and
+construct an orthonormal basis for <span
+>\(\operatorname{Col}{A}\)</span> using
+Gram-Schmidt.</p>
+<p><span class="math display">\[\{\mathbf{v}_{1} , \mathbf{v}_{2} ,
+\dots , \mathbf{v}_{n}\} \longrightarrow \{\mathbf{u}_{1},
+\mathbf{u}_{2} , \dots , \mathbf{u}_{n}\}\]</span></p></li>
+<li><p>Construct <span >\(Q\)</span> by putting each
+vector into the columns of <span >\(Q\)</span>.</p>
+<p><span class="math display">\[Q = \begin{bmatrix}
+      \mathbf{u}_{1} &amp; \mathbf{u}_{2} &amp; \cdots &amp;
+\mathbf{u}_{n}
+    \end{bmatrix}\]</span>.</p></li>
+<li><p>Solve for <span >\(R\)</span> by <span
+>\(R = Q^\top A\)</span>.</p></li>
+</ol>
+<p>Putting it all together, <span class="math display">\[A =
+QR.\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:diagonalization"
+label="defi:diagonalization"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> matrix with <span
+>\(n\)</span> linearly independent eigenvectors.
+Then</p>
+<p><span class="math display">\[A = PDP^{-1} \qquad \textrm{where} \ D \
+\textrm{is a diagonal matrix.}\]</span></p>
+<p>Steps for diagonalization:</p>
+<ol>
+<li><p>Find the eigenvalues <span
+>\(\lambda_{i}\)</span> and the corresponding
+eigenvectors <span >\(\mathbf{v}_{i}\)</span> of
+<span >\(A\)</span>.</p></li>
+<li><p>Construct <span >\(D\)</span> by placing the
+eigenvalues on the diagonal.</p>
+<p><span class="math display">\[D = \begin{bmatrix}
+        \lambda_{1} &amp; 0 &amp; \cdots &amp; 0 \\
+        0 &amp; \lambda_{2} &amp; \cdots &amp; 0 \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        0 &amp; 0 &amp; \cdots &amp; \lambda_{n} \\
+        \end{bmatrix}\]</span></p></li>
+<li><p>Construct <span >\(P\)</span> by placing the
+corresponding eigenvectors into the columns.</p>
+<p><span class="math display">\[P = \begin{bmatrix}
+            \mathbf{v}_{1} &amp; \mathbf{v}_{2} &amp; \cdots &amp;
+\mathbf{v}_{n}
+        \end{bmatrix}\]</span></p></li>
+<li><p>Calculate <span >\(P^{-1}\)</span></p></li>
+</ol>
+<p>Putting it all together, <span class="math display">\[A = P D
+P^{-1}\]</span></p>
+</div>
+<p>Of note is that the columns of <span >\(P\)</span>
+form an <strong>eigenvector basis</strong> of <span
+>\(\mathbb{R}^n\)</span>.</p>
+<p>A useful property of diagonalizable matrices is that</p>
+<p><span class="math display">\[A^{k} = PD^{k}P^{-1} = P \begin{bmatrix}
+\lambda_{1}^{k} &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \lambda_{2}^{k} &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_{n}^{k} \\
+\end{bmatrix} P^{-1}.\]</span></p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="theo:diagonalizable"
+label="theo:diagonalizable"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> matrix. Then <span
+>\(A\)</span> is diagonalizable if and only if <span
+>\(A\)</span> has <span
+>\(n\)</span> linearly independent eigenvectors.</p>
+<ul>
+<li><p>If <span >\(A\)</span> has <span
+>\(n\)</span> distinct eigenvalues, then <span
+>\(A\)</span> is diagonalizable.</p></li>
+<li><p>If <span >\(A\)</span> does not have distinct
+eigenvalues, then the algebraic multiplicity of each <span
+>\(\lambda_k\)</span> must equal the dimension of the
+eigenspace corresponding to <span
+>\(\lambda_k\)</span>.</p></li>
+</ul>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:complexdiagonalization"
+label="defi:complexdiagonalization"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(2 \times 2\)</span> matrix with complex
+eigenvalues – that is, <span >\(\lambda = a \pm b
+\mathrm{i}\)</span> for some <span >\(a,b \in
+\mathbb{R}\)</span>. Then <span >\(A\)</span> can be
+written as</p>
+<p><span class="math display">\[A = PCP^{-1}.\]</span> Steps for
+diagonalization:</p>
+<ol>
+<li><p>Find the eigenvalues <span
+>\(\lambda_{i}\)</span> and the corresponding
+eigenvectors <span >\(\mathbf{v}_{i}\)</span> of
+<span >\(A\)</span>.</p></li>
+<li><p>Using the eignvalue of the form <span
+>\(\lambda = a - b \mathrm{i}\)</span>, construct
+<span >\(C\)</span>.</p>
+<p><span class="math display">\[C = \begin{bmatrix}
+        a &amp; -b \\
+    b &amp; \hspace{3mm} a
+        \end{bmatrix}\]</span></p></li>
+<li><p>Construct <span >\(P\)</span> with the
+corresponding eigenvector.</p>
+<p><span class="math display">\[P = \begin{bmatrix}
+            \operatorname{Re}{\mathbf{v}} &amp;
+\operatorname{Im}{\mathbf{v}}
+        \end{bmatrix}\]</span></p></li>
+<li><p>Calculate <span >\(P^{-1}\)</span></p></li>
+</ol>
+<p>Putting it all together, <span class="math display">\[A = P C
+P^{-1}\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:orthodiagonalization"
+label="defi:orthodiagonalization"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> symmetric matrix. Then <span
+>\(A\)</span> can be factored into <span
+class="math display">\[A = PDP^{\top} \qquad \textrm{where} \ D \
+\textrm{is a diagonal matrix.}\]</span></p>
+<p>Steps to orthonormal diagonalization:</p>
+<ol>
+<li><p>Find the eigenvalues <span
+>\(\lambda_{i}\)</span> and the corresponding
+eigenvectors <span >\(\mathbf{v}_{i}\)</span> of
+<span >\(A\)</span>.</p></li>
+<li><p>Construct <span >\(D\)</span> by placing the
+eigenvalues on the diagonal.</p>
+<p><span class="math display">\[D = \begin{bmatrix}
+        \lambda_{1} &amp; 0 &amp; \cdots &amp; 0 \\
+        0 &amp; \lambda_{2} &amp; \cdots &amp; 0 \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        0 &amp; 0 &amp; \cdots &amp; \lambda_{n} \\
+        \end{bmatrix}\]</span></p></li>
+<li><p>Orthonormalize each of eigenvectors by <span
+>\(\mathbf{u}_i =
+\dfrac{1}{\left\lVert\mathbf{v}_i\right\rVert} \mathbf{v}_i\)</span> and
+construct <span >\(P\)</span> by placing the
+corresponding eigenvectors into the columns.</p>
+<p><span class="math display">\[P = \begin{bmatrix}
+            \mathbf{u}_{1} &amp; \mathbf{u}_{2} &amp; \cdots &amp;
+\mathbf{u}_{n}
+        \end{bmatrix}\]</span></p></li>
+<li><p>Construct <span >\(P^\top\)</span>.</p></li>
+</ol>
+<p>Putting it all together, <span class="math display">\[A = PDP^{\top}
+.\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:spectraldecomp"
+label="defi:spectraldecomp"></span></p>
+<p>Let <span >\(A\)</span> be an <span
+>\(n \times n\)</span> symmetric matrix with an
+orthonormal diagonalization <span class="math display">\[A = PDP^{\top}
+\qquad \textrm{where} \ P = \begin{bmatrix}
+  \mathbf{u}_{1} &amp; \mathbf{u}_{2} &amp; \cdots &amp; \mathbf{u}_{n}
+\end{bmatrix}\]</span> Then <span >\(A\)</span> can
+be written as <span class="math display">\[A = \lambda_{1}
+\mathbf{u}_{1} \mathbf{u}^{\top}_{1} + \lambda_{2} \mathbf{u}_{2}
+\mathbf{u}^{\top}_{2} + \cdots + \lambda_{n} \mathbf{u}_{n}
+\mathbf{u}^{\top}_{n} = \sum_{i = 1}^{n} \lambda_{i} \mathbf{u}_{i}
+\mathbf{u}^{\top}_{i}\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="defi:svd" label="defi:svd"></span></p>
+<p>Steps for singular value decomposition:</p>
+<ol>
+<li><p>Calculate <span >\(A^{\top}
+A\)</span></p></li>
+<li><p>Find the eigenvalues <span
+>\(\lambda_{i}\)</span> and the corresponding
+eigenvectors <span >\(\mathbf{v}_{i}\)</span> of
+<span >\(A^{\top} A\)</span>.</p></li>
+<li><p>Find the singular values by <span
+>\(\sigma_{i} = \sqrt{\lambda_{i}}\)</span> and
+organize them such that <span >\(\sigma_{1} \geq
+\sigma_{2} \geq \cdots \sigma_{r}\)</span>.</p></li>
+<li><p>Construct an <span >\(r \times r\)</span>
+diagonal matrix <span >\(D\)</span> with the singular
+values.</p>
+<p><span class="math display">\[D = \begin{bmatrix}
+        \sigma_{1} &amp; 0 &amp; \cdots &amp; 0 \\
+        0 &amp; \sigma_{2} &amp; \cdots &amp; 0 \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        0 &amp; 0 &amp; \cdots &amp;\sigma_{r} \\
+        \end{bmatrix}\]</span></p></li>
+<li><p>Construct the <span >\(m \times n\)</span>
+matrix <span >\(\Sigma\)</span> by “cushioning" the
+above matrix with zeros to be the same size as <span
+>\(A\)</span>.</p>
+<p><span class="math display">\[\Sigma = \begin{bmatrix}
+            D &amp; 0 \\
+            0 &amp; 0
+        \end{bmatrix}\]</span></p></li>
+<li><p>Normalize each <span
+>\(\mathbf{v}_{i}\)</span> in the order of the
+corresponding eigenvalues and construct the matrix</p>
+<p><span class="math display">\[V = \begin{bmatrix}
+            \mathbf{v}_{1} &amp; \mathbf{v}_{2} &amp; \cdots &amp;
+\mathbf{v}_{r}
+        \end{bmatrix}\]</span></p></li>
+<li><p>Construct the columns of <span >\(U\)</span>
+by <span >\(\mathbf{u}_{i} = \dfrac{1}{\sigma_{i}} A
+\mathbf{v}_{i}\)</span>. If necessary, use the Gram-Schmidt process to
+orthogonalize the columns of <span >\(U\)</span>.</p>
+<p><span class="math display">\[U = \begin{bmatrix}
+            \mathbf{u}_{1} &amp; \mathbf{u}_{2} &amp; \cdots &amp;
+\mathbf{u}_{n}
+        \end{bmatrix}\]</span></p></li>
+</ol>
+<p>Putting it all together, <span class="math display">\[A = U \Sigma
+V^{\top}\]</span></p>
+</div>
+<p>About the spaces of <span >\(A\)</span>. <span
+class="math display">\[\begin{aligned}
+  U &amp;= \begin{bmatrix}
+  \operatorname{Col}{A} &amp; \left(\operatorname{Col}{A}\right)^{\perp}
+\end{bmatrix} &amp;
+  V &amp;= \begin{bmatrix}
+  \operatorname{Row}{A} &amp; \operatorname{Nul}{A}
+\end{bmatrix}\end{aligned}\]</span></p>
+<p>Also, <span >\(U\)</span> spans <span
+>\(\mathbb{R}^m\)</span> and is orthonormal.</p>
+<p><span >\(U\)</span> is <span
+>\(m \times m\)</span>.</p>
+<p>The singular values of of <span >\(A\)</span> are
+related to <span >\(V\)</span> by <span
+>\(\sigma_i = \left\lVert A
+\mathbf{v}_i\right\rVert\)</span></p>
+<p><span >\(V\)</span> is <span
+>\(n \times n\)</span>.</p>
+<p><span >\(V\)</span> is an orthonormal basis for
+<span >\(\mathbb{R}^n\)</span></p>
+</body>
+</html>

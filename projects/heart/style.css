@@ -1,37 +1,40 @@
-.wrapper {
-    padding-top: 40px;
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.shape {
+    padding-top: 7vh;
     text-align: center;
 }
 
+.shape > svg{
+    width: 90vw;
+    height: 50vh;
+}
+
 path {
-    stroke: #00d4d4;
-    fill: #none;
     stroke-dasharray: 1050;
-    opacity: 1;
     animation: animate 3s cubic-bezier(.5,0,.5,1);
 }
 
 @keyframes animate {
     0% {
         opacity: 0;
-        fill: none;
         stroke-dashoffset: 1050;
     }
 
     30% {
         opacity: 1;
-        fill: none;
         stroke-dashoffset: 1050;
     }
 
     100% {
         opacity: 10;
-        fill: none;
         stroke-dashoffset: 0;
     }
 }
 
-.fade-in {
+.formula {
     animation: fadeIn ease 5s;
     animation-delay: 3s;
     animation-fill-mode: both;
@@ -49,10 +52,29 @@ path {
 
 .animatedtext {
     font-family: 'Crimson Text', serif;
-    font-size: 60px;
-    font-weight: regular;
+    font-size: 3em;
     text-align: center;
+
     animation: fadeIn ease 5s;
     animation-delay: 6s;
     animation-fill-mode: both;
+}
+
+@media only screen and (min-width: 650px)  {
+    .shape > svg{
+        width: 50vw;
+        height: 50vh;
+    }
+
+    .formula {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+@media only screen and (min-width: 1000px)  {
+    .formula {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
 }

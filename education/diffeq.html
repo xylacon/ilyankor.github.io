@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  		<meta charset="UTF-8">
+		<meta name="generator" content="pandoc" />
+		<meta name="description" content="Personal website of Miles Bi">
+        <meta name="author" content="Miles Bi">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="notes.css">
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+        </script>
+
+		<title>Education | Differential equations</title>
+
+	</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Differential equations</h1>
+<p class="author">University of Houston - MATH 3331</p>
+<p class="date">Fall 2020</p>
+</header>
+<p>Textbook: Arnold, Boggess, Polking - Differential Equations, 2nd
+edition</p>
+<p>Chapters covered: 1, 2, 3.1, 4, 5.1-4, 6.1-2, 8, 9</p>
+<p>*The contents in these notes do not correspond exactly to the
+textbook</p>
+<h1 id="introduction">Introduction</h1>
+<p>Mathematical modeling tries to imitate reality and then further tries
+to predict what will happen by creating a <strong>model</strong>. There
+are two components to a model:</p>
+<ol>
+<li><p>data, which reflects the current state. The set of all possible
+states is called the <strong>state space</strong>.</p></li>
+<li><p>a rule for evolving in time.</p></li>
+</ol>
+<p>Differential equations provide a deterministic rule for modelling
+continuous state spaces in continuous time. A single state completely
+determines a future one.</p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="general terms" label="general terms"></span></p>
+<p>An <strong>ordinary differential equation</strong> is an equation in
+an unknown function (the dependent variable) of a single independent
+variable that includes one or more derivatives.</p>
+<p>The <strong>order</strong> of an ordinary differential equation is
+the order of the highest derivative that appears.</p>
+<p>Let <span >\(n\)</span> be the highest order,
+<span >\(t\)</span> the independent variable, and
+<span >\(y\)</span> the dependent variable. The
+<strong>general form</strong> of an ordinary differential equation is
+<span class="math display">\[f(t, y, y&#39;, \dots, y^{(n)}) = 0
+.\]</span></p>
+<p>The <strong>normal form</strong> of an ordinary differential equation
+is <span class="math display">\[y^{(n)} = f(t, y, y&#39;, \dots,
+y^{(n-1)}).\]</span></p>
+<p>The <strong>solution</strong> of an ordinary differential equation is
+a function <span >\(y(t)\)</span> that satisfies
+<span class="math display">\[f(t, y, y&#39;, \dots, y^{(n)}) = 0
+.\]</span></p>
+</div>
+<p>General solutions to differential equations are a family of functions
+that may exclude some finite cases. Differential equations may come with
+an <strong>initial condition</strong>, which can be used to find a
+<strong>particular solution</strong>. When solving differential
+equations with an initial condition, the domain of the solution must be
+carefully examined. The domain must contain the initial value, and if
+there are any parts (usually asymptotes) where another initial value
+could influence the particular solution, they must be removed.</p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="classes" label="classes"></span></p>
+<p>Let <span >\(t\)</span> be the independent
+variable and <span >\(y\)</span> be the dependent
+variable.</p>
+<p>Let <span >\(p_0 (t), p_1 (t), \dots, p_n
+(t)\)</span> and <span >\(g(t)\)</span> be arbitraty
+differentiable functions. A differential equation is
+<strong>linear</strong> if it is of the form <span
+class="math display">\[p_0 (t) y + p_1 (t) y&#39; + \cdots + p_n (t)
+y^{(n)} + g(t) = 0.\]</span></p>
+<p>It is <strong>autonomous</strong> if it is of the form <span
+class="math display">\[y^{(n)} = f(y, y&#39;, \dots,
+y^{(n-1)}).\]</span></p>
+<p>It is <strong>homogenous</strong> if it is of the form <span
+class="math display">\[f(t, y, y&#39;, \dots, y^{(n)}) = 0
+.\]</span></p>
+<p>It is <strong>inhomogenous</strong> if it is of the form <span
+class="math display">\[f(t, y, y&#39;, \dots, y^{(n-1)}) =
+g(t),\]</span> where <span >\(g(t) \neq 0\)</span>
+and is called the <strong>forcing term</strong>.</p>
+</div>
+<h1 id="first-order-differential-equations">First order differential
+equations</h1>
+<p>A <strong>first order differential equation</strong> is a
+differential equation whose highest order derivative is 1.</p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="1stexistence" label="1stexistence"></span></p>
+<p>Let <span >\(f\)</span> be a real number. So,
+<span class="math display">\[f = f\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="1stunique" label="1stunique"></span></p>
+<p>Let <span >\(f\)</span> be a real number. So,
+<span class="math display">\[f = f\]</span></p>
+</div>
+<h2 id="seperable">Seperable</h2>
+<p>Let <span >\(f\)</span> and <span
+>\(g\)</span> be nonzero differentiable functions. A
+first order differential equation is <strong>separable</strong> if it is
+of the form <span class="math display">\[y&#39; = f(t)g(y).\]</span>
+Steps to solving a separable differential equation:</p>
+<ol>
+<li><p>Separate the functions with the corresponding differential. <span
+class="math display">\[\frac{1}{g(y)} \ \mathrm{d}y = f(t) \
+\mathrm{d}t\]</span></p></li>
+<li><p>Integrate both sides.</p></li>
+<li><p>Solve for <span >\(y(t)\)</span>.</p></li>
+</ol>
+<h2 id="integrating-factor">Integrating factor</h2>
+<p>If a first order differential equation has the form <span
+class="math display">\[y&#39; + f(t)y = g(t)\]</span></p>
+<h2 id="variation-of-parameters">Variation of parameters</h2>
+<p>Given a solution to the homogenous solution, assume that the solution
+is a function times homogenous. Then, Solve.</p>
+<h2 id="exact-differential-equations">Exact differential equations</h2>
+<p>Differential forms.</p>
+<p>Steps.</p>
+<p>Integrating factor for exact differential equations. If, <span
+class="math display">\[\mu =\]</span> If, <span
+class="math display">\[\mu =\]</span></p>
+<h2 id="applications">Applications</h2>
+<h3 class="unnumbered" id="radioactive-decay">Radioactive decay</h3>
+<p>Let <span >\(A(t)\)</span> be the mass of a
+radioactive object and <span >\(\lambda &gt;
+0\)</span> a constant. Radioactive decay is represented by <span
+class="math display">\[A&#39; = -\lambda A.\]</span> Let <span
+>\(A_0\)</span> be the initial mass. The solution is
+<span class="math display">\[A(t) = A_0 \mathrm{e}^{- \lambda
+t}.\]</span> Half-life is the time it takes for the original mass to
+decay to half of it’s original size. <span
+class="math display">\[t_{\text{half}} = \frac{\ln
+2}{\lambda}.\]</span></p>
+<h3 class="unnumbered" id="newtons-law-of-cooling">Newton’s law of
+cooling</h3>
+<p>Let <span >\(T(t)\)</span> be the temperature of
+the object, <span >\(A\)</span> the constant ambient
+temperature, and <span >\(k\)</span> a constant.
+Then, Newton’s law of cooling states that <span
+class="math display">\[T&#39;(t) = - k(T - A).\]</span> Let <span
+>\(T_0\)</span> be the initial temperature of the
+object. The solution is <span class="math display">\[T(t) = A + (T_0 -
+A)\mathrm{e}^{-kt}.\]</span></p>
+<h3 class="unnumbered" id="projectile-motion">Projectile motion</h3>
+<p>Projectile motion is governed by Newton’s second law and by the
+following equations. <span class="math display">\[F = ma = m x&#39;&#39;
+= - mg\]</span> which simplifies to <span
+class="math display">\[x&#39;&#39; = -g.\]</span> This is a separable
+equation. The resulting solution is <span class="math display">\[x = v_0
+t - \frac{1}{2}gt^2.\]</span> Introducing air resistance. Linear air
+resistance: <span class="math display">\[F = ma = m x&#39;&#39; = - mg -
+kv\]</span></p>
+<p>The solution is</p>
+<p>Still separable. Quadratic air resistance: <span
+class="math display">\[F = ma = m x&#39;&#39; = - mg - kv|v| = -mg +
+kv^2\]</span></p>
+<p>Population malthusian population (exponential) <span
+class="math display">\[P&#39; = kP\]</span> The solution is <span
+class="math display">\[P(t) = C \mathrm{e}^{kt}\]</span> logistic <span
+class="math display">\[P&#39; = kP \left(1 - \frac{P}{K}
+\right)\]</span></p>
+<h1 id="second-order-differential-equations">Second order differential
+equations</h1>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="wronskian" label="wronskian"></span></p>
+<p>A first order differential equation is <strong>separable</strong> if
+it is of the form <span class="math display">\[y&#39; =
+f(t)g(y).\]</span></p>
+</div>
+<p>theorems</p>
+<h2 id="solutions-of-homogenous-equations">Solutions of homogenous
+equations</h2>
+<p>Given second order linear differential equation</p>
+<p>Consider the characteristic equation <span class="math display">\[p (
+\lambda) = a \lambda^2 + b \lambda + c .\]</span> Find the roots of the
+equation. Depending on the roots of the characteristic equation, there
+are different real-valued solutions.</p>
+<ul>
+<li><p>two distinct real roots, <span >\(\lambda_1 ,
+\lambda_2\)</span> <span class="math display">\[y = C_1
+\mathrm{e}^{\lambda_1 t} + C_2 \mathrm{e}^{\lambda_2 t
+}\]</span></p></li>
+<li><p>complex roots, <span >\(\lambda = a \pm b
+\mathrm{i}\)</span> <span class="math display">\[\begin{aligned}
+    y &amp;= C_1 \operatorname{Re} \left(\mathrm{e}^{\lambda t} \right)
++ C_2 \operatorname{Im} \left(\mathrm{e}^{\lambda t} \right) \\
+    &amp;= \mathrm{e}^{at} \left[ C_1 \cos (bt) + C_2 \sin (bt) \right]
+\\
+  \end{aligned}\]</span></p></li>
+<li><p>one real root, <span >\(\lambda\)</span> <span
+class="math display">\[y = C_1 \mathrm{e}^{\lambda t} + C_2 t
+\mathrm{e}^{\lambda t }\]</span></p></li>
+</ul>
+<h2 id="method-of-undetermined-coefficients">Method of undetermined
+coefficients</h2>
+<p>Given second order linear differential equation</p>
+<p>Steps to solving using the method of undetermined coefficients</p>
+<ul>
+<li><p>Guess the term.</p></li>
+<li><p>Plug into the differential equation.</p></li>
+<li><p>Solve for the coefficients.</p></li>
+</ul>
+<h2 id="variation-of-parameters-1">Variation of parameters</h2>
+<p>Given second order linear differential equation</p>
+<h2 id="applications-1">Applications</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="harmonicmotionterms"
+label="harmonicmotionterms"></span></p>
+<p>Let <span >\(m\)</span> be the mass, <span
+>\(\mu\)</span> the damping constant, <span
+>\(k\)</span> the spring constant, and <span
+>\(F(t)\)</span> an external force. Then, the
+equation for the motion of vibrating spring is <span
+class="math display">\[mx&#39;&#39; + \mu x&#39; + kx = F(t).\]</span>
+Let <span >\(c = \dfrac{\mu}{2m}, \ \omega_0 =
+\sqrt{\dfrac{k}{m}}\)</span> and <span >\(f(t) =
+\dfrac{1}{m} F(t)\)</span>, where <span
+>\(\omega_0\)</span> is called the <strong>nautral
+frequency</strong> of the spring. The resulting equation is <span
+class="math display">\[x&#39;&#39; + 2cx&#39; + \omega_{0}^2 x =
+f(t).\]</span></p>
+<ul>
+<li><p>if <span >\(f(t) = 0\)</span>, it is
+<strong>unforced</strong>.</p></li>
+<li><p>if <span >\(f(t) \neq 0\)</span>, it is
+<strong>forced</strong>. The forcing term will be <span
+>\(f(t) = A \cos (\omega t)\)</span> or <span
+>\(f(t) = A \sin (\omega t)\)</span>.</p></li>
+<li><p>if <span >\(\omega = \omega_0\)</span>, the
+spring experiences <strong>resonance</strong>.</p></li>
+<li><p>if <span >\(c = 0\)</span>, it is
+<strong>undamped</strong>.</p></li>
+<li><p>if <span >\(c \neq 0\)</span>, it is
+<strong>damped</strong>.</p></li>
+<li><p>if <span >\(c &lt; \omega_0\)</span>, it is
+<strong>underdamped</strong>.</p></li>
+<li><p>if <span >\(c &gt; \omega_0\)</span>, it is
+<strong>overdamped</strong>.</p></li>
+<li><p>if <span >\(c = \omega_0\)</span>, it is
+<strong>critically damped</strong>.</p></li>
+</ul>
+</div>
+<p>The various kinds of differential equations for harmonic motion can
+be solved with the technique in the above section.</p>
+<p>amplitude, phase angle</p>
+<p>Unforced with no damping regular sin/cos curves.</p>
+<p>Unforced with damping</p>
+<p>Underdamped (<span >\(c &lt;
+\omega_0\)</span>).</p>
+<p>Overdamped (<span >\(c &gt;
+\omega_0\)</span>).</p>
+<p>Critically damped (<span >\(c =
+\omega_0\)</span>).</p>
+<p>Forced with no damping If <span >\(\omega \neq
+\omega_0\)</span>, <strong>beats</strong> happens. Physical phenomenon.
+Superposition of two waves causes interference. Consider intial values
+<span >\(x(0) = x&#39;(0) = 0\)</span></p>
+<p>Let <strong>mean fequency</strong> be <span
+class="math display">\[\overline{\omega} = \frac{1}{2} \left( \omega_0 +
+\omega \right).\]</span> Let <strong>half difference</strong> be <span
+class="math display">\[\delta = \frac{1}{2} \left|\omega_0 - \omega
+\right|.\]</span></p>
+<p>Then, the particular solution is <span class="math display">\[x (t) =
+\frac{A}{2 \overline{\omega} \delta} \sin (\delta t) \sin
+(\overline{\omega} t).\]</span></p>
+<p>And the solution has an <strong>envelope</strong>.</p>
+<p><span class="math display">\[E(t) = \left| \frac{A}{2
+\overline{\omega} \delta} \sin (\delta t) \right|.\]</span></p>
+<p>If <span >\(\omega = \omega_0\)</span>,
+<strong>resonance</strong> happens.</p>
+<p>Forced with damping. The phase angle is <span
+class="math display">\[\phi = \operatorname{arccot}
+\left(\frac{\omega_0^2 - \omega^2}{2 c \omega} \right)\]</span> Define
+<strong>gain</strong> by <span class="math display">\[G =
+\frac{1}{\sqrt{\left(\omega_0^2 - \omega^2 \right)^2 +
+(2c\omega)^2}}.\]</span> Then, the particular solution is <span
+class="math display">\[x_{\text{p}} (t) = G A \cos (\omega t - \phi)
+.\]</span> In the general solution, the homogenous solution <span
+>\(x_{\text{h}}\)</span> is called the
+<strong>transient term</strong>, since as <span >\(t
+\rightarrow \infty\)</span>, <span >\(x_{\text{h}}
+\rightarrow 0\)</span> and the particular solution is called the
+<strong>steady-state term</strong>, since it does not decay.</p>
+<h1 id="systems-of-differential-equations">Systems of differential
+equations</h1>
+<p>Transforming higher order linear differential equations to a system
+of first order equations.</p>
+<h2 id="applications-2">Applications</h2>
+<h1 id="other-considerations">Other considerations</h1>
+<h2 id="laplace-transform">Laplace transform</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="exporder" label="exporder"></span></p>
+<p>Let <span >\(f: \mathbb{R} \rightarrow
+\mathbb{R}\)</span> be a function. The function is of
+<strong>exponential order</strong> if there exists <span
+>\(C, a \in \mathbb{R}\)</span> such that for all
+<span >\(t &gt; 0\)</span>, <span
+class="math display">\[\left| f(t) \right| \leq C
+\mathrm{e}^{at}.\]</span></p>
+</div>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="laplace" label="laplace"></span></p>
+<p>Let <span >\(f: (0, \infty) \rightarrow
+\mathbb{R}\)</span> be a piecewise differentiable function of
+exponential order. The Laplace transform of <span
+>\(f\)</span> is <span
+class="math display">\[\mathcal{L}\{f(t)\} = \int_{0}^{\infty} f(t)
+\mathrm{e}^{-st} \ \mathrm{d}t.\]</span></p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+>\(f(t)\)</span></th>
+<th style="text-align: center;"><span
+>\(\mathcal{L}\{f(t)\} = F(s)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+>\(t^n\)</span></td>
+<td style="text-align: center;"><span
+>\(\dfrac{n!}{s^{n+1}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+>\(\mathrm{e}^{at}\)</span></td>
+<td style="text-align: center;"><span >\(\dfrac{1}{s
+- a}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span >\(\sin
+(at)\)</span></td>
+<td style="text-align: center;"><span
+>\(\dfrac{a}{s^2 + a^2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span >\(\cos
+(at)\)</span></td>
+<td style="text-align: center;"><span
+>\(\dfrac{s}{s^2 + a^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span >\(t^n
+\mathrm{e}^{at}\)</span></td>
+<td style="text-align: center;"><span
+>\(\dfrac{n!}{(s - a)^{n+1}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+>\(\mathrm{e}^{at} \sin (bt)\)</span></td>
+<td style="text-align: center;"><span
+>\(\dfrac{b}{(s-a)^2 + b^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+>\(\mathrm{e}^{at} \cos (bt)\)</span></td>
+<td style="text-align: center;"><span
+>\(\dfrac{s-a}{(s-a)^2 + b^2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span >\(f(t)
+\mathrm{e}^{at}\)</span></td>
+<td style="text-align: center;"><span >\(F(s -
+a)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span >\(t^n
+f(t)\)</span></td>
+<td style="text-align: center;"><span >\((-1)^n
+F^{(n)}(s)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Also useful to know is <span class="math display">\[\mathcal{L}
+\{f^{(n)}(t)\} = f(t) s^n F(s) - s^{(n-1)} f(0) - \cdots - f^{(n-1)}
+(0).\]</span></p>
+<p>Using the Laplace transform to solve initial value problems:</p>
+<ol>
+<li><p>Laplace transform both sides of the equation.</p></li>
+<li><p>Solve for the Laplace transform of the particular
+solution.</p></li>
+<li><p>Use the inverse Laplace transform to obtain the particular
+solution.</p></li>
+</ol>
+<h2 id="numerical-methods">Numerical methods</h2>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="numorder" label="numorder"></span></p>
+<p>The <strong>order</strong> of a numerical method is</p>
+</div>
+<h3 id="eulers-method">Euler’s method</h3>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="eulermethod" label="eulermethod"></span></p>
+<p>Consider the differential equation <span >\(y&#39;
+= f(t, y)\)</span> with <span >\(y(t_0) =
+y_0\)</span> and let <span >\(h\)</span> be the step
+size. The recursive formula for <strong>Euler’s method</strong> is <span
+class="math display">\[y_{n+1} = y_n + hf(t_n, y_n).\]</span></p>
+</div>
+<p>Euler’s method is a first order numerical method. <span
+>\(E \propto h\)</span>. To compute Euler’s method by
+hand, table.</p>
+<h3 id="runge-kutta">Runge-Kutta</h3>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="rungekutta2" label="rungekutta2"></span></p>
+<p>Consider the differential equation <span >\(y&#39;
+= f(t, y)\)</span> with <span >\(y(t_0) =
+y_0\)</span> and let <span >\(h\)</span> be the step
+size. Define <span >\(s_1\)</span> and <span
+>\(s_2\)</span> by <span
+class="math display">\[\begin{aligned}
+    s_1 &amp;= f(t_n, y_n) \\
+    s_2 &amp;= f(t_n + h, y_n + hs_1)
+  \end{aligned}\]</span> The recursive formula for the second order
+Runge-Kutta method is <span class="math display">\[y_{n+1} = y_n +
+\frac{1}{2}h(s_1 + s_2).\]</span></p>
+</div>
+<p><span >\(E \propto h^2\)</span>. To compute the
+second order Runge-Kutta method by hand, table.</p>
+<p><span> </span> <span> </span></p>
+<div class="mdframed">
+<p><span id="rungekutta4" label="rungekutta4"></span></p>
+<p>Consider the differential equation <span >\(y&#39;
+= f(t, y)\)</span> with <span >\(y(t_0) =
+y_0\)</span> and let <span >\(h\)</span> be the step
+size. Define <span >\(s_1, s_2, s_3\)</span> and
+<span >\(s_4\)</span> by <span
+class="math display">\[\begin{aligned}
+    s_1 &amp;= f(t_n, y_n) \\
+    s_2 &amp;= f(t_n + \frac{1}{2}h, y_n + \frac{1}{2}hs_1) \\
+    s_3 &amp;= f(t_n + \frac{1}{2}h, y_n + \frac{1}{2}hs_2) \\
+    s_4 &amp;= f(t_n + h, y_n + hs_3) \\
+  \end{aligned}\]</span> The recursive formula for the second order
+Runge-Kutta method is <span class="math display">\[y_{n+1} = y_n +
+\frac{1}{6}h(s_1 + 2s_2 + 2s_3 + s_4).\]</span></p>
+</div>
+<p><span >\(E \propto h^4\)</span>. To compute the
+fourth order Runge-Kutta method by hand, table.</p>
+</body>
+</html>

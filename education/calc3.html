@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  		<meta charset="UTF-8">
+		<meta name="generator" content="pandoc" />
+		<meta name="description" content="Personal website of Miles Bi">
+        <meta name="author" content="Miles Bi">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="notes.css">
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+        </script>
+
+		<title>Education | Calculus III</title>
+
+	</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Calculus III notes</h1>
+<p class="author">University of Houston - MATH 2433</p>
+</header>
+<h1 id="background-information">Background information</h1>
+<h2 id="cartesian-space-coordinates">Cartesian space coordinates</h2>
+<p>3-dimensional space is denoted by <span
+>\(\mathbb{R}^{3}\)</span>. Points in Cartesian
+coordinates are described by <span >\(P
+(x,y,z)\)</span>.</p>
+<p>planes parallel to the</p>
+<ul>
+<li><p><span >\(xy\)</span>-plane has the form of
+<span >\(z = c\)</span></p></li>
+<li><p><span >\(yz\)</span>-plane has the form of
+<span >\(x = c\)</span></p></li>
+<li><p><span >\(xz\)</span>-plane has the form of
+<span >\(y = c\)</span></p></li>
+</ul>
+<p>given two points <span >\(P_{1} (x_{1} , y_{1},
+z_{1})\)</span> and <span >\(P_{2} (x_{2}, y_{2},
+z_{2})\)</span>:</p>
+<ul>
+<li><p>the distance between them is</p>
+<p><span class="math display">\[d \left(P_{1} , P_{2} \right) =
+\sqrt{\left(x_{2} - x_{1} \right)^{2} + \left(y_{2} - y_{1} \right)^{2}
++ \left(z_{2} - z_{1} \right)^{2}}\]</span></p></li>
+<li><p>the midpoint is</p>
+<p><span class="math display">\[\left(\frac{x_{1} + x_{2}}{2},
+\frac{y_{1} + y_{2}}{2}, \frac{z_{1} + z_{2}}{2} \right)\]</span></p>
+<div class="center">
+<p>*intuition: the average between each coordinate</p>
+</div></li>
+</ul>
+<div class="definition">
+<p><strong>definition 1</strong> (<span
+>\(n\)</span>-sphere). The set of points in <span
+>\((n + 1)\)</span>-dimensional Euclidean space that
+are at a fixed distance <span >\(r\)</span> from a
+central point.</p>
+<p>the sphere in <span >\(\mathbb{R}^{3}\)</span>
+with center <span >\((a,b,c)\)</span> and radius
+<span >\(r\)</span> is</p>
+<p><span class="math display">\[(x - a)^{2} + (y - b)^{2} + (z - c)^{2}
+= r^{2}\]</span></p>
+</div>
+<div class="definition">
+<p><strong>definition 2</strong> (open and closed ball). The space
+bounded by a sphere. A closed ball includes the boundary; an open ball
+does not.</p>
+<p>the open ball in <span >\(\mathbb{R}^{3}\)</span>
+with center <span >\((a,b,c)\)</span> and radius
+<span >\(r\)</span> is</p>
+<p><span class="math display">\[B = \left\{(x,y,z) \mid (x - a)^{2} + (y
+- b)^{2} + (z - c)^{2} &lt; r^{2}\right\}\]</span></p>
+<p>the closed ball is</p>
+<p><span class="math display">\[B = \left\{(x,y,z) \mid (x - a)^{2} + (y
+- b)^{2} + (z - c)^{2} \leq r^{2}\right\}\]</span></p>
+</div>
+<h2 id="vectors">Vectors</h2>
+<div class="definition">
+<p><strong>definition 3</strong> (vector). An element of a vector space.
+A Euclidean vector is a geometric object that has direction and
+magnitude (norm). In <span >\(\mathbb{R}^{n}\)</span>
+it has <span >\(n\)</span> components that describe
+it.</p>
+<p>vector in <span >\(\mathbb{R}^{3}\)</span> from
+<span >\(P(x_{1} , y_{1} , z_{1})\)</span> to <span
+>\(Q(x_{2} , y_{2} , z_{2})\)</span> is</p>
+<p><span class="math display">\[\overrightarrow{P Q} = (x_{2} - x_{1} ,
+y_{2} - y_{1} , z_{2} - z_{1})\]</span></p>
+<div class="center">
+<p>*note that <span >\(\overrightarrow{Q P} = -
+\overrightarrow{P Q}\)</span></p>
+</div>
+<p>component notations in <span
+>\(\mathbb{R}^3\)</span></p>
+<p><span class="math display">\[\mathbf{v} = (v_{x} , v_{y} , v_{z}) =
+\langle v_{x} , v_{y} , v_{z} \rangle = v_{x} \hat{\mathbf{i}} + v_{y}
+\hat{\mathbf{j}} + v_{z} \hat{\mathbf{k}} =
+        \begin{bmatrix}
+            v_{x} \\
+            v_{y} \\
+            v_{z}
+            \end{bmatrix}\]</span></p>
+</div>
+<p>vector component algebra:</p>
+<ul>
+<li><p><span >\(\mathbf{a} + \mathbf{b} = (a_{x} +
+b_{x}) \hat{\mathbf{i}} + (a_{y} + b_{y}) \hat{\mathbf{j}} + (a_{z} +
+b_{z}) \hat{\mathbf{k}}\)</span></p></li>
+<li><p><span >\(\mathbf{a} - \mathbf{b} = \mathbf{a}
++ (- \mathbf{b} ) = [a_{x} + (-b_{x})] \hat{\mathbf{i}} + [a_{y} +
+(-b_{y})] \hat{\mathbf{j}} + [a_{z} + (-b_{z})]
+\hat{\mathbf{k}}\)</span></p></li>
+<li><p><span >\(k \mathbf{v} = (k v_{x})
+\hat{\mathbf{i}} + (k v_{y}) \hat{\mathbf{j}} + (k v_{z})
+\hat{\mathbf{k}}\)</span> (scalar multiplication)</p></li>
+</ul>
+<p>the length (norm, magnitude) of a vector in <span
+>\(\mathbb{R}^{n}\)</span> is</p>
+<p><span class="math display">\[\lVert{{\mathbf{v}}\rVert} =
+\sqrt{v_{1}^{2} + v_{1}^{2} + \cdots v_{n}^{2}}\]</span></p>
+<p>properties of vectors</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">symbolic representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">zero vector</td>
+<td style="text-align: left;"><span >\(\mathbf{0} = (
+0 ,0 ,0 )\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">commutative</td>
+<td style="text-align: left;"><span >\(\mathbf{a} +
+\mathbf{b} = \mathbf{b} + \mathbf{a}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">associative</td>
+<td style="text-align: left;"><span >\((\mathbf{a} +
+\mathbf{b}) + \mathbf{c} = \mathbf{a} + (\mathbf{b} +
+\mathbf{c})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">distributive</td>
+<td style="text-align: left;"><span >\(k (\mathbf{a}
++ \mathbf{b}) = k \mathbf{a} + k \mathbf{b}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">norm multiplied by scalar</td>
+<td style="text-align: left;"><span >\(\lVert{{k
+\mathbf{v}}\rVert} = |k| \lVert{{\mathbf{v}}\rVert}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">triangle inequality</td>
+<td style="text-align: left;"><span
+>\(\lVert{{\mathbf{a} + \mathbf{b}}\rVert} \leq
+\lVert{{\mathbf{a}}\rVert} + \lVert{{\mathbf{b}}\rVert}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="definition">
+<p><strong>definition 4</strong> (parallel vectors). two vectors are
+parallel if they are scalar multiples of each other</p>
+<p><span class="math display">\[\mathbf{a} \parallel \mathbf{b} \iff
+\mathbf{a} = k \mathbf{b}\]</span></p>
+<ul>
+<li><p>if <span >\(k &gt; 0\)</span>, then they have
+the same direction</p></li>
+<li><p>if <span >\(k &lt; 0\)</span>, then they are
+antiparallel (parallel but have opposite directions)</p></li>
+</ul>
+</div>
+<div class="definition">
+<p><strong>definition 5</strong> (unit vector). A unit vector has a norm
+of 1. The unit vector <span
+>\(\hat{\mathbf{v}}\)</span> in the same direction as
+<span >\(\mathbf{v}\)</span> is</p>
+<p><span class="math display">\[\hat{\mathbf{v}} =
+\frac{\mathbf{v}}{\lVert{{ \mathbf{v} }\rVert}}\]</span></p>
+<p>*tip: unit vectors can be multiplied by a scalar to produce a certain
+norm.</p>
+</div>
+<p>In Cartesian coordinates, there are 3 unit vectors (basis vectors)
+that help describe other vectors. Every vector in the vector space <span
+>\(\mathbb{R}^{3}\)</span> can be written as a linear
+combination of them.</p>
+<p>the basis vectors are</p>
+<p><span class="math display">\[\begin{aligned}
+    \hat{\mathbf{i}} &amp;= (1,0,0) &amp; \hat{\mathbf{j}} &amp;=
+(0,1,0) &amp;\hat{\mathbf{k}} &amp;= (0,0,1)\end{aligned}\]</span></p>
+<p>if a unit vector makes angles <span >\(\alpha ,
+\beta , \text{and} \, \gamma\)</span> with <span
+>\(\hat{\mathbf{i}} , \hat{\mathbf{j}} , \text{and}
+\, \hat{\mathbf{k}}\)</span>, then</p>
+<p><span class="math display">\[\hat{\mathbf{v}} = (\cos{\alpha})
+\hat{\mathbf{i}} + (\cos{\beta}) \hat{\mathbf{j}} + (\cos{\gamma})
+\hat{\mathbf{k}}\]</span></p>
+<h2 id="dot-product">Dot product</h2>
+<div class="definition">
+<p><strong>definition 6</strong> (dot product). An operation that takes
+two vectors and returns a scalar.</p>
+<p>algebraic definition</p>
+<p><span class="math display">\[\mathbf{a} \cdot \mathbf{b} = \sum_{i =
+1}^{n} a_{i} b_{i} = a_{1} b_{1} + a_{2} b_{2} + \cdots + a_{n}
+b_{n}\]</span></p>
+<p>geometric definition</p>
+<p><span class="math display">\[\mathbf{a} \cdot \mathbf{b} =
+\lVert{{\mathbf{a}}\rVert} \lVert{{\mathbf{b}}\rVert}
+\cos{\theta}\]</span></p>
+</div>
+<p>properties of the dot product</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">symbolic representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">magnitude</td>
+<td style="text-align: left;"><span >\(\mathbf{a}
+\cdot \mathbf{a} = \lVert{{\mathbf{a}}\rVert}^{2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">commutative</td>
+<td style="text-align: left;"><span >\(\mathbf{a}
+\cdot \mathbf{b} = \mathbf{b} \cdot \mathbf{a}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">distributive</td>
+<td style="text-align: left;"><span >\(\mathbf{a}
+\cdot (\mathbf{b} + \mathbf{c}) = \mathbf{a} \cdot \mathbf{b} +
+\mathbf{a} \cdot \mathbf{c}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cauchy-Schwarz inequality</td>
+<td style="text-align: left;"><span >\(|\mathbf{a}
+\cdot \mathbf{b}| \leq \lVert{{\mathbf{a}}\rVert}
+\lVert{{\mathbf{b}}\rVert}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>the angle between two vectors (from the geometric definition)</p>
+<p><span class="math display">\[\theta = \arccos \left(\frac{\mathbf{a}
+\cdot \mathbf{b}}{\lVert{{\mathbf{a}}\rVert}
+\lVert{{\mathbf{b}}\rVert}}\right)\]</span></p>
+<ul>
+<li><p>if <span >\(\mathbf{a} \cdot \mathbf{b} &gt;
+0\)</span>, then <span >\(\theta &lt;
+\dfrac{\pi}{2}\)</span></p></li>
+<li><p>if <span >\(\mathbf{a} \cdot \mathbf{b} &lt;
+0\)</span>, then <span >\(\theta &gt;
+\dfrac{\pi}{2}\)</span></p></li>
+</ul>
+<div class="definition">
+<p><strong>definition 7</strong> (perpedicular vectors). Two vectors are
+perpendicular if their dot product is 0.</p>
+<p><span class="math display">\[\mathbf{a} \perp \mathbf{b} \iff
+\mathbf{a} \cdot \mathbf{b} = 0 \ \text{since} \cos
+\left(\frac{\pi}{2}\right) = 0\]</span></p>
+</div>
+<div class="definition">
+<p><strong>definition 8</strong> (component). the component is a scalar
+that measures how much of <span
+>\(\mathbf{a}\)</span> lies in the direction <span
+>\(\mathbf{b}\)</span></p>
+<p><span class="math display">\[\operatorname{comp}_{\mathbf{b}}
+\mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{b}}{\lVert{{ \mathbf{b}
+}\rVert}} = \mathbf{a} \cdot \hat{\mathbf{b}} =
+\lVert{{\mathbf{a}}\rVert} \cos \theta\]</span></p>
+<ul>
+<li><p>if <span >\(\operatorname{comp}_{\mathbf{b}}
+\mathbf{a} &lt; 0\)</span> , then <span >\(\theta \in
+\left( \dfrac{\pi}{2} , \pi \right]\)</span></p></li>
+<li><p>if <span
+>\(\operatorname{comp}_{\mathbf{b}}{\mathbf{a}} &gt;
+0\)</span> , then <span >\(\theta \in \left( 0 ,
+\dfrac{\pi}{2} \right)\)</span></p></li>
+</ul>
+</div>
+<div class="definition">
+<p><strong>definition 9</strong> (projection). the projection of <span
+>\(\mathbf{a}\)</span> onto <span
+>\(\mathbf{b}\)</span> is a vector that describes the
+component of <span >\(\mathbf{a}\)</span> that lies
+in the direction of <span >\(\mathbf{b}\)</span></p>
+<p><span class="math display">\[\operatorname{proj}_{\mathbf{b}}
+\mathbf{a} = \left( \operatorname{comp}_{\mathbf{b}}{\mathbf{a}} \right)
+\hat{\mathbf{b}} = \left( \frac{\mathbf{a} \cdot \mathbf{b}}{{\lVert{{
+\mathbf{b} }\rVert}}^{2}} \right) \mathbf{b}\]</span></p>
+</div>
+<h2 id="cross-product">Cross product</h2>
+<div class="definition">
+<p><strong>definition 10</strong> (cross product). An operation that
+produces a pseudovector orthogonal (perpendicular, normal) to the plane
+formed by two vectors in the direction of the thumb of the right hand
+rule.</p>
+<p><span class="math display">\[\mathbf{a} \times \mathbf{b} =
+        \begin{vmatrix}
+            \hat{\mathbf{i}} &amp; \hat{\mathbf{j}} &amp;
+\hat{\mathbf{k}} \\
+            a_{1} &amp; a_{2} &amp; a_{3} \\
+            b_{1} &amp; b_{2} &amp; b_{3}
+        \end{vmatrix}\]</span></p>
+<div class="center">
+<p>*tip: check that <span >\((\mathbf{a} \times
+\mathbf{b}) \cdot \mathbf{a} = 0\)</span></p>
+</div>
+</div>
+<p>properties of the cross product</p>
+<ul>
+<li><p>anticommutative: <span >\(\mathbf{a} \times
+\mathbf{b} = - \mathbf{b} \times \mathbf{a}\)</span></p></li>
+<li><p>if <span >\(\mathbf{a} \parallel
+\mathbf{b}\)</span>, then <span >\(\mathbf{a} \times
+\mathbf{b} = 0\)</span></p></li>
+<li><p><span >\(\mathbf{a}
+\times(\mathbf{b}+\mathbf{c})=(\mathbf{a} \times \mathbf{b})+(\mathbf{a}
+\times \mathbf{c})\)</span></p></li>
+<li><p><span >\(\lVert{{\mathbf{a} \times
+\mathbf{b}}\rVert} = \lVert{{\mathbf{a}}\rVert}
+\lVert{{\mathbf{b}}\rVert} \sin \theta\)</span></p></li>
+</ul>
+<div class="definition">
+<p><strong>definition 11</strong> (scalar triple product). <span
+class="math display">\[\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) =
+        \begin{vmatrix}
+            a_{1} &amp; a_{2} &amp; a_{3} \\
+            b_{1} &amp; b_{2} &amp; b_{3} \\
+            c_{1} &amp; c_{2} &amp; c_{3}
+        \end{vmatrix}\]</span></p>
+<div class="center">
+<p>*if <span >\(\mathbf{a} \cdot (\mathbf{b} \times
+\mathbf{c}) = 0\)</span>, then the vectors are coplanar</p>
+</div>
+</div>
+<p>applications of the cross product</p>
+<ul>
+<li><p>area of a parallelogram formed by <span
+>\(\mathbf{a}\)</span> and <span
+>\(\mathbf{b}\)</span></p>
+<p><span class="math display">\[A = \lVert{{\mathbf{a} \times
+\mathbf{b}}\rVert}\]</span></p></li>
+<li><p>area of a triangle formed by <span
+>\(\mathbf{a}\)</span> and <span
+>\(\mathbf{b}\)</span></p>
+<p><span class="math display">\[A = \frac{1}{2} \lVert{{\mathbf{a}
+\times \mathbf{b}}\rVert}\]</span></p></li>
+<li><p>volume of a parallelepiped formed by <span
+>\(\mathbf{a}\)</span>, <span
+>\(\mathbf{b}\)</span>, and <span
+>\(\mathbf{c}\)</span></p>
+<p><span class="math display">\[V = \lvert ( \mathbf{a} \times
+\mathbf{b}) \cdot \mathbf{c} \rvert\]</span></p></li>
+</ul>
+<h2 id="lines">Lines</h2>
+<p>The vector form of a line is</p>
+<p><span class="math display">\[\mathbf{r} (t) = \mathbf{r}_{0} + t
+\mathbf{d} , t \in \mathbb{R}\]</span></p>
+<p>where <span >\(\mathbf{r_{0}}\)</span> is vector
+and <span >\(\mathbf{d}\)</span> is the direction
+vector of the line. scalar multiples of <span
+>\(\mathbf{d}\)</span> produce the same line.</p>
+<p>The component (scalar) form of a line is</p>
+<p><span class="math display">\[\mathbf{r} (t) =
+    \begin{cases}
+        x(t) = x_{0} + t d_{1} \\
+        y(t) = y_{0} + t d_{2} \\
+        z(t) = z_{0} + t d_{3}
+        \end{cases}\]</span></p>
+<p>The symmetric form of a line is</p>
+<p><span class="math display">\[\frac{x(t)-x_{0}}{d_{1}} =
+\frac{y(t)-y_{0}}{d_{2}} = \frac{z(t)-z_{0}}{d_{3}}\]</span></p>
+<p>If a component of <span >\(\mathbf{d}\)</span> is
+zero, then that component is constant and the line lies on the plane
+formed by that constant.</p>
+<p>Comparing lines <span >\(\mathbf{r} (t) =
+\mathbf{r}_{1} + t \mathbf{d}_{1}\)</span> and <span
+>\(\mathbf{v} (s) = \mathbf{v}_{1} + s
+\mathbf{d}_{2}\)</span></p>
+<ul>
+<li><p><span >\(\mathbf{r} \parallel \mathbf{v} \iff
+\mathbf{d}_{1} = k \mathbf{d}_{2} , k \in \mathbb{R} \,
+0\)</span></p></li>
+<li><p><span >\(\mathbf{r}\)</span> and <span
+>\(\mathbf{v}\)</span> intersect <span
+>\(\iff\)</span> for some <span
+>\(t\)</span> and <span
+>\(s\)</span> such that <span
+>\(\mathbf{r} (t) = \mathbf{v} (s)\)</span></p></li>
+<li><p><span >\(\mathbf{r}\)</span> and <span
+>\(\mathbf{v}\)</span> are coincident <span
+>\(\iff \mathbf{r} = \mathbf{v}\)</span>. They are
+parallel and intersecting.</p></li>
+<li><p><span >\(\mathbf{r}\)</span> and <span
+>\(\mathbf{v}\)</span> are skew if they do not
+intersect and are not parallel. However, the planes the lines are on are
+parallel</p></li>
+<li><p>the angle between <span >\(\mathbf{r}\)</span>
+and <span >\(\mathbf{v}\)</span> is found by using
+their direction vectors. use the smallest angle by choosing a positive
+cosine value.</p>
+<p><span class="math display">\[\cos{\theta} = \left|
+\frac{\mathbf{d}_{1} \cdot \mathbf{d}_{2}}{\lVert{{ \mathbf{d}_{1}
+}\rVert} \lVert{{ \mathbf{d}_{2} }\rVert}} \right| = \left|
+\hat{\mathbf{d}}_{1} \cdot \hat{\mathbf{d}}_{2}
+\right|\]</span></p></li>
+</ul>
+<p>the distance from a point to a line is</p>
+<p><span class="math display">\[d(P, l)=\frac{\|\overrightarrow{P_{0}
+P_{1}} \times \mathbf{d}\|}{\|\mathbf{d}\|}\]</span></p>
+<h2 id="planes">Planes</h2>
+<p>If <span >\(\mathbf{N} = A \hat{\mathbf{i}} + B
+\hat{\mathbf{j}} + C \hat{\mathbf{k}}\)</span> is the normal vector to a
+plane that contains the point <span
+>\(P(x_{0},y_{0},z_{0})\)</span>, then the equation
+of the plane is</p>
+<p><span class="math display">\[A (x-x_{0})+B (y-y_{0} )+C (z-z_{0}) =
+0\]</span></p>
+<p>The vector equation of a plane is</p>
+<p><span class="math display">\[\mathbf{N} \cdot
+(\mathbf{r}-\mathbf{r}_{0} ) = 0\]</span></p>
+<p>The intercept form of a plane is</p>
+<p><span
+class="math display">\[\frac{x}{a}+\frac{y}{b}+\frac{z}{c}=1\]</span></p>
+<div class="center">
+<p>where <span >\((a, 0, 0)\)</span>, <span
+>\((0, b, 0)\)</span>, and <span
+>\((0, 0, c)\)</span> are the intercepts.</p>
+</div>
+<p>Comparing planes <span >\(\Pi_{1}: \mathbf{N}_{1}
+\cdot (\mathbf{r}-\mathbf{r}_{0} ) = 0\)</span> and <span
+>\(\Pi_{2} : \mathbf{N}_{2} \cdot
+(\mathbf{v}-\mathbf{v}_{0} ) = 0\)</span>,</p>
+<ul>
+<li><p><span >\(\Pi_{1} \parallel \Pi_{2} \iff
+\mathbf{N}_{1} \parallel \mathbf{N}_{2}\)</span></p></li>
+<li><p>if <span >\(\Pi_{1} \nparallel
+\Pi_{2}\)</span>, then <span >\(\Pi_{1}\)</span> and
+<span >\(\Pi_{2}\)</span> intersect at a line. the
+direction vector of the line is</p>
+<p><span class="math display">\[\mathbf{N}_{1} \times
+\mathbf{N}_{2}\]</span></p>
+<p>choose any point that lies on the line and the plane. If the
+direction vector is not dependent on a scalar parametric, then do not
+choose that value for solving.</p></li>
+<li><p>the angle between <span >\(\Pi_{1}\)</span>
+and <span >\(\Pi_{2}\)</span> is found by using their
+normal vectors. use the smallest angle by choosing a positive cosine
+value.</p>
+<p><span class="math display">\[\cos{\theta} = \left|
+\frac{\mathbf{N}_{1} \cdot \mathbf{N}_{2}}{\lVert{{ \mathbf{N}_{1}
+}\rVert} \lVert{{ \mathbf{N}_{2} }\rVert}} \right| = \left|
+\hat{\mathbf{N}}_{1} \cdot \hat{\mathbf{N}}_{2}
+\right|\]</span></p></li>
+</ul>
+<p>distance between a point <span >\(P(x_{1}, y_{1} ,
+z_{1} )\)</span> and a plane <span >\(Ax + By + Cz +
+D = 0\)</span> is</p>
+<p><span class="math display">\[d=\frac{|A x_{1}+B y_{1}+C
+z_{1}+D|}{\sqrt{A^{2}+B^{2}+C^{2}}}\]</span></p>
+<p>intersection of a line and plane: substitute parametrized form of the
+line into the plane and solve.</p>
+<h1 id="vector-valued-functions">Vector valued functions</h1>
+<h2 id="vector-functions">Vector functions</h2>
+<p>Vector-valued functions in <span
+>\(\mathbb{R}^3\)</span> have the form</p>
+<p><span class="math display">\[\mathbf{r} (t) = f_{1}(t) \mathbf{i} +
+f_{2}(t) \mathbf{j} + f_{3}(t) \mathbf{k} = \left(
+f_{1}(t),f_{2}(t),f_{3}(t) \right)\]</span></p>
+<div class="center">
+<p>where <span >\(f_{1},f_{2}, \text{and} \,
+f_{3}\)</span> are called component functions of <span
+>\(\mathbf{r}\)</span></p>
+</div>
+<p>The domain of <span >\(\mathbf{r}\)</span> is all
+values <span >\(t\)</span> that the component
+functions are defined on.</p>
+<p>If <span >\(C\)</span> is a curve described by
+<span >\(\mathbf{r}\)</span>, then <span
+>\(C\)</span> is parametrised by <span
+>\(\mathbf{r}\)</span></p>
+<p><span class="math display">\[\lim_{t \to a} \mathbf{r} (t) =
+\mathbf{L} \iff \lim_{t \to a} \lVert{{ \mathbf{r} (t) - \mathbf{L}
+}\rVert} = 0\]</span></p>
+<p><span class="math display">\[\lim_{t \to a} \mathbf{r} (t) = \left[
+\lim_{t \to a} f_{1}(t) \right] \mathbf{i} + \left[ \lim_{t \to a}
+f_{2}(t) \right] \mathbf{j} + \left[ \lim_{t \to a} f_{3}(t) \right]
+\mathbf{k}\]</span></p>
+<p>continuity: <span >\(\mathbf{r} (t)\)</span> is
+continuous at <span >\(t = a\)</span> if</p>
+<ol>
+<li><p><span >\(\mathbf{r} (a)\)</span>
+exists</p></li>
+<li><p><span >\(\displaystyle \lim_{t \to a}
+\mathbf{r} (t)\)</span> exists</p></li>
+<li><p><span >\(\displaystyle \lim_{t \to a}
+\mathbf{r} (t) = \mathbf{r} (a)\)</span></p></li>
+</ol>
+<p>derivatives of vector functions</p>
+<p><span class="math display">\[\mathbf{r}&#39; (t) = \lim_{h \to 0}
+\frac{\mathbf{r} ( t + h ) -  \mathbf{r}(t)}{h}\]</span></p>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d} t }
+\mathbf{r} = \mathbf{r}&#39;(t) = f_{1}&#39; (t) \mathbf{i} +
+f_{2}&#39;(t) \mathbf{j} + f_{3}&#39; (t) \mathbf{k}\]</span></p>
+<p>if a component derivative does not exist, then the vector function is
+not differentiable at that point.</p>
+<p><span class="math display">\[\int \mathbf{r} (t) \, \mathrm{d} t =
+\left[ \int f_{1}(t) \, \mathrm{d}t \right] \mathbf{i} + \left[ \int
+f_{2}(t) \, \mathrm{d}t \right] \mathbf{j} + \left[ \int f_{3}(t) \,
+\mathrm{d} t \right] \mathbf{k}\]</span></p>
+<h2 id="differentiation-properties">Differentiation properties</h2>
+<ul>
+<li><p><span >\(\displaystyle
+\frac{\mathrm{d}}{\mathrm{d} t} \left[ \mathbf{r} (t) \pm \mathbf{u} (t)
+\right]= \mathbf{r}&#39; (t) \pm \mathbf{u}&#39; (t)\)</span></p></li>
+<li><p><span >\(\displaystyle
+\frac{\mathrm{d}}{\mathrm{d} t} \left[ k \mathbf{r} (t) \right]= k
+\mathbf{r}&#39; (t)\)</span></p></li>
+<li><p><span >\(\displaystyle
+\frac{\mathrm{d}}{\mathrm{d} t} \left[ f ( t ) \mathbf{r} (t) \right]=
+f&#39;(t) \mathbf{r} (t) + f (t) \mathbf{r}&#39; (t)\)</span></p></li>
+<li><p><span >\(\displaystyle
+\frac{\mathrm{d}}{\mathrm{d} t} \left[ \mathbf{r} (t) \cdot \mathbf{u}
+(t)\right]= \mathbf{r}&#39; (t) \cdot \mathbf{u} (t) + \mathbf{r} (t)
+\cdot \mathbf{u}&#39; (t)\)</span></p></li>
+<li><p><span >\(\displaystyle
+\frac{\mathrm{d}}{\mathrm{d} t} \left[ \mathbf{r} (t) \times \mathbf{u}
+(t)\right]= \mathbf{r}&#39; (t) \times \mathbf{u} (t) + \mathbf{r} (t)
+\times \mathbf{u}&#39; (t)\)</span></p></li>
+<li><p><span >\(\displaystyle
+\frac{\mathrm{d}}{\mathrm{d} t} \mathbf{r} [f(t)] =
+f&#39;(t)\mathbf{r}&#39;[f(t)]\)</span></p></li>
+<li><p>if <span >\(\mathbf{r} \cdot \mathbf{r} =
+\lVert{{\mathbf{r} (t)}\rVert}^{2} = k\)</span> , then <span
+>\(\mathbf{r}&#39; \cdot \mathbf{r} = 0\)</span>.
+<span >\(\mathbf{r} (t) \perp \mathbf{r} &#39;
+(t)\)</span></p></li>
+</ul>
+<h2 id="curves">Curves</h2>
+<p>A curve <span >\(C : \mathbf{r} (t) = f_{1}(t)
+\mathbf{i} + f_{2}(t) \mathbf{j} + f_{3}(t) \mathbf{k}\)</span> is
+smooth on an interval <span >\(I\)</span> if <span
+>\(f_{1}&#39; (t) , f_{2}&#39; (t)\)</span> and <span
+>\(f_{3}&#39; (t)\)</span> are continuous on <span
+>\(I\)</span> and <span
+>\(\mathbf{r} &#39; (t) \neq 0 \forall t \in
+I\)</span></p>
+<p>unit tangent vector</p>
+<p><span class="math display">\[\mathbf{T} =
+\frac{\mathbf{r}&#39;}{\lVert{{ \mathbf{r}&#39; }\rVert}}\]</span></p>
+<p>If <span >\(\mathbf{T} = 0\)</span>, then the
+<span >\(\mathbf{T}\)</span> does not change
+direction.</p>
+<p>tangent line passes though point parallel to tangent vector.</p>
+<p>principal unit normal vector</p>
+<p><span class="math display">\[\mathbf{N} =
+\frac{\mathbf{T}&#39;}{\lVert{{\mathbf{T}&#39;}\rVert}}\]</span></p>
+<p><span class="math display">\[\mathbf{T} \perp \mathbf{N}\]</span></p>
+<p>the normal vector points in the direction of the center of the
+osculating circle.</p>
+<p>binormal vector</p>
+<p><span class="math display">\[\mathbf{B} = \mathbf{T} \times
+\mathbf{N}\]</span></p>
+<div class="center">
+<p>determines the osculating plane tangent to the curve.</p>
+</div>
+<p>the binormal vector is a unit vector</p>
+<p>osculating circle formed on the plane formed by tangent and normal.
+radius of osculating circle is <span
+>\(1/\kappa\)</span></p>
+<p>two curves <span >\(C_{1}: \mathbf{r}_{1}
+(t)\)</span> and <span >\(C_{2}: \mathbf{r}_{2}
+(s)\)</span> intersect <span >\(\iff \exists \, t \,
+\text{and} \, s\)</span> such that <span >\(r_{1} (t)
+= r_{2} (s)\)</span></p>
+<p><span class="math display">\[\cos \theta = \left|
+\frac{\mathbf{r}_{1} &#39; \cdot \mathbf{r}_{2}
+&#39;}{\lVert{{\mathbf{r}_{1}}\rVert} \lVert{{\mathbf{r}_{2}}\rVert}}
+\right| = | \mathbf{T}_{1} \cdot \mathbf{T}_{2} |\]</span></p>
+<h2 id="arc-length">Arc length</h2>
+<p>for a vector valued function <span >\(\mathbf{r}
+(t) = x (t) \mathbf{i} + y (t) \mathbf{j} + z (t) \mathbf{k} , t \in [
+a, b ]\)</span></p>
+<p><span class="math display">\[s = \int_{a}^{b} \lVert{{
+\mathbf{r}&#39; (t) }\rVert} \, \mathrm{d} t = \int_{a}^{b} \sqrt{
+\left[ x&#39;(t)\right]^{2} + \left[ y&#39;(t)\right]^{2} + \left[
+z&#39;(t) \right]^{2}} \,  \mathrm{d} t\]</span></p>
+<p><span class="math display">\[\frac{\mathrm{d} s }{\mathrm{d} t} =
+\lVert{{ \mathbf{r}&#39; (t) }\rVert} = \sqrt{ \left[
+x&#39;(t)\right]^{2} + \left[ y&#39;(t)\right]^{2} + \left[ z&#39;(t)
+\right]^{2}}\]</span></p>
+<p>the derivative of of arc length is speed</p>
+<p>arc length parameterisation: changing the function <span
+>\(\mathbf{r}(t)\)</span> to <span
+>\(\mathbf{r} (s)\)</span>. the distance traveled
+along the curve is equal to the parameter <span
+>\(s\)</span></p>
+<p>to get the arc length parameterisation, substitute <span
+>\(s\)</span> into <span
+>\(\mathbf{r} ( t)\)</span></p>
+<h2 id="curvature-and-curvilinear-motion">Curvature and curvilinear
+motion</h2>
+<p>curvature: how sharply a smooth curve turns.</p>
+<ul>
+<li><p>a circle has constant curvature <span
+>\(\kappa = 1/r\)</span></p></li>
+<li><p>a line has constant zero curvature</p></li>
+<li><p>curvature can be used to inscribe a circle “tangent” to a curve
+and measure the curvature of that circle.</p></li>
+<li><p>the radius of curvature is <span >\(r =
+1/\kappa\)</span></p></li>
+<li><p>the center of curvature is the point the distance of the radius
+in the direction of the principal normal</p></li>
+</ul>
+<p><span class="math display">\[\kappa = \lVert{{ \mathbf{T}&#39; (s)
+}\rVert} = \frac{\lVert{{ \mathbf{T}&#39; (t) }\rVert}}{\lVert{{
+\mathbf{r}&#39; (t) }\rVert}}\]</span></p>
+<p>for 3-dimensional curves,</p>
+<p><span class="math display">\[\kappa = \frac{\lVert{{ \mathbf{r}&#39;
+(t) \times \mathbf{r}&#39;&#39;(t) }\rVert}}{\lVert{{ \mathbf{r}&#39;
+(t) }\rVert}^{3}}\]</span></p>
+<p>for planar parametric functions <span
+>\(\mathbf{r} (t) = x(t) \mathbf{i} + y (t)
+\mathbf{j}\)</span></p>
+<p>pro tip:</p>
+<p>when <span >\(y = f (x)\)</span>, then</p>
+<p><span class="math display">\[\begin{aligned}
+    x&#39; &amp;= 1 &amp; y&#39; &amp;= y \\
+    x&#39;&#39; &amp;= 0 &amp; y&#39;&#39; &amp;=
+y&#39;&#39;\end{aligned}\]</span></p>
+<div class="center">
+<p>and</p>
+</div>
+<p><span class="math display">\[\kappa = \frac{\left|x&#39; y&#39;&#39;
+- y&#39; x&#39;&#39; \right|}{\left[ \left(x&#39;\right)^{2} +
+\left(y&#39; \right)^{2} \right]^{3/2}} = \frac{\left| y&#39;&#39;
+\right|}{\left[ 1 + (y&#39;)^{2} \right]^{3/2}}\]</span></p>
+<p>the top part of the fraction is:</p>
+<p><span class="math display">\[\begin{vmatrix}
+    x&#39; &amp; x&#39;&#39;\\
+    y&#39; &amp; y&#39;&#39;
+    \end{vmatrix}\]</span></p>
+<p>kinematic relations:</p>
+<p><span class="math display">\[\begin{aligned}
+    \mathbf{r}&#39; (t) = \mathbf{v} (t) &amp; &amp;
+\mathbf{r}&#39;&#39; (t) = \mathbf{a} (t)\end{aligned}\]</span></p>
+<p><span class="math display">\[\mathbf{v} = \lVert{{\mathbf{r}}\rVert}
+\mathbf{T}\]</span></p>
+<p>acceleration</p>
+<p><span class="math display">\[\mathbf{a} = \mathbf{v}&#39; =
+a_{\mathbf{T}} \mathbf{T}+a_{\mathbf{N}} \mathbf{N}\]</span></p>
+<p><span class="math display">\[\mathbf{a} =
+\lVert{{\mathbf{r}&#39;}\rVert}&#39; \mathbf{T} + \kappa
+\left(\lVert{{\mathbf{r}&#39;}\rVert}\right)^{2} \mathbf{N}\]</span></p>
+<p>tangential acceleration - the change in size of the velocity.</p>
+<p>normal acceleration - the change in direction of the velocity.</p>
+<p>tangential acceleration</p>
+<p><span class="math display">\[a_{\mathbf{T}} =
+\frac{\mathrm{d}}{\mathrm{d}t} \lVert{{\mathbf{r}&#39;}\rVert} =
+\mathbf{T} \cdot \mathbf{a} = \frac{\mathbf{v} \cdot
+\mathbf{a}}{\lVert{{\mathbf{v}}\rVert}} = \frac{\mathbf{r}&#39; \cdot
+\mathbf{r}&#39;&#39;}{\lVert{{\mathbf{r}&#39;}\rVert}}\]</span></p>
+<p>normal acceleration</p>
+<p><span class="math display">\[a_{\mathbf{N}} = \kappa
+\left(\lVert{{\mathbf{r}&#39;}\rVert}\right)^{2} = \lVert{{\mathbf{T}
+\times \mathbf{a}}\rVert} = \frac{ \lVert{{\mathbf{v} \times
+\mathbf{a}}\rVert}}{\lVert{{\mathbf{v}}\rVert}} = \frac{
+\lVert{{\mathbf{r}&#39; \times
+\mathbf{r}&#39;&#39;}\rVert}}{\lVert{{\mathbf{r}&#39;}\rVert}}\]</span></p>
+<h1 id="multivariable-functions">Multivariable functions</h1>
+<p>finding domain</p>
+<ul>
+<li><p>if <span >\(1/u\)</span>, then <span
+>\(u \neq 0\)</span></p></li>
+<li><p>if <span >\(sqrt[2k]{u}, k \in
+\mathbb{Z}^{+}\)</span>, then <span >\(u \geq
+0\)</span></p></li>
+<li><p>if <span >\(\log_{a} (u), a \in
+\mathbb{R}\)</span>, then <span >\(u &gt;
+0\)</span></p></li>
+</ul>
+<p>check the range: negative, zero, any special numbers.</p>
+<p>try to find the most negative number and how to get the most positive
+number</p>
+<p>fix a variable to some number to check</p>
+<p>projections:</p>
+<p>if two surfaces <span >\(f(x,y\)</span> and <span
+>\(g(x,y\)</span> intersect in a curve, then the
+projection of the intersection onto the <span
+>\(xy\)</span> - plane is the set of all points <span
+>\((x,y,0)\)</span> that satisfy <span
+>\(f = g\)</span></p>
+<p>level curves show the curves on a function that have the same
+value.</p>
+<p><span class="math display">\[f ( x,y) = c\]</span></p>
+<h2 id="limits-and-continuity">Limits and continuity</h2>
+<p>definitions:</p>
+<ul>
+<li><p>the neighborhood of a point <span
+>\(\mathbf{x}_{0}\)</span></p>
+<p><span class="math display">\[\left\{ \mathbf{x} :
+\lVert{{\mathbf{x}-\mathbf{x}_{0}}\rVert} &lt; \delta \right\}
+\text{where} \, \delta &gt; 0\]</span></p></li>
+<li><p>an interior point <span
+>\(\mathbf{x}_0\)</span> is if a set contains a
+neighbourhood of <span >\(\mathbf{x}_0\)</span>. the
+set of all interior points is the interior of the set</p></li>
+<li><p>a boundary point <span
+>\(\mathbf{x}_0\)</span> of a set is if all
+neighbourhoods of <span >\(\mathbf{x}_0\)</span>
+contains points not in the set</p></li>
+<li><p>the boundary of a set is <span >\(\partial
+S\)</span></p></li>
+<li><p>a set is closed if it contains its boundary</p></li>
+<li><p>a set is open if it contains a neighbourhood of all its interior
+points (if all its points are interior points or it contains no boundary
+points)</p></li>
+</ul>
+<p>definition of a limit:</p>
+<p><span class="math display">\[\lim _{\mathbf{x} \to \mathbf{x}_{0}}
+f(\mathbf{x}) = L\]</span></p>
+<p><span class="math display">\[\text{if} \, \forall \, \varepsilon &gt;
+0 \, \exists \, \delta &gt; 0\]</span></p>
+<p><span class="math display">\[\text{if} \, 0 &lt;
+\lVert{{\mathbf{x}-\mathbf{x}_{0}}\rVert} &lt; \delta \, \text{then} \,
+|f(x)-L| &lt; \varepsilon\]</span></p>
+<p>if any two paths to limit does not equal each other, then the limit
+does not exists</p>
+<p>curves to use:</p>
+<ul>
+<li><p>the axis (<span >\(y = 0\)</span>, <span
+>\(x = 0\)</span>)</p></li>
+<li><p>lines (<span >\(y = kx\)</span>)</p></li>
+<li><p>parabola <span >\(y = x^{2}\)</span></p></li>
+</ul>
+<p>plug a path into the limit to turn it into a 1 dimensional limit</p>
+<h2 id="partial-derivatives">Partial derivatives</h2>
+<p>partial derivatives are found by setting all other variables constant
+then differentiating with respect to one variable.</p>
+<p>the notation is:</p>
+<p><span class="math display">\[\frac{\partial}{\partial x} f =
+\partial_{x} f = f_{x}\]</span></p>
+<p>higher order partials</p>
+<p>notation:</p>
+<p><span class="math display">\[\frac{\partial^{2}}{\partial x^{2}} f =
+f_{xx}\]</span></p>
+<p>if a function and its partial derivatives are continous, then the
+mixed partials will be equal</p>
+<p>equation of tangent line on a plane by setting a variable
+constant.</p>
+<p>slope is partial derivative with respect to the other variables</p>
+<h1 id="gradient">gradient</h1>
+<p><span >\(f\)</span> is differentiable at <span
+>\(\mathbf{x}\)</span> if <span
+>\(\exists \, \mathbf{y}\)</span> such that</p>
+<p><span class="math display">\[f ( \mathbf{x} + \mathbf{h}) - f (
+\mathbf{x}) = \nabla f \cdot \mathbf{h} + o (\mathbf{h})\]</span></p>
+<p>where <span >\(o\)</span> is the little o</p>
+<p>gradient</p>
+<p><span class="math display">\[\nabla f = \frac{\partial f}{\partial x}
+\hat{\mathbf{i}} + \frac{\partial f}{\partial y} \hat{\mathbf{j}} +
+\frac{\partial f}{\partial z} \hat{\mathbf{k}}\]</span></p>
+<p>properties of the gradient</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla[f(\mathbf{x})+g(\mathbf{x})] &amp;= \nabla
+f(\mathbf{x})+\nabla g(\mathbf{x}) \\
+    \nabla[\alpha f(\mathbf{x})] &amp;= \alpha \nabla f(\mathbf{x}) \\
+\nabla[f(\mathbf{x}) g(\mathbf{x})] &amp;= f(\mathbf{x}) \nabla
+g(\mathbf{x})+g(\mathbf{x}) \nabla
+f(\mathbf{x})\end{aligned}\]</span></p>
+<p>directional derivatives</p>
+<p>a directional derivative gives the derivative of <span
+>\(f\)</span> in any direction <span
+>\(\hat{\mathbf{u}}\)</span>. it can also be
+described as the component of the gradient vector in the direction.</p>
+<p><span class="math display">\[f_{\mathbf{u}}^{\prime} (\mathbf{x}) =
+\nabla f(\mathbf{x}) \cdot \hat{\mathbf{u}}  =
+f_{\mathbf{u}}^{\prime}(\mathbf{x}) = \text{comp}_{\mathbf{u}} \nabla
+f(\mathbf{x})\]</span></p>
+<p>a function increases most rapidly in the direction of the gradient
+(rate of change is <span >\(\lVert{{\nabla f
+(\mathbf{x})}\rVert}\)</span> ) and decreases most rapidly in the
+direction opposite of the gradient (rate of change is <span
+>\(- \lVert{{\nabla f (\mathbf{x})}\rVert}\)</span>
+).</p>
+<div class="definition">
+<p><strong>definition 12</strong> (mean value theorem of several
+variables). Let <span >\(D \subset
+\mathbb{R}^{n}\)</span> be open, <span >\(f : D
+\rightarrow \mathbb{R}\)</span> is differentiable, and <span
+>\(\overline{\mathbf{a} \mathbf{b}} \in D\)</span>.
+Then <span >\(\exists \, \mathbf{c} \in [\mathbf{a} ,
+\mathbf{b}]\)</span> such that</p>
+<p><span class="math display">\[f(\mathbf{b})-f(\mathbf{a}) = \nabla
+f(\mathbf{c}) \cdot(\mathbf{b}-\mathbf{a})\]</span></p>
+</div>
+<p>chain rule along a curve</p>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}
+t}\left[f(\mathbf{r}(t)) \right] = \nabla f(\mathbf{r}(t)) \cdot
+\mathbf{r}&#39;(t)\]</span></p>
+<h2 id="applications-of-derivatives">Applications of derivatives</h2>
+<p>the gradient of a function is normal to the level curve.</p>
+<p>suppose <span >\(\mathbf{r} (t)\)</span>
+parameterizes a level curve of <span
+>\(f\)</span>.</p>
+<p>then</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\mathrm{d}}{\mathrm{d} t } f(\mathbf{r} (t)) &amp;= 0 \\
+    \nabla f(\mathbf{r}(t)) \cdot \mathbf{r}&#39;(t) &amp;=
+0\end{aligned}\]</span></p>
+<p>as a result,</p>
+<p><span class="math display">\[\nabla f(\mathbf{r}(t)) \perp
+\mathbf{r}&#39;(t)\]</span></p>
+<p>the tangent vector is then</p>
+<p><span class="math display">\[\mathbf{t} = \frac{\partial f}{\partial
+y} \hat{\mathbf{i}} - \frac{\partial f}{\partial x}
+\hat{\mathbf{i}}\]</span></p>
+<p>the tangent line is</p>
+<p><span class="math display">\[\nabla f \cdot \mathbf{d} =
+0\]</span></p>
+<p><span class="math display">\[y - y_{0} = \frac{\partial f / \partial
+y}{\partial f / \partial x} ( x - x_{0})\]</span></p>
+<p>the normal line is</p>
+<p><span class="math display">\[\mathbf{r} (t) = \mathbf{r}_{0} + t
+\nabla f (\mathbf{r}_{0})\]</span></p>
+<p>the tangent plane to a surface:</p>
+<p><span class="math display">\[\nabla f \cdot (\mathbf{r} -
+\mathbf{r}_0) = f_{x} (x-x_{0})+ f_{y} (y-y_{0} )+ f_{z} (z-z_{0}) =
+0\]</span></p>
+<p>horizontal tangent planes:</p>
+<p>set <span >\(\nabla f (x,y) = \mathbf{0}\)</span>
+and solve the system</p>
+<p><span class="math display">\[\begin{aligned}
+    f_{x} &amp;= 0 \\
+    f_{y} &amp;= 0\end{aligned}\]</span></p>
+<p>the normal vector of this is</p>
+<p>the equation of the plane is of the form <span
+>\(z = k , k \in \mathbb{R}\)</span></p>
+<p>angle of intersection between a <span >\(f :
+\mathbb{R}^{n} \rightarrow \mathbb{R}\)</span> and a curve</p>
+<p><span class="math display">\[\cos{\theta} = \frac{\mathbf{r}&#39;(t)
+\cdot \nabla f}{\lVert{{\mathbf{r}&#39;(t)}\rVert}\lVert{{\nabla
+f}\rVert}}\]</span></p>
+<p>definitions:</p>
+<p>for a function <span >\(f : \mathbb{R}^{n}
+\rightarrow \mathbb{R}^{m}\)</span></p>
+<p>Jacobian matrix: all the first partials of <span
+>\(f\)</span> arranged in a matrix.</p>
+<p><span class="math display">\[\mathbf{J}_{ij}=\frac{\partial
+f_{i}}{\partial x_{j}} =
+\begin{bmatrix}
+
+{\dfrac{\partial f_{1}}{\partial x_{1}}} &amp; {\cdots} &amp;
+{\dfrac{\partial f_{1}}{\partial x_{n}}} \\
+
+{\vdots} &amp; {\ddots} &amp; {\vdots} \\
+
+{\dfrac{\partial f_{m}}{\partial x_{1}}} &amp; {\cdots} &amp;
+{\dfrac{\partial f_{m}}{\partial x_{n}}}
+
+\end{bmatrix}\]</span></p>
+<p>Hessian matrix: all the second partials of <span
+>\(f\)</span> arranged in a matrix.</p>
+<p><span class="math display">\[\mathbf{H}_{i,j}=\frac{\partial^{2}
+f}{\partial x_{i} \partial x_{j}} =
+\begin{bmatrix}
+
+    {\dfrac{\partial^{2} f}{\partial x_{1}^{2}}} &amp;
+{\dfrac{\partial^{2} f}{\partial x_{1} \partial x_{2}}} &amp; {\cdots}
+&amp; {\dfrac{\partial^{2} f}{\partial x_{1} \partial x_{n}}} \\
+
+    {\dfrac{\partial^{2} f}{\partial x_{2} \partial x_{1}}} &amp;
+{\dfrac{\partial^{2} f}{\partial x_{2}^{2}}} &amp; {\cdots} &amp;
+{\dfrac{\partial^{2} f}{\partial x_{2} \partial x_{n}}} \\
+
+    {\vdots} &amp; {\vdots} &amp; {\ddots} &amp; {\vdots} \\
+
+    {\dfrac{\partial^{2} f}{\partial x_{n} \partial x_{1}}} &amp;
+{\dfrac{\partial^{2} f}{\partial x_{n} \partial x_{2}}} &amp; {\cdots}
+&amp; {\dfrac{\partial^{2} f}{\partial x_{n}^{2}}}
+
+\end{bmatrix}\]</span></p>
+<div class="definition">
+<p><strong>definition 13</strong> (local extrema). Let <span
+>\(f : D \rightarrow \mathbb{R} , D \subset
+\mathbb{R}^{n} , \mathbf{x}_0 \in D\)</span>.</p>
+<ul>
+<li><p><span >\(f\)</span> attains an <em>local
+maximum</em> at <span >\(\mathbf{x}_{0}\)</span>
+if</p>
+<p><span class="math display">\[f(\mathbf{x}_{0}) \geq f(\mathbf{x}) \,
+\forall \, \mathbf{x} \, \text{in a neighborhood of} \,
+\mathbf{x}_0\]</span></p></li>
+<li><p><span >\(f\)</span> attains an <em>local
+minimum</em> at <span >\(\mathbf{x}_{0}\)</span>
+if</p>
+<p><span class="math display">\[f(\mathbf{x}_{0}) \leq f(\mathbf{x}) \,
+\forall \, \mathbf{x} \, \text{in a neighborhood of} \,
+\mathbf{x}_0\]</span></p></li>
+</ul>
+</div>
+<div class="theorem">
+<p><strong>theorem 1</strong>. <em>If <span
+>\(f\)</span> has a local extreme value at <span
+>\(\mathbf{x}_0\)</span>, then</em></p>
+<p><em><span class="math display">\[\nabla f(\mathbf{x}_0) = 0 \,
+\text{or} \, \nabla f(\mathbf{x}_0) \, \text{does not
+exist}\]</span></em></p>
+</div>
+<ul>
+<li><p>stationary point - where <span >\(\nabla f =
+0\)</span></p></li>
+<li><p>saddle point - a stationary point where there is no local
+extrema</p></li>
+</ul>
+<p>second partial derivative test:</p>
+<p>Let <span >\(f: \mathbb{R}^{2} \rightarrow
+\mathbb{R}\)</span> and <span >\(\nabla
+f(\mathbf{x}_{0}) = 0\)</span> (or does not exist),</p>
+<ul>
+<li><p><span >\(f(\mathbf{x}_{0})\)</span> is a local
+minimum if</p>
+<p><span class="math display">\[\operatorname{det}
+\mathbf{H}(\mathbf{x}_{0}) &gt; 0  \, \text{and} \, f_{xx}
+(\mathbf{x}_{0}) \, \text{or} \, f_{yy} (\mathbf{x}_{0}) &gt;
+0\]</span></p></li>
+<li><p><span >\(f(\mathbf{x}_{0})\)</span> is a local
+maximum if</p>
+<p><span class="math display">\[\operatorname{det}
+\mathbf{H}(\mathbf{x}_{0}) &gt; 0 \, \text{and} \, f_{xx}
+(\mathbf{x}_{0}) \, \text{or} \, f_{yy}(\mathbf{x}_{0}) &lt;
+0\]</span></p></li>
+<li><p><span >\(f(\mathbf{x}_{0})\)</span> is a
+saddle point if</p>
+<p><span class="math display">\[\operatorname{det}
+\mathbf{H}(\mathbf{x}_{0}) &lt; 0\]</span></p></li>
+<li><p>the test is inconclusive if</p>
+<p><span class="math display">\[\operatorname{det}
+\mathbf{H}(\mathbf{x}_{0}) = 0\]</span></p></li>
+</ul>
+<div class="definition">
+<p><strong>definition 14</strong> (absolute extrema). Let <span
+>\(f : D \rightarrow \mathbb{R} , D \subset
+\mathbb{R}^{n}\)</span>.</p>
+<ul>
+<li><p><span >\(f\)</span> attains an <em>absolute
+maximum</em> at <span >\(\mathbf{x}_{0}\)</span>
+if</p>
+<p><span class="math display">\[f(\mathbf{x}_{0}) \geq f(\mathbf{x}) \,
+\forall \, \mathbf{x} \in D\]</span></p></li>
+<li><p><span >\(f\)</span> attains an <em>absolute
+minimum</em> at <span >\(\mathbf{x}_{0}\)</span>
+if</p>
+<p><span class="math display">\[f(\mathbf{x}_{0}) \leq f(\mathbf{x}) \,
+\forall \, \mathbf{x} \in D\]</span></p></li>
+</ul>
+</div>
+<p>common parameterisations:</p>
+<ul>
+<li><p>the line segment from <span >\((x_0,
+y_0)\)</span> to <span >\((x_1,y_1)\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+        x &amp;= x_{0} + t(x_{1} - x_{0}) \\
+        y &amp;= y_{0} + t(y_{1} - y_{0}), t \in [0, 1] \\
+    \end{aligned}\]</span></p></li>
+<li><p>the circle <span >\(\left(x^2 + y^2 = r^{2}
+\right)\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+        x &amp;= r \cos{t} \\
+        y &amp;= r \sin{t}, t \in [0, 2 \pi]
+    \end{aligned}\]</span></p></li>
+<li><p>the ellipse <span >\(\left( \dfrac{x^2}{a^2} +
+\dfrac{y^2}{b^2} = 1 \right)\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+        x &amp;= a \cos{t} \\
+        y &amp;= b \sin{t}, t \in [0, 2 \pi]
+    \end{aligned}\]</span></p></li>
+<li><p>functions of the form <span >\(y = f
+(x)\)</span> from <span >\(f(a)\)</span> to <span
+>\(f(b)\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+        x &amp;= t \\
+        y &amp;= f (t), t \in [a, b]
+    \end{aligned}\]</span></p></li>
+</ul>
+<div class="definition">
+<p><strong>definition 15</strong> (bounded set). A set <span
+>\(S\)</span> is <em>bounded</em> if <span
+>\(\exists \, R \in \mathbb{R}^{+}\)</span> such that
+<span >\(\lVert{{\mathbf{x}}\rVert} \leq R \, \forall
+\, \mathbf{x} \in S\)</span></p>
+</div>
+<p>in other words, if the set can be surrounded by an <span
+>\(n\)</span>-sphere, then it is bounded.</p>
+<div class="theorem">
+<p><strong>theorem 2</strong> (extreme value theorem). <em>If <span
+>\(f\)</span> is continuous on a bounded closed set
+<span >\(D\)</span>, then <span
+>\(f\)</span> takes on an absolute maximum value and
+an absolute minimum value.</em></p>
+</div>
+<p>steps to find absolute extrema:</p>
+<ol>
+<li><p>find the critical points of <span
+>\(f\)</span> in the interior of <span
+>\(D\)</span></p></li>
+<li><p>find the endpoints of the boundary of <span
+>\(D\)</span></p></li>
+<li><p>find the critical points of <span
+>\(f\)</span> on the boundary of <span
+>\(D\)</span> by parametrizing <span
+>\(D\)</span></p></li>
+<li><p>evaluate <span >\(f\)</span> at those
+points</p></li>
+</ol>
+<h3 id="lagrange-multipliers">Lagrange multipliers</h3>
+<p>the method of Lagrange multipliers is a strategy for finding local
+extrema of a function subject to constraint.</p>
+<p>steps to using Lagrange multipliers</p>
+<ol>
+<li><p>set the constraint <span >\(g =
+0\)</span></p></li>
+<li><p>solve the system for either <span
+>\(\lambda\)</span> or in terms of <span
+>\(\lambda\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+        \nabla f &amp;= \lambda \nabla g \\
+        g &amp;= 0
+    \end{aligned}\]</span></p></li>
+<li><p>test points from the solutions of the system</p></li>
+</ol>
+<p>tips:</p>
+<ul>
+<li><p>when dividing by a variable, consider that the variable may be
+equal to 0</p></li>
+<li><p>when choosing signs of solutions, be sure they match for all
+<span >\(\lambda\)</span></p></li>
+</ul>
+<h3 id="differentials-and-approximation">differentials and
+approximation</h3>
+<p>the differential of <span >\(f\)</span> is</p>
+<p><span class="math display">\[\mathrm{d}f = \nabla f \cdot
+\mathbf{h}\]</span></p>
+<div class="center">
+<p>where <span >\(\mathbf{h}\)</span> is a small
+increment.</p>
+</div>
+<p>to approximate <span >\(f\)</span> starting at the
+point <span >\(\mathbf{x}_{0}\)</span> by an
+increment <span >\(\mathbf{h}\)</span></p>
+<p><span class="math display">\[f(\mathbf{x}_{0} + \mathbf{h}) =
+f(\mathbf{x}_{0})+ \mathrm{d}f(\mathbf{x}_{0})\]</span></p>
+<h2 id="potential-functions">potential functions</h2>
+<p>given a conservative ector field <span
+>\(\mathbf{F} : \mathbb{R}^{2} \rightarrow
+\mathbb{R}^{2}\)</span>, there is a scalar potential function <span
+>\(f\)</span> that satisfies</p>
+<p><span class="math display">\[\nabla f = \mathbf{F}\]</span></p>
+<div class="theorem">
+<p><strong>theorem 3</strong> (). <em>If <span
+>\(\Omega \subset \mathbb{R}^{2}\)</span>, <span
+>\(P : \mathbb{R}^{2} \rightarrow \mathbb{R}\)</span>
+and <span >\(Q : \mathbb{R}^{2} \rightarrow
+\mathbb{R}\)</span> differentiable on a simply connected open region
+<span >\(\Omega\)</span>, then</em></p>
+<p><em><span class="math display">\[P (x,y) \mathbf{i} + Q (x,y)
+\mathbf{j} = \nabla f \iff \frac{\partial P}{\partial y} =
+\frac{\partial Q}{\partial x} \, \forall \, (x,y) \in
+\Omega\]</span></em></p>
+</div>
+<p>steps to find a potential function <span
+>\(f\)</span> of a gradient field <span
+>\(\mathbf{F} = P (x,y) \mathbf{i} + Q (x,y)
+\mathbf{j}\)</span></p>
+<ol>
+<li><p>integrate with respect to <span >\(x\)</span>,
+keeping <span >\(y\)</span> constant. the “constant
+of integration" is a function solely dependent on <span
+>\(y\)</span></p></li>
+<li><p>differentiate the result with respect to <span
+>\(y\)</span></p></li>
+<li><p>equate the result with <span >\(Q
+(x,y)\)</span> and solve for <span
+>\(h(y)\)</span></p>
+<p><span class="math display">\[f = \int P (x,y) \, \mathrm{d}x + h(y) +
+C\]</span></p></li>
+</ol>
+<h1 id="multiple-integrals">Multiple integrals</h1>
+<h2 id="approximations">Approximations</h2>
+<p>double Riemann sum</p>
+<p><span class="math display">\[\iint_{R} f(x, y) \, \mathrm{d} x \,
+\mathrm{d} y = \lim _{m, n \to \infty} \sum_{i=1}^{m} \sum_{j=1}^{n} f
+\left(x_{i j}^{*}, y_{i j}^{*}\right) \Delta x_{i} \Delta
+y_{j}\]</span></p>
+<p>lower sum:</p>
+<p><span class="math display">\[\sum_{i = 1}^{m} \sum_{j = 1}^{n}
+\mathrm{min}{\left[f (x_{i j}, y_{i j})\right]} \Delta x_{i} \Delta
+y_{j}\]</span></p>
+<p>upper sum:</p>
+<p><span class="math display">\[\sum_{i=1}^{m} \sum_{j=1}^{n}
+\mathrm{max}{\left[f (x_{i j}, y_{i j})\right]} \Delta x_{i} \Delta
+y_{j}\]</span></p>
+<h2 id="double-integrals">Double integrals</h2>
+<div class="theorem">
+<p><strong>theorem 4</strong> (Fubini’s theorem). <em>If <span
+>\(A\)</span> and <span
+>\(B\)</span> are complete measure spaces, <span
+>\(f (x , y)\)</span> is <span
+>\(A \times B\)</span> measurable, and <span
+>\(\displaystyle \int_{A \times B}|f(x, y)| \,
+\mathrm{d}(x, y)&lt;\infty\)</span>, then</em></p>
+<p><em><span class="math display">\[\int_{A}\left(\int_{B} f(x, y) \,
+\mathrm{d} y\right) \mathrm{d} x=\int_{B}\left(\int_{A} f(x, y) \,
+\mathrm{d} x\right) \mathrm{d} y=\int_{A \times B} f(x, y) \,
+\mathrm{d}(x, y)\]</span></em></p>
+</div>
+<p>Fubini’s theorem allows the order of integration to be changed in
+iterated integrals.</p>
+<p>Type I region:</p>
+<p><span class="math display">\[\Omega = \{(x, y): a \leq x \leq b, g(x)
+\leq y \leq h(x)\}\]</span></p>
+<p>then</p>
+<p><span class="math display">\[\iint_{\Omega} f(x, y) \, \mathrm{d} A =
+\int_{a}^{b} \int_{g(x)}^{h(x)} f(x, y) \, \mathrm{d} y \, \mathrm{d}
+x\]</span></p>
+<p>Type II region:</p>
+<p><span class="math display">\[\Omega = \{(x, y): a \leq y \leq b, g(y)
+\leq y \leq h(y)\}\]</span></p>
+<p>then</p>
+<p><span class="math display">\[\iint_{\Omega} f(x, y) \, \mathrm{d} A =
+\int_{a}^{b} \int_{g(x)}^{h(x)} f(x, y) \, \mathrm{d} x \, \mathrm{d}
+y\]</span></p>
+<p>area of a region R</p>
+<p><span class="math display">\[A = \iint_{R} 1 \, \mathrm{d}
+A\]</span></p>
+<p>volume over a region R</p>
+<p><span class="math display">\[V = \iint_{R} f (x,y) \, \mathrm{d}
+A\]</span></p>
+<p>tip: when finding the volume of a tetrahedron, use <span
+>\(u\)</span>-substitution. for the entire
+function.</p>
+<h2 id="triple-integrals">Triple integrals</h2>
+<h2 id="integrals-in-other-coordinates">Integrals in other
+coordinates</h2>
+<p>area:</p>
+<p><span class="math display">\[\iint_{\Gamma} r \, \mathrm{d} r
+\,  \mathrm{d} \theta\]</span></p>
+<p>volume:</p>
+<p><span class="math display">\[\iint_{\Gamma} F(r, \theta) r \,
+\mathrm{d} r \, \mathrm{d} \theta\]</span></p>
+<p>mass:</p>
+<p><span class="math display">\[M = \iint_{\Omega} \rho (x, y) \,
+\mathrm{d} A\]</span></p>
+<p>center of mass:</p>
+<p><span class="math display">\[x_{cm} = \frac{1}{M} \iint_{\Omega} x
+\rho (x, y) \, \mathrm{d} A\]</span></p>
+<p><span class="math display">\[y_{cm} = \frac{1}{M} \iint_{\Omega} y
+\rho (x, y) \, \mathrm{d} A\]</span></p>
+<p>cartesian to spherical</p>
+<p><span class="math display">\[\begin{aligned}
+    \rho^2 &amp;= x^2 + y^2 + z^2 \\
+    z &amp;= \rho \cos \phi &amp; x &amp;= r \cos \theta \\
+    r &amp;= \rho \sin \phi &amp; y &amp;= r \sin \theta
+\\\end{aligned}\]</span></p>
+<p>Changing the volume element:</p>
+<p>suppose the function <span >\(f : \mathbb{R}^{n}
+\rightarrow \mathbb{R}^{n}\)</span></p>
+<p>then</p>
+<p>Using the Jacobian to change coordinates:</p>
+<p>the element is</p>
+<p><span class="math display">\[\lvert \operatorname{det} (\mathbf{J})
+\rvert \, \mathrm{d} u \, \mathrm{d} v\]</span></p>
+<p>properties of double integrals:</p>
+<ul>
+<li><p>linearity</p>
+<p><span class="math display">\[\iint_{R} f(x, y)+ g(x, y) \, \mathrm{d}
+A = \iint_{R} f(x, y) \, \mathrm{d} A + \iint_{R} g(x, y) \, \mathrm{d}
+A\]</span></p>
+<p><span class="math display">\[\iint_{R} c f(x, y) \, \mathrm{d} A = c
+\iint_{R} f(x, y) \, \mathrm{d} A\]</span></p></li>
+<li><p>if <span >\(R=S \cup T\)</span>, <span
+>\(S\)</span> and <span
+>\(T\)</span> are disjoint (except boundary
+overlaps), then</p>
+<p><span class="math display">\[\iint_{R} f(x, y) \, \mathrm{d} A =
+\iint_{S} f(x, y) \, \mathrm{d} A + \iint_{T} f(x, y) \, \mathrm{d}
+A\]</span></p></li>
+<li><p>if <span >\(m \leq f(x, y) \leq M\)</span>,
+then</p>
+<p><span class="math display">\[m \times A(R) \leq \iint_{R} f(x, y) \,
+\mathrm{d} A \leq M \times A(R)\]</span></p></li>
+<li><p>if <span >\(f(x,y) = g(x) \cdot h(y)\)</span>,
+then</p>
+<p><span class="math display">\[\int_{R} f(x, y) \, \mathrm{d}
+A=\left(\int_{a}^{b} g(x) \, \mathrm{d} x\right)\left(\int_{c}^{d} h(y)
+\, \mathrm{d} y\right)\]</span></p></li>
+</ul>
+<table>
+<caption>Specific area and volume elements</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">coordinates</th>
+<th style="text-align: left;">area (<span
+>\(\mathrm{d} A\)</span>)</th>
+<th style="text-align: left;">volume (<span
+>\(\mathrm{d} V\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cartesian</td>
+<td style="text-align: left;"><span >\(\mathrm{d} x
+\, \mathrm{d} y\)</span></td>
+<td style="text-align: left;"><span >\(\mathrm{d} x
+\,\mathrm{d} y \,\mathrm{d} z\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">polar</td>
+<td style="text-align: left;"><span >\(\mathrm{d} r
+\,\mathrm{d} \theta\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cylindrical</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span >\(r \,
+\mathrm{d} r \, \mathrm{d} \theta \, \mathrm{d} z\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">spherical</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span >\(\rho^{2} \sin
+\phi \, \mathrm{d} \rho \,\mathrm{d} \theta \, \mathrm{d}
+\phi\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Mean-value theorem for 2 variable functions</p>
+<p><span class="math display">\[\mu_{f} = \frac{1}{A(R)} \iint_{R} f
+(x,y) \, \mathrm{d} A\]</span></p>
+<h2 id="applications-of-multiple-integrals">Applications of multiple
+integrals</h2>
+<h1 id="lines-and-surface-integrals">Lines and surface integrals</h1>
+<p>A line integral is defined as:</p>
+<p>For a parameterised curve, <span
+>\(\mathbf{r}(t)\)</span>, and a vector field <span
+>\(\mathbf{F}\)</span>,</p>
+<p><span class="math display">\[\int_{C} \mathbf{F}(\mathbf{r}) \cdot
+\mathrm{d} \mathbf{r} = \int_{a}^{b} \mathbf{F}[\mathbf{r}(t)] \cdot
+\mathbf{r}&#39;(t) \, \mathrm{d} t\]</span></p>
+<p>line integral of a scalar function: <span
+>\(C\)</span> has a parameterisation <span
+>\(\mathbf{r} (u)\)</span></p>
+<p><span class="math display">\[\int_{C} f (x,y,z) \, \mathrm{d} s =
+\int_{a}^{b} f (\mathbf{r}) \lVert{{\mathbf{r}}\rVert} \, \mathrm{d}
+u\]</span></p>
+<div class="theorem">
+<p><strong>theorem 5</strong> (gradient theorem). <em>Let <span
+>\(f : D \subset \mathbb{R}^{n} \rightarrow
+\mathbb{R}\)</span> be continuouly differentiable and <span
+>\(C\)</span> any curve in <span
+>\(D\)</span> that starts at <span
+>\(\mathbf{a}\)</span> and ends at <span
+>\(\mathbf{b}\)</span>. then</em></p>
+<p><em><span class="math display">\[\int_{C} \nabla f(\mathbf{r}) \cdot
+\mathrm{d} \mathbf{r} = f(\mathbf{b})-f(\mathbf{a})\]</span></em></p>
+</div>
+<p>potential (conservative) function of a field</p>
+<p>for closed curves <span >\(\mathbf{a} =
+\mathbf{b}\)</span>, then</p>
+<p><span class="math display">\[\int_{C} \nabla f(\mathbf{r}) \cdot
+\mathrm{d} \mathbf{r} = 0\]</span></p>
+<p>alternate notation for line integrals</p>
+<p><span class="math display">\[\int_{C} \mathbf{F}(\mathbf{r}) \cdot
+\mathrm{d} \mathbf{r} = \int_{C} P (x,y) \, \mathrm{d} x + Q(x,y) \,
+\mathrm{d}y\]</span></p>
+<div class="definition">
+<p><strong>definition 16</strong> (closed curve). A curve with no
+endpoints and which completely encloses an area</p>
+</div>
+<div class="definition">
+<p><strong>definition 17</strong> (Jordan curve). the image <span
+>\(C\)</span> of an injective continuous map of a
+circle into the plane</p>
+<p><span class="math display">\[\phi : S^{1} \rightarrow
+\mathbb{R}^2\]</span></p>
+</div>
+<p>notes:</p>
+<ul>
+<li><p>a curve that does not cross itself</p></li>
+<li><p>also called a <em>simple closed curve</em></p></li>
+<li><p>the positive direction is counterclockwise</p></li>
+</ul>
+<div class="definition">
+<p><strong>definition 18</strong> (Jordan region). a region bounded by a
+Jordan curve</p>
+</div>
+<div class="theorem">
+<p><strong>theorem 6</strong> (Green’s theorem). <em><span
+class="math display">\[\oint_{C} \mathbf{F} \cdot \mathrm{d} \mathbf{r}
+= \oint_{C} P (x,y) \, \mathrm{d} x + Q(x,y) \, \mathrm{d} y = \iint_{D}
+\left( \partial_{x} Q - \partial_{y} P \right)\mathrm{d} x \, \mathrm{d}
+y\]</span></em></p>
+</div>
+<p>corollary: if partials are equal, then integral is 0.</p>
+<p>area with Green’s theorem</p>
+<p><span class="math display">\[\oint_{C} -y \, \mathrm{d} x = \oint_{C}
+x \, \mathrm{d} y = \frac{1}{2} \oint_{C} -y \, \mathrm{d} x + x \,
+\mathrm{d} y\]</span></p>
+<p>surface integrals</p>
+<p>fundamental vector product</p>
+<p><span class="math display">\[\mathbf{N} = \mathbf{r}_{u}^{\prime}
+\times \mathbf{r}_{v}^{\prime}\]</span></p>
+<p>if <span >\(z = f(x,y)\)</span>, then</p>
+<p><span class="math display">\[\lVert{{\mathbf{N} (x, y)}\rVert} =
+\sqrt{\left(f_{x}\right)^{2}+\left(f_{y}\right)^{2} + 1}\]</span></p>
+<p>surface area:</p>
+<p><span class="math display">\[\iint_{\Omega} \lVert{{\mathbf{N} (u,
+v)}\rVert} \, \mathrm{d} u \, \mathrm{d} v\]</span></p>
+<p><span class="math display">\[\iint_{\Omega}
+\sqrt{\left(f_{x}\right)^{2}+\left(f_{y}\right)^{2} + 1} \, \mathrm{d} x
+\, \mathrm{d} y\]</span></p>
+<p>surface integral <span class="math display">\[\iint_{S} H(x, y, z) \,
+\mathrm{d} \sigma\]</span></p>
+<p>surface element:</p>
+<p><span class="math display">\[\mathrm{d} \sigma = \lVert{{\mathbf{N}
+(u, v)}\rVert} \, \mathrm{d} u \, \mathrm{d} v\]</span></p>
+<h2 id="divergence-and-curl">divergence and curl</h2>
+<p><span class="math display">\[\mathbf{F} = f_{1} \hat{\mathbf{i}} +
+f_{2} \hat{\mathbf{j}} + f_{3} \hat{\mathbf{k}}\]</span></p>
+<p><span class="math display">\[\nabla \cdot \mathbf{F} = \partial_x
+f_{1} + \partial_y f_{2} + \partial_{z} f_{3}\]</span></p>
+<p>curl</p>
+<p><span class="math display">\[\nabla \times \mathbf{F} =
+\begin{vmatrix}
+        \hat{\mathbf{i}} &amp; \hat{\mathbf{j}} &amp; \hat{\mathbf{k}}
+\\
+        \partial_{x} &amp; \partial_{y} &amp; \partial_{z} \\
+        f_{1} &amp; f_{2} &amp; f_{3}
+    \end{vmatrix}\]</span></p>
+<p>divergence: how much a vector field points away from / to a
+source.</p>
+<p>curl: how much rotation a vector field is doing. follows right hand
+rule</p>
+<p>divergence theorem: extension of Green's theorem into 3D</p>
+<div class="theorem">
+<p><strong>theorem 7</strong> (divergence theorem). <em>Suppose <span
+>\(V \subset \mathbb{R}^{n}\)</span> is compact and
+has a piecewise smooth boundary <span >\(S\)</span>.
+If <span >\(\mathbf{F}\)</span> is a continuously
+differentiable vector field defined on a neighborhood of <span
+>\(V\)</span>, then</em></p>
+<p><em><span class="math display">\[\iiint_{V} \nabla \cdot \mathbf{F}
+\, \mathrm{d} V = \iint_{S} \mathbf{F} \cdot \hat{\mathbf{n}} \,
+\mathrm{d} S\]</span></em></p>
+</div>
+<p>physical meaning: flux of <span
+>\(\mathbf{F}\)</span> through <span
+>\(S\)</span>, the amount of <span
+>\(\mathbf{F}\)</span> pointing out of <span
+>\(S\)</span>.</p>
+<p>the double integral is easier</p>
+<div class="theorem">
+<p><strong>theorem 8</strong> (Stokes' theorem). <em>Suppose <span
+>\(V \subset \mathbb{R}^{n}\)</span> is compact and
+has a piecewise smooth boundary <span >\(S\)</span>.
+If <span >\(\mathbf{F}\)</span> is a continuously
+differentiable vector field defined on a neighborhood of <span
+>\(V\)</span>, then</em></p>
+<p><em><span class="math display">\[\oint_{C} \mathbf{F} \cdot
+\mathrm{d} \mathbf{r} = \iint_{S} \left( \nabla \times \mathbf{F}
+\right) \cdot \hat{\mathbf{n}} \, \mathrm{d}
+\mathbf{S}\]</span></em></p>
+</div>
+<p>do the line integral</p>
+</body>
+</html>

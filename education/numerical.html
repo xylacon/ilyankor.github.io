@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  		<meta charset="UTF-8">
+		<meta name="generator" content="pandoc" />
+		<meta name="description" content="Personal website of Miles Bi">
+        <meta name="author" content="Miles Bi">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="notes.css">
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+        </script>
+
+		<title>Education | Intro to Numerical Analysis</title>
+
+	</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Introduction to Numerical Analysis</h1>
+<p class="author">University of Houston</p>
+<p class="date">Spring 2022</p>
+</header>
+<h1 id="concepts">Concepts</h1>
+<h2 class="unnumbered" id="stopping-criteria.">Stopping criteria.</h2>
+<p>Absolute error Relative error</p>
+<h2 class="unnumbered"
+id="approximations-and-convergence.">Approximations and
+convergence.</h2>
+<p>Let <span >\(Q\)</span> be a quantity and <span
+>\(A_h\)</span> an approximation of <span
+>\(Q\)</span>. Let <span >\(h \neq
+0\)</span>. If <span >\(k&gt;0\)</span>, then <span
+>\(A_h\)</span> is an <span
+>\(O\left(h^k\right)\)</span> approximation of <span
+>\(Q\)</span> if and and only if there exists a
+constant <span >\(C &gt; 0\)</span> such that <span
+class="math display">\[\left|Q - A_h\right| \leq C |h|^k\]</span></p>
+<h2 class="unnumbered" id="taylors-theorem.">Taylor’s theorem.</h2>
+<p>Taylor’s theorem with Lagrange form of remainder.</p>
+<p>Let <span >\(n \in \mathbb{N}\)</span> and <span
+>\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span> be
+<span >\(n + 1\)</span> times differentiable at <span
+>\(x = a\)</span>.</p>
+<p><span class="math display">\[f(x) = f(a) + \sum_{k = 1}^{n}
+\frac{1}{k!}f^{(k)}(x-a)^k + R(x)\]</span></p>
+<p>Lagrange form of the remainder: for all <span >\(x
+\in [a,b]\)</span> there exists <span >\(z_k \in
+(a,x)\)</span> such that <span class="math display">\[R(x) =
+\frac{1}{(k+1)!}f^{(k+1)}(z_k) (x-a)^{k+1}\]</span></p>
+<h2 class="unnumbered" id="multivariable-chain-rule.">Multivariable
+chain rule.</h2>
+<p>Let <span >\(z = f(x,y)\)</span>, where <span
+>\(x\)</span> and <span
+>\(y\)</span> are functions of <span
+>\(t\)</span>. Then, <span
+class="math display">\[\frac{\mathrm{d}z}{\mathrm{d}t} = \frac{\partial
+f}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial
+f}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t}\]</span></p>
+<h2 class="unnumbered" id="multivariable-derivatives.">Multivariable
+derivatives.</h2>
+<p>Let <span >\(f: \mathbb{R}^n \rightarrow
+\mathbb{R}\)</span>. <span class="math display">\[f&#39;(\mathbf{x}) =
+\left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2},
+\cdots, \frac{\partial f}{\partial x_n} \right]\]</span></p>
+<p>Gradient. <span
+class="math display">\[\operatorname{grad}{f(\mathbf{x})} = \nabla
+f(\mathbf{x}) = (f&#39;(\mathbf{x}))^{\top}\]</span> The gradient points
+in the greatest direction of increase.</p>
+<p><span class="math display">\[f&#39;&#39;(\mathbf{x}) = (\nabla
+f)&#39;(\mathbf{x})\]</span> Due to equality of mixed partials, <span
+>\(f&#39;&#39;(\mathbf{x})\)</span> is a symmetric
+matrix.</p>
+<p>Let <span >\(f: \mathbb{R}^n \rightarrow
+\mathbb{R}^m\)</span>. <span class="math display">\[f&#39;(\mathbf{x}) =
+\begin{bmatrix}
+   \dfrac{\partial f_1}{\partial x_1} &amp; \dfrac{\partial
+f_1}{\partial x_2} &amp; \cdots &amp; \dfrac{\partial f_1}{\partial x_n}
+\\
+   \dfrac{\partial f_2}{\partial x_1} &amp; \dfrac{\partial
+f_2}{\partial x_2} &amp; \cdots &amp; \dfrac{\partial f_2}{\partial x_n}
+\\
+   \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+   \dfrac{\partial f_m}{\partial x_1} &amp; \dfrac{\partial
+f_m}{\partial x_2} &amp; \cdots &amp; \dfrac{\partial f_m}{\partial x_n}
+\\
+\end{bmatrix}\]</span></p>
+<h2 class="unnumbered" id="critical-points.">Critical points.</h2>
+<p>Let <span >\(f:\mathbb{R}^n \rightarrow
+\mathbb{R}\)</span>. A critical point of <span
+>\(f\)</span> is a point <span
+>\(\mathbf{p} \in \mathbb{R}^n\)</span> such that
+<span >\(\nabla f(\mathbf{p}) =
+\mathbf{0}\)</span>.</p>
+<h2 class="unnumbered" id="symmetric-matrices.">Symmetric matrices.</h2>
+<p>Let <span >\(A\)</span> be a symmetric matrix.
+<span >\(A\)</span> is:</p>
+<ul>
+<li><p>positive definite if <span >\(\det ( A_k) &gt;
+0\)</span>.</p></li>
+<li><p>negative definite if <span >\((-1)^k \det (
+A_k) &gt; 0\)</span>.</p></li>
+<li><p>neither if it is neither positive or negative definite.</p></li>
+</ul>
+<h2 class="unnumbered" id="local-extrema.">Local extrema.</h2>
+<p>Let <span >\(f:\mathbb{R}^n \rightarrow
+\mathbb{R}\)</span> and <span >\(\mathbf{p}\)</span>
+a critical point. If <span
+>\(f&#39;&#39;(\mathbf{p})\)</span> is:</p>
+<ul>
+<li><p>positive definite, then it is a local minimum.</p></li>
+<li><p>negative definite, then it is a local maximum.</p></li>
+<li><p>neither, then it is a saddle point.</p></li>
+</ul>
+<h1 id="algorithms">Algorithms</h1>
+<h2 class="unnumbered" id="bisection-method.">Bisection method.</h2>
+<p>Let <span >\(f:[a,b] \rightarrow
+\mathbb{R}\)</span> be a continuous function and <span
+>\([a,b]\)</span> brackets a zero of <span
+>\(f(x)\)</span>.</p>
+<pre><code>Let $p_{n+1} = \dfrac{a_n + b_n}{2}$
+If $f(p_n) = 0$, stop.
+If $f(a_n)f(p_n) &lt; 0$, then
+    $a_{n+1} = a_n$
+    $b_{n+1} = p_n$
+Else,
+    $a_{n+1} = p_n$
+    $b_{n+1} = b_n$</code></pre>
+<p>Conclusion: <span >\(p_{n+1}\)</span> approximates
+within <span >\(\dfrac{b-a}{2^{n+1}}\)</span>
+Convergence: <span >\(O(h)\)</span></p>
+<h3 class="unnumbered" id="lazy-bisection-method.">Lazy bisection
+method.</h3>
+<p>Same as bisection method, but does not check if <span
+>\(f\left(p_n\right) = 0\)</span>, and modify the
+check to <span >\(f(a_n)f(p_n) \leq 0\)</span></p>
+<h2 class="unnumbered" id="newtons-method.">Newton’s method.</h2>
+<p>Let <span >\(f:[a,b] \rightarrow
+\mathbb{R}\)</span> be a twice differentiable function and there exists
+<span >\(p\)</span> such that <span
+>\(f(p) = 0\)</span> and <span
+>\(f&#39;(p) \neq 0\)</span>. Let <span
+>\(p_0\)</span> be an initial guess. <span
+class="math display">\[p_{n+1} = p_n
+-  \frac{f\left(p_n\right)}{f&#39;\left(p_n\right)}\]</span></p>
+<p>Convergence: <span >\(O(h^2)\)</span>. It can fail
+if <span >\(p_0\)</span> is not chosen close
+enough.</p>
+<h2 class="unnumbered" id="secant-method.">Secant method.</h2>
+<p>Same as Newton’s method, except <span
+>\(f&#39;\left(p_n\right)\)</span> is replaced by a
+secant line approximation. Requires two initial guesses, <span
+>\(p_0\)</span> and <span
+>\(p_1\)</span>. <span
+class="math display">\[f&#39;\left(p_n\right) \approx
+\frac{f\left(p_n\right) - f\left(p_{n-1}\right)}{p_n - p_{n-1}}\]</span>
+<span class="math display">\[p_{n+1} = p_n -
+\frac{f\left(p_n\right)\left(p_n - p_{n-1}\right)}{f\left(p_n\right) -
+f\left(p_{n-1}\right)}\]</span></p>
+<p>Convergence: <span >\(O(h^r)\)</span>, where <span
+>\(r=\dfrac{1 + \sqrt{5}}{2}\)</span>.</p>
+<h2 class="unnumbered" id="false-position-method">False position
+method</h2>
+<p>Same as bisection method, but replace midpoint with <span
+>\(x\)</span>-intercept of the secant line.</p>
+<p><span class="math display">\[p_{n+1} = a_1 -
+\frac{f\left(a_1\right)\left(b_1 - a_1\right)}{f\left(b_1\right) -
+f\left(a_1\right)}\]</span></p>
+<p>Convergence: More rapid than the bisection method.</p>
+<h2 class="unnumbered" id="fixed-point-iteration.">Fixed point
+iteration.</h2>
+<p>Similar to Newton’s method. Choose <span
+>\(p_0\)</span> such that <span
+>\(-\dfrac{2}{f&#39;(x)} &lt;
+-\dfrac{1}{f&#39;\left(p_0\right)} &lt; 0\)</span> for <span
+>\(x \in [a,b]\)</span></p>
+<p><span class="math display">\[p_{n+1} = p_n -
+\frac{f\left(p_n\right)}{f&#39;\left(p_0\right)}\]</span></p>
+<h2 class="unnumbered" id="modified-newtons-method.">Modified Newton’s
+method.</h2>
+<p>Let <span >\(f\)</span> be sufficiently
+smooth.</p>
+<p><span class="math display">\[p_{n+1} = p_n -
+\frac{f\left(p_n\right)f&#39;\left(p_n\right)}{\left[f&#39;\left(p_n\right)\right]^2
+- f\left(p_n\right)f&#39;&#39;\left(p_n\right)}\]</span></p>
+<h2 class="unnumbered"
+id="forward-and-backward-difference-approximations.">Forward and
+backward difference approximations.</h2>
+<p>Let <span >\(f\)</span> be twice
+differentiable.</p>
+<p><span class="math display">\[f&#39;(x) \approx
+\frac{f(x+h)-f(x)}{h}\]</span></p>
+<p>Error:</p>
+<p><span class="math display">\[\left| f&#39;(x) -
+f_{\text{approx}}&#39;(x) \right| = \frac{M}{2} \left|h\right|\]</span>
+<span class="math display">\[M = \max_{a\leq x \leq b}
+\left|f&#39;&#39;(x)\right|\]</span></p>
+<p><span >\(O(h)\)</span> approximation.</p>
+<h2 class="unnumbered" id="centered-difference-approximation.">Centered
+difference approximation.</h2>
+<p>Let <span >\(f\)</span> be three times
+differentiable.</p>
+<p><span class="math display">\[f&#39;(x) \approx
+\frac{f(x+h)-f(x-h)}{2h}\]</span></p>
+<p>Error: <span class="math display">\[\left| f&#39;(x) -
+f_{\text{approx}}&#39;(x) \right| = \frac{M}{6}h^2\]</span> <span
+class="math display">\[M = \max_{a\leq x \leq b}
+\left|f&#39;&#39;&#39;(x)\right|\]</span></p>
+<p><span >\(O(h^2)\)</span> approximation.</p>
+<h2 class="unnumbered"
+id="centered-difference-approximation-of-second-derivative.">Centered
+difference approximation of second derivative.</h2>
+<p>The centered difference can also be applied to find the second
+derivative.</p>
+<p><span class="math display">\[f&#39;&#39;(x) \approx
+\frac{f(x+h)+f(x-h)-2f(x)}{h^2}\]</span></p>
+<p>Error: <span class="math display">\[\left| f&#39;&#39;(x) -
+f_{\text{approx}}&#39;&#39;(x) \right| = \frac{M}{12}h^2\]</span> <span
+class="math display">\[M = \max_{a\leq x \leq b}
+\left|f^{(4)}(x)\right|\]</span></p>
+<p><span >\(O(h^2)\)</span> approximation.</p>
+<h2 class="unnumbered" id="point-forward-and-backward.">3 point forward
+and backward.</h2>
+<p><span class="math display">\[f&#39;(x) \approx
+\frac{1}{2h}\left[-3f(x)+4f(x+h)-f(x+2h) \right]\]</span></p>
+<p><span class="math display">\[\left| f&#39;(x) -
+f_{\text{approx}}&#39;(x) \right| = \frac{M}{3}h^2\]</span> <span
+class="math display">\[M = \max_{a\leq x \leq b}
+\left|f&#39;&#39;&#39;(x)\right|\]</span></p>
+<p><span >\(O(h^2)\)</span> approximation. But
+centered difference is better, has half the error.</p>
+<h2 class="unnumbered" id="richardson-extrapolation">Richardson
+extrapolation</h2>
+<p>Suppose Q is a quantity and <span
+>\(N_1(h)\)</span> is an approximation for <span
+>\(Q\)</span> of the form <span
+class="math display">\[Q = N_1(h) + K_1h + E(h)h^2\]</span></p>
+<p>Single-step Richardson’s extrapolation: creates an <span
+>\(O(h^2)\)</span> approximation. <span
+class="math display">\[N_2(h) = 2N_1\left(\frac{h}{2}\right) -
+N_1(h)\]</span></p>
+<p>Multiple-step Richardson’s extrapolation: creates an <span
+>\(O(h^k)\)</span> approximation.</p>
+<p><span class="math display">\[N_k (h) = N_{k-1}
+\left(\frac{h}{2}\right) + \frac{1}{2^{k-1}-1} \left[ N_{k-1}
+\left(\frac{h}{2}\right) - N_{k-1} (h) \right]\]</span></p>
+<p>Convergence: <span >\(O(h^k)\)</span>.</p>
+<h2 class="unnumbered" id="richardson-extrapolation-1">Richardson
+extrapolation</h2>
+<p>Suppose Q is a quantity and <span
+>\(N_1(h)\)</span> is an approximation for <span
+>\(Q\)</span> of the form <span
+class="math display">\[Q = N_1(h) + K_1h^2 + E(h)h^4\]</span></p>
+<p>Single-step Richardson’s extrapolation: creates an <span
+>\(O(h^4)\)</span> approximation. <span
+class="math display">\[N_2(h) = \frac{4}{3}N_1\left(\frac{h}{2}\right) -
+\frac{1}{3}N_1(h)\]</span></p>
+<p>Multiple-step Richardson’s extrapolation: creates an <span
+>\(O(h^{2k})\)</span> approximation.</p>
+<p><span class="math display">\[N_k (h) = N_{k-1}
+\left(\frac{h}{2}\right) + \frac{1}{4^{k-1}-1} \left[ N_{k-1}
+\left(\frac{h}{2}\right) - N_{k-1} (h) \right]\]</span></p>
+<p>Convergence: <span >\(O(h^{2k})\)</span></p>
+<h2 class="unnumbered" id="midpoint-method-integration.">Midpoint method
+(integration).</h2>
+<p>Let <span >\(f: [a,b] \rightarrow
+\mathbb{R}\)</span> be twice differentiable. Let <span
+>\(n \in \mathbb{N}\)</span>. Then <span
+>\(h = \dfrac{b-a}{n}\)</span>, <span
+>\(x_i = a + ih\)</span> and <span
+>\(c_i = \dfrac{x_{i-1} + x_i}{2}\)</span>.</p>
+<p><span class="math display">\[\operatorname{Mid}_n (f,a,b) = h
+\sum_{i=1}^{n} f(c_i)\]</span></p>
+<p>Error: <span class="math display">\[\left| \int_a^b f(x) \ \mathrm{d}
+x  - \operatorname{Mid}_n (f,a,b) \right| \leq \frac{M(b-a)}{24}
+h^2\]</span> <span class="math display">\[M = \max_{a\leq x \leq b}
+\left|f&#39;&#39;(x)\right|\]</span></p>
+<p>Convergence: <span >\(O(h^2)\)</span></p>
+<h2 class="unnumbered" id="trapezoid-method.">Trapezoid method.</h2>
+<p><span class="math display">\[\begin{aligned}
+    \operatorname{Trap}_n (f,a,b) &amp;= \frac{h}{2} \sum_{i=1}^{n}
+\left[f(x_i-1) + f(x_i) \right] \\
+    &amp;= \frac{1}{2}\left[ f(a) + f(b) \right]h + h
+\sum_{i=1}^{n-1}f(x_i)\end{aligned}\]</span></p>
+<p>Convergence: <span >\(O(h^2)\)</span>. Worse than
+midpoint method.</p>
+<h2 class="unnumbered" id="simpsons-method.">Simpson’s method.</h2>
+<p><span class="math display">\[\operatorname{Simp}_n (f,a,b) =
+\frac{1}{3}\operatorname{Trap}_n (f,a,b) +
+\frac{2}{3}\operatorname{Mid}_n (f,a,b)\]</span></p>
+<p>Convergence: <span >\(O(h^4)\)</span>.</p>
+<h2 class="unnumbered" id="romberg-method.">Romberg method.</h2>
+<p>Richardson extrapolation applied to trapezoid method. <span
+class="math display">\[N_1 (h) = \operatorname{Trap}_1 (f,a,b)\]</span>
+<span class="math display">\[N_k (h) = N_{k-1} \left(\frac{h}{2}\right)
++ \frac{1}{4^{k-1}-1} \left[ N_{k-1} \left(\frac{h}{2}\right) - N_{k-1}
+(h) \right]\]</span></p>
+<p>Convergence: <span >\(O(h^{2k})\)</span></p>
+<h2 class="unnumbered" id="eulers-method.">Euler’s method.</h2>
+<p><span class="math display">\[y_{n+1} = y_n + hf(t_n, y_n)\]</span>
+Convergence: <span >\(O(h^2)\)</span> across each
+step, <span >\(O(h)\)</span> across the whole
+interval.</p>
+<h2 class="unnumbered"
+id="midpoint-method-initial-value-problem.">Midpoint method (initial
+value problem).</h2>
+<p><span class="math display">\[\begin{aligned}
+    z_n &amp;= y_n + \frac{1}{2}hf(t_n, y_n) \\
+    y_{n+1} &amp;= y_n + hf\left(t_n + \frac{h}{2},
+z_n\right)\end{aligned}\]</span> Convergence: <span
+>\(O(h^3)\)</span> across each step, <span
+>\(O(h^2)\)</span> across the whole interval.</p>
+<h2 class="unnumbered" id="modified-eulers-method.">Modified Euler’s
+method.</h2>
+<p><span class="math display">\[\begin{aligned}
+    z_n &amp;= y_n + hf(t_n, y_n) \\
+    y_{n+1} &amp;= y_n + \frac{1}{2}h\left[f(t_n, y_n) + f(t_{n+1}, z_n)
+\right]\end{aligned}\]</span> Convergence: <span
+>\(O(h^3)\)</span> across each step, <span
+>\(O(h^2)\)</span> across the whole interval.</p>
+<h2 class="unnumbered" id="taylor-methods.">Taylor methods.</h2>
+<p>Given an initial value problem, <span
+class="math display">\[\begin{aligned}
+    y&#39;(t) = f(t,y)\end{aligned}\]</span></p>
+<p>Start with Taylor’s theorem: <span class="math display">\[y_{k+1} =
+y_k + y&#39;_k h + \frac{1}{2}y&#39;&#39;_k h^2 + \cdots\]</span>
+Differentiate the initial value problem as many times as needed. Use the
+multivariable chain rule! Substitute derivatives into Taylor’s
+theorem.</p>
+<h2 class="unnumbered" id="runge-kutta">Runge-Kutta</h2>
+<p>Let <span class="math display">\[\begin{aligned}
+    k_1 &amp;= y_n + f(t_n, y_n)\\
+    k_2 &amp;= y_n + f\left(t_n + \frac{h}{2},y_n +
+\frac{k_1}{2}\right)\\
+    k_3 &amp;= y_n + f\left(t_n + \frac{h}{2}, y_n +
+\frac{k_2}{2}\right)\\
+    k_4 &amp;= y_n + f(t_n + h, y_n + k_3)\end{aligned}\]</span></p>
+<p><span class="math display">\[y_{n+1} = y_n + \frac{1}{6}(k_1 + 2k_2 +
+2k_3 + k_4)\]</span></p>
+<h2 class="unnumbered" id="shooting-method.">Shooting method.</h2>
+<p>Consider a boundary condition problem. Transform the problem into an
+initial value problem with variable values. Create a function of those
+variable values and output the right endpoint value. Check which right
+endpoints match the the original boundary value problems. Use the secant
+method to find the values. This works for certain nonlinear boundary
+value problems as well.</p>
+<h2 class="unnumbered"
+id="linear-second-order-two-point-boundary-value-problems.">Linear
+second order two-point boundary value problems.</h2>
+<p><span class="math display">\[y&#39;&#39; = py&#39;+qy+h, \quad x \in
+[a,b]\]</span> </p>
+<p>Initial conditions are given by <span class="math display">\[A
+\begin{bmatrix}y(a) \\ y(b) \\y&#39;(a) \\ y&#39;(b) \\ \end{bmatrix} =
+\begin{bmatrix}\alpha \\ \beta\end{bmatrix}\]</span></p>
+<p>In other words, <span class="math display">\[\begin{aligned}
+    y(a) + y&#39;(a) &amp;= \alpha \\
+    y(b) + y&#39;(b) &amp;= \beta\end{aligned}\]</span></p>
+<p>Start by solving the three fundamental initial value problems. <span
+class="math display">\[\begin{aligned}
+    u_1&#39;&#39; &amp;= pu_1&#39; + qu_1 \\
+    u_1 (a) &amp;= 1\\
+    u_1&#39; (a) &amp;= 0\\\end{aligned}\]</span> <span
+class="math display">\[\begin{aligned}
+    u_2&#39;&#39; &amp;= pu_2&#39; + qu_2 \\
+    u_2 (a) &amp;= 0\\
+    u_2&#39; (a) &amp;= 1\\\end{aligned}\]</span> <span
+class="math display">\[\begin{aligned}
+    w&#39;&#39; &amp;= pw&#39; + qw + h \\
+    w (a) &amp;= 0\\
+    w&#39; (a) &amp;= 0\\\end{aligned}\]</span></p>
+<p>If there is a solution, it is <span >\(C_1,
+C_2\)</span> such that</p>
+<p><span class="math display">\[y(x) = C_1 u_1 + C_2 u_2 +
+w\]</span></p>
+<p>The problem has a unique solution if and only if <span
+>\(M\)</span> is invertible (<span
+>\(\det M \neq 0\)</span>). <span
+class="math display">\[M = A \begin{bmatrix}
+u_1 (a) &amp; u_2 (a) \\
+u_1 (b) &amp; u_2 (b) \\
+u_1&#39; (a) &amp; u_2&#39; (a) \\
+u_1&#39; (b) &amp; u_2&#39; (b)
+\end{bmatrix}\]</span></p>
+<p>Then, let <span class="math display">\[\mathbf{v} =
+\begin{bmatrix}\alpha \\ \beta\end{bmatrix} - A \begin{bmatrix}w(a) \\
+w(b) \\w&#39;(a) \\ w&#39;(b) \\ \end{bmatrix}\]</span></p>
+<p>Finally, <span >\(C_1\)</span> and <span
+>\(C_2\)</span> are determined by</p>
+<p><span class="math display">\[\begin{bmatrix}C_1 \\ C_2\end{bmatrix} =
+M^{-1} \mathbf{v}\]</span></p>
+<h2 class="unnumbered" id="gradient-descent.">Gradient descent.</h2>
+<p>Gradient descent. Let <span >\(f: \mathbb{R}^n
+\rightarrow \mathbb{R}\)</span> be continuously differentiable and <span
+>\(p \in \mathbb{R}^n\)</span> be a local minimum of
+<span >\(f\)</span>. Let <span
+>\(p_0\)</span> be an initial guess.</p>
+<pre><code>for $k = 0, 1, \dots$
+    set $M = \displaystyle \sum_{i=1}^{n} \left| \frac{\partial f}{\partial x_i} \right| + 1 $
+    let $s = 1$
+    create $\text{temp} = p_0 - s \cdot \displaystyle \frac{1}{M} \nabla f(p_k)$
+    while $f(\text{temp}) \geq f(p_k)$
+        $s = \displaystyle \frac{s}{2}$
+        $\text{temp} = p_0 - s \cdot \displaystyle \frac{1}{M} \nabla f(p_k) $
+    $p_{k+1} = \text{temp}$
+next $k$</code></pre>
+<p>Convergence is only guaranteed when <span
+>\(f&#39;&#39;(x)\)</span> is positive definite.
+Convergence is also slow.</p>
+<h2 class="unnumbered" id="newtons-method-multivariable.">Newton’s
+method (multivariable).</h2>
+<p>Let <span >\(f: \mathbb{R}^n \rightarrow
+\mathbb{R}^n\)</span> be a twice continuously differentiable function
+and <span >\(\mathbf{u} \in \mathbb{R}^n\)</span>
+such that <span >\(f(\mathbf{u}) =
+\mathbf{0}\)</span>. Let <span
+>\(\mathbf{x}_0\)</span> be an initial guess.</p>
+<p><span class="math display">\[\mathbf{x}_{n+1} = \mathbf{x}_{n} -
+\left(f&#39;(\mathbf{x}_{n})\right)^{-1} f(\mathbf{x}_{n})\]</span>
+Convergence: <span >\(O(h^2)\)</span>.</p>
+<h2 class="unnumbered" id="finite-differences.">Finite differences.</h2>
+<p>Use to approximate solutions of second order linear problems with
+Dirichlet boundary conditions. <span
+class="math display">\[\begin{aligned}
+    u&#39;&#39;(x) &amp;= P(x)u&#39;(x) + Q(x)u(x) + f(x) \\
+    u(a) &amp;= \alpha, \quad u(b) = \beta\end{aligned}\]</span> Let
+<span >\(h = \dfrac{b-a}{n}\)</span> and <span
+>\(x_i = a + ih\)</span> for <span
+>\(i\in \{0,1,\dots,n-1 \}\)</span>. Let <span
+class="math display">\[\begin{aligned}
+    u_i &amp;= u(x_i) \\
+    P_i &amp;= P(x_i) \\
+    Q_i &amp;= Q(x_i) \\
+    f_i &amp;= f(x_i)\end{aligned}\]</span> Approximate <span
+>\(u&#39;(x)\)</span> and <span
+>\(u&#39;&#39;(x)\)</span> by the centered difference
+approximations. <span class="math display">\[\begin{aligned}
+    u&#39;(x_i) &amp;\approx \dfrac{u(x_i + h) - u(x_i - h)}{2h} \approx
+\dfrac{u_{i+1} - u_{i-1}}{2h}\\
+    u&#39;&#39;(x_i) &amp;\approx \dfrac{u(x_i + h) + u(x_i - h) -
+2u(x_i)}{h^2} \approx \dfrac{u_{i+1} + u_{i-1} -
+2u_i}{h^2}\end{aligned}\]</span> Finally, solve for weights of <span
+>\(u_i\)</span> <span
+class="math display">\[\begin{aligned}
+    \frac{u_{i+1} + u_{i-1} - 2u_i}{h^2} &amp;= P_i \frac{u_{i+1} -
+u_{i-1}}{2h} + Q_i u_i + f_i \\
+    u_{i+1} + u_{i-1} - 2u_i &amp;= \frac{h}{2} P_i (u_{i+1} - u_{i-1})
++ h^2 Q_i u_i + h^2 f_i \\
+    \left(1 + \frac{h}{2} P_i \right) u_{i-1} + \left(-2 - h^2
+Q_i\right) u_i + \left(1 - \frac{h}{2} P_i \right) u_{i+1} &amp;= h^2
+f_i\end{aligned}\]</span> For every <span >\(i \in
+\{1,2,\dots,n-1\}\)</span>, substitute into the equation to create the
+linear system. <span >\(M =\)</span> <span
+class="math display">\[\begin{bmatrix}
+    -2 - h^2 Q_1 &amp; 1 - \dfrac{h}{2} P_1 &amp; 0 &amp; 0 &amp; 0
+&amp; \cdots &amp; 0\\
+    1 + \dfrac{h}{2} P_2 &amp; -2 - h^2 Q_2 &amp; 1 - \dfrac{h}{2} P_2
+&amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+    0 &amp; 1 + \dfrac{h}{2} P_3 &amp; -2 - h^2 Q_3 &amp; 1 -
+\dfrac{h}{2} P_3 &amp; 0&amp;  \cdots &amp; 0 \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \ddots  &amp; \ddots &amp;
+\ddots &amp; \vdots \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 + \dfrac{h}{2} P_{n-2} &amp; -2 -
+h^2 Q_{n-2} &amp; 1 - \dfrac{h}{2} P_{n-2} \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp;  1 + \dfrac{h}{2} P_{n-1}
+&amp; -2 - h^2 Q_{n-1}
+\end{bmatrix}\]</span> <span class="math display">\[\mathbf{f} =
+\begin{bmatrix}
+    h^2 f_1 - \alpha\left(1 + \dfrac{h}{2} P_1\right) \\
+    h^2 f_2 \\
+    h^2 f_3 \\
+    \vdots \\
+    h^2 f_{n-1} - \beta \left(1 - \dfrac{h}{2} P_{n-1}\right)
+\end{bmatrix}\]</span> Finally, solve <span
+>\(M\mathbf{u} = \mathbf{f}\)</span>. The matrix
+<span >\(M\)</span> is tri-diagonal, which allows the
+use of the Thomas algorithm to solve with less steps than inverting the
+matrix.</p>
+<h2 class="unnumbered" id="thomas-algorithm">Thomas algorithm</h2>
+<p>Consider a tridiagonal system <span >\(a_ix_{i+1}
++ b_i x_i + c_i x_{i-1} = d_i\)</span>.</p>
+<p><span class="math display">\[\begin{bmatrix}
+   b_1 &amp; c_1 &amp;        &amp;        &amp;  0      \\
+   a_2 &amp; b_2 &amp; c_2    &amp;        &amp;         \\
+       &amp; a_3 &amp; b_3    &amp; \ddots &amp;         \\
+       &amp;     &amp; \ddots &amp; \ddots &amp; c_{n-1} \\
+   0   &amp;     &amp;        &amp; a_n    &amp; b_n
+\end{bmatrix}
+\begin{bmatrix}
+   x_1    \\
+   x_2    \\
+   x_3    \\
+   \vdots \\
+   x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+   d_1    \\
+   d_2    \\
+   d_3    \\
+   \vdots \\
+   d_n
+\end{bmatrix}\]</span></p>
+<pre><code>Let $\mathbf{u} = \mathbf{b}$
+For $i = 2, 3, \dots, n$
+    let $m = \dfrac{a_{i-1}}{b_{i-1}}$
+    let $b_i = b_i - m\cdot c_{i-1}$
+    let $f_i = f_i - m \cdot f_{i-1}$
+Let $u_n = \dfrac{f_n}{b_n}$
+Perform backwards substitution. For $i = n-1, n-2, \dots, 1$
+    Let $u_i = \dfrac{f_i - c_i \cdot u_{i+1}}{b_i}$</code></pre>
+</body>
+</html>
