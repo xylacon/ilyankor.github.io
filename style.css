@@ -221,7 +221,7 @@ main {
 }
 
 .inline-link {
-    color: #FF9B42;
+    color: rgb(87,196,160);
     text-decoration: none;
 }
 
@@ -230,7 +230,7 @@ main {
 }
 
 .inline-link:visited {
-    color: #FF9B42;
+    color: rgb(87,196,160);
 }
 
 
