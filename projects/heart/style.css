@@ -13,19 +13,37 @@ body {
 }
 
 path {
-    stroke-dasharray: 3000;
-    animation: animate 5s cubic-bezier(.50,.40,.90,.40);
+    stroke-dasharray: 1050;
+    -webkit-animation: animate 3s cubic-bezier(.50,0,.50,0);
+    animation: animate 3s cubic-bezier(.50,0,.50,0);
+}
+
+@-webkit-keyframes animate {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 1050;
+    }
+
+    30% {
+        opacity: 1;
+        stroke-dashoffset: 1050;
+    }
+
+    100% {
+        opacity: 10;
+        stroke-dashoffset: 0;
+    }
 }
 
 @keyframes animate {
     0% {
         opacity: 0;
-        stroke-dashoffset: 3000;
+        stroke-dashoffset: 1050;
     }
 
     30% {
         opacity: 1;
-        stroke-dashoffset: 3000;
+        stroke-dashoffset: 1050;
     }
 
     100% {

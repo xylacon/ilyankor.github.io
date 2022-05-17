@@ -236,11 +236,11 @@ main {
     color: var(--color-red);
 }
 
-a {
+p a {
     color: var(--color-green1);
 }
 
-a:visited {
+p a:visited {
     color: var(--color-green2);
 }
 
