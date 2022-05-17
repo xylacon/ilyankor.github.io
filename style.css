@@ -5,7 +5,7 @@ html[data-theme="light"] {
 
     --color-red: rgb(140,0,0);
     --color-blue: rgb(90,150,200);
-    --color-green1: rgb(7,120,90);
+    --color-green1: rgb(70,120,90);
     --color-green2: rgb(110,170,140);
 
     --menu-item-hover: rgb(170,170,170);
@@ -41,8 +41,9 @@ nav {
 
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: 0 10vw 0 10vw;
 }
 
 .navbar ul{
@@ -143,6 +144,7 @@ nav {
 
 @media only screen and (max-width: 700px)  {
     .navbar {
+        margin: 0;
         justify-content: left;
     }
 
@@ -236,11 +238,11 @@ main {
     color: var(--color-red);
 }
 
-p a {
+body a {
     color: var(--color-green1);
 }
 
-p a:visited {
+body a:visited {
     color: var(--color-green2);
 }
 
@@ -268,10 +270,16 @@ p a:visited {
 
 /* LIGHT DARK BUTTON */
 
+
+.theme-button {
+    display: flex;
+}
+
 #themebutton {
     color: var(--text);
     font-family: 'Lato', sans-serif;
     font-weight: 300;
+    font-size: 14px;
     text-align: center;
     text-transform: uppercase;
 
@@ -280,10 +288,22 @@ p a:visited {
     background-color: var(--background-button);
 
     display: inline-block;
-    min-width: 60px;
-    min-height: 25px;
+    min-width: 50px;
+    min-height: 31px;
 
     cursor: pointer;
+}
+
+@media only screen and (max-width: 700px)  {
+    .theme-button {
+        position: fixed;
+        top: 20px;
+        right: 3vw;
+    }
+
+    #themebutton {
+        font-size: 12px;
+    }
 }
 
 /* FOOTER */
