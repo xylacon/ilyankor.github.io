@@ -14,22 +14,12 @@ body {
 
 path {
     stroke-dasharray: 1050;
+    stroke-dashoffset: 1050;
     animation: animate 3s cubic-bezier(.5,0,.5,1);
 }
 
 @keyframes animate {
-    0% {
-        opacity: 0;
-        stroke-dashoffset: 1050;
-    }
-
-    30% {
-        opacity: 1;
-        stroke-dashoffset: 1050;
-    }
-
-    100% {
-        opacity: 10;
+    to {
         stroke-dashoffset: 0;
     }
 }
