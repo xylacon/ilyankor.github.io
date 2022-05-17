@@ -238,11 +238,11 @@ main {
     color: var(--color-red);
 }
 
-body a {
+main a {
     color: var(--color-green1);
 }
 
-body a:visited {
+main a:visited {
     color: var(--color-green2);
 }
 
