@@ -171,11 +171,44 @@ nav a:visited {
     opacity: 90%;
 }
 
+.dark-mode .inline-link {
+    color: rgb(100,160,200);
+    text-decoration: none;
+}
+
+.dark-mode .inline-link a:visited {
+    color: rgb(100,160,200);
+}
+
+
+.dark-mode a {
+    color: #7BE0AD;
+}
+
+.dark-mode a:visited {
+    color: #DEF6CA;
+    
+}
+
 .dark-mode nav a {
     color: white;
     opacity: 90%;
     border-bottom: 2px solid #121212;
+}
 
+.dark-mode nav a:visited {
+    color: white;
+    opacity: 90%;
+    border-bottom: 2px solid #121212;
+}
+
+
+.dark-mode .active {
+    color: rgb(255,90,90) !important;
+}
+
+.dark-mode nav a:hover {
+    border-color: rgb(169,169,169);
 }
 
 .dark-mode .sidebar-button,
@@ -254,6 +287,33 @@ main {
     .circle-picture {
         width: 75%
     }
+}
+
+/* LIGHT DARK BUTTON */
+
+#themebutton {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-align: center;
+
+    border-color: rgb(90,150,200);
+    border-style: solid;
+    background-color: rgb(235,235,235);
+
+    display: inline-block;
+    min-width: 60px;
+    min-height: 25px;
+
+    cursor: pointer;
+}
+
+.dark-mode #themebutton {
+    color: white;
+    opacity: 90%;
+
+    border-color: rgb(255,90,90);
+    background-color: rgb(50,50,50)
+
 }
 
 /* FOOTER */

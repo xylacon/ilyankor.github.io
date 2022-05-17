@@ -1,6 +1,10 @@
 function lightdark() {
     var element = document.body;
     element.classList.toggle("dark-mode");
+
+    var elem = document.getElementById("themebutton");
+    if (elem.value=="DARK") elem.value = "LIGHT";
+    else elem.value = "DARK";
 }
 
 function removeColor(event) {
