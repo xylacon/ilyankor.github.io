@@ -13,13 +13,23 @@ body {
 }
 
 path {
-    stroke-dasharray: 1050;
-    stroke-dashoffset: 1050;
-    animation: animate 3s cubic-bezier(.5,0,.5,1);
+    stroke-dasharray: 3000;
+    animation: animate 5s cubic-bezier(.50,.40,.90,.40);
 }
 
 @keyframes animate {
-    to {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 3000;
+    }
+
+    30% {
+        opacity: 1;
+        stroke-dashoffset: 3000;
+    }
+
+    100% {
+        opacity: 10;
         stroke-dashoffset: 0;
     }
 }
