@@ -7,13 +7,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
-        </script>
-
         <link rel="stylesheet" href="../style.css">
         <link rel="icon" href="../favicon.svg" sizes="any" type="image/svg+xml">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <script src="../main.js" defer></script>
 
         <title>Miles Bi | Blog</title>
     </head>
@@ -23,16 +24,16 @@
                 <header>
                     <nav class="navbar">
                         <input type="checkbox" id="sidebar-toggle"/>
-                        <label class="sidebar-button-container" for="sidebar-toggle">
+                        <label class="sidebar-button-container" for="sidebar-toggle" onclick="removeColor(event)">
                             <div class="sidebar-button"></div>
                         </label>
                         <ul class="menu-items">
                             <li><a href="https://ilyankor.github.io">Home</a></li>
-                            <li><a href="../about/index">About</a></li>
-                            <li><a href="../projects/index">Projects</a></li>
-                            <li><a href="../music/index">Music</a></li>
-                            <li><a href="../education/index">Education</a></li>
-                            <li><a class="active" href="../blog/index">Blog</a></li>
+                            <li><a href="../about">About</a></li>
+                            <li><a href="../projects">Projects</a></li>
+                            <li><a href="../music">Music</a></li>
+                            <li><a href="../education">Education</a></li>
+                            <li><a class="active" href="../blog">Blog</a></li>
                         </ul>
                     </nav>
                     <h1>BLOG</h1>
@@ -40,6 +41,8 @@
 
                 <main>
                     <p>This will be a page for some thoughts and explanations in science, math, or music.</p>
+
+                    <input onclick="lightdark()" type="button" value="LIGHT" id="themebutton"/>
                 </main>
             </div>
             <footer>

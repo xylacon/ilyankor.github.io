@@ -1,11 +1,15 @@
 function lightdark() {
     var element = document.body;
     element.classList.toggle("dark-mode");
+
+    var elem = document.getElementById("themebutton");
+    if (elem.value=="DARK") elem.value = "LIGHT";
+    else elem.value = "DARK";
 }
 
-const sidebarButton = document.getElementsByClassName('sidebar-button')[0]
-const navLinks = document.getElementsByClassName('navlinks')[0]
-
-sidebarButton.addEventListener('click', () => {
-    navLinks.classList.toggle('active')
-})
+function removeColor(event) {
+    !event.target.classList.contains("no-hover") && event.target.classList.add("no-hover")
+    event.target.addEventListener("mouseleave", () => {
+        event.target.classList.remove("no-hover")
+    })
+}

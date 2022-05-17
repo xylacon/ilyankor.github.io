@@ -12,6 +12,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
+        <script src="../main.js" defer></script>
+
         <title>Miles Bi | About</title>
     </head>
     <body>
@@ -20,16 +22,16 @@
                 <header>
                     <nav class="navbar">
                         <input type="checkbox" id="sidebar-toggle"/>
-                        <label class="sidebar-button-container" for="sidebar-toggle">
+                        <label class="sidebar-button-container" for="sidebar-toggle" onclick="removeColor(event)">
                             <div class="sidebar-button"></div>
                         </label>
                         <ul class="menu-items">
                             <li><a href="https://ilyankor.github.io">Home</a></li>
-                            <li><a class="active" href="../about/index">About</a></li>
-                            <li><a href="../projects/index">Projects</a></li>
-                            <li><a href="../music/index">Music</a></li>
-                            <li><a href="../education/index">Education</a></li>
-                            <li><a href="../blog/index">Blog</a></li>
+                            <li><a class="active" href="../about">About</a></li>
+                            <li><a href="../projects">Projects</a></li>
+                            <li><a href="../music">Music</a></li>
+                            <li><a href="../education">Education</a></li>
+                            <li><a href="../blog">Blog</a></li>
                         </ul>
                     </nav>
 
@@ -37,13 +39,25 @@
                 </header>
                 <main>
                     <a href="https://www.uh.edu/" target="_blank"><img src="uh-logo.svg" width=100vh height=100vh style="float: left;"></a>
-                    <p style="line-height: 1.7;">I am a third-year undergraduate student at the University of Houston, studying both math and music. 
-                    In my music, I try to innovate using abstract principles and detailed oriented processes, sometimes involving mathematics. 
-                    I study composition with Rob Smith and I studied viola with Suzanne LeFevre.
-                    I do work with MuseScore, LaTeX, Inkscape, and Python.
-                    In my free time, I enjoy learning new things and taking walks in the sun.
-                    </p>
+                    <p style="line-height: 1.7;">I am a fourth-year undergraduate student at the University of Houston, studying both math and music. 
+                    In my music, I try to innovate using detailed oriented processes, sometimes involving mathematics. 
+                    I study composition with Rob Smith and I studied viola with Suzanne LeFevre.</p>
+
+                    <p style="line-height: 1.7;">I use a variety of programs for my work: <a class=inline-link href="https://musescore.org">MuseScore</a> for music engraving, <a class=inline-link href="https://inkscape.org">Inkscape</a> for graphic design, and <a class=inline-link href="https://www.latex-project.org">LaTeX</a> for engraving math. 
+                    On the programming side of things, I use <a class=inline-link href="https://www.python.org">Python</a> and <a class=inline-link href="https://www.mathworks.com/products/matlab.html">MATLAB</a> for numerical computation and app creation. 
+                    Recently, I've been getting to learn HTML/CSS for web development and SQL for database management. </p>
+
                     <p>View my current résumé here: <a href="resume.pdf" target="_blank">RESUME</a></p>
+
+                    <br>
+
+                    <input onclick="lightdark()" type="button" value="LIGHT" id="themebutton"/>
+
+                    <br>
+
+                    <img class=circle-picture src="profile-picture.jpg">
+
+                    <br>
                 </main>
             </div>
             <footer>

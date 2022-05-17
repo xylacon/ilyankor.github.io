@@ -12,6 +12,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
+        <script src="../main.js" defer></script>
+
         <title>Miles Bi | Education</title>
     </head>
     <body>
@@ -20,16 +22,16 @@
                 <header>
                     <nav class="navbar">
                         <input type="checkbox" id="sidebar-toggle"/>
-                        <label class="sidebar-button-container" for="sidebar-toggle">
+                        <label class="sidebar-button-container" for="sidebar-toggle" onclick="removeColor(event)">
                             <div class="sidebar-button"></div>
                         </label>
                         <ul class="menu-items">
                             <li><a href="https://ilyankor.github.io">Home</a></li>
-                            <li><a href="../about/index">About</a></li>
-                            <li><a href="../projects/index">Projects</a></li>
-                            <li><a href="../music/index">Music</a></li>
-                            <li><a class="active" href="../education/index">Education</a></li>
-                            <li><a href="../blog/index">Blog</a></li>
+                            <li><a href="../about">About</a></li>
+                            <li><a href="../projects">Projects</a></li>
+                            <li><a href="../music">Music</a></li>
+                            <li><a class="active" href="../education">Education</a></li>
+                            <li><a href="../blog">Blog</a></li>
                         </ul>
                     </nav>
                     <h1>EDUCATION</h1>
@@ -39,16 +41,16 @@
                     <h2>Notes</h2>
                     <p>This will be a collection of notes in math classes that I took while in college.
                         The notes are currently incomplete, however, a sample of them are displayed here.
-                        The webpages were generated using <a href="https://pandoc.org/" target="blank">Pandoc.</a>
+                        The webpages were generated using <a class=inline-link href="https://pandoc.org/" target="blank">Pandoc.</a>
                         Click on the name of the subject to see the webpage version.</p>
                     <ul>
-                        <li><h3><a href="calc3" target="_blank">Calculus 3 ></a></h3>
-                            <a href="calc3.pdf" target="_blank">calc3.pdf</a></li>
-                        <li><h3><a href="linalg" target="_blank">Linear algebra ></a></h3>
-                            <a href="linalg.pdf" target="_blank">linalg.pdf</a></li>
-                        <li><h3><a href="diffeq" target="_blank">Differential equations ></a></h3>
-                            <a href="diffeq.pdf" target="_blank">diffeq.pdf</a></li>
-                        <li><h3><a href="numerical" target="_blank">Intro to numerical analysis ></a></h3></li>
+                        <li><h3><a class=inline-link href="notes/calc3" target="_blank">Calculus 3</a></h3>
+                            <a href="notes/calc3.pdf" target="_blank">calc3.pdf</a></li>
+                        <li><h3><a class=inline-link href="notes/linalg" target="_blank">Linear algebra</a></h3>
+                            <a href="notes/linalg.pdf" target="_blank">linalg.pdf</a></li>
+                        <li><h3><a class=inline-link href="notes/diffeq" target="_blank">Differential equations</a></h3>
+                            <a href="notes/diffeq.pdf" target="_blank">diffeq.pdf</a></li>
+                        <li><h3><a class=inline-link href="notes/numerical" target="_blank">Intro to numerical analysis</a></h3></li>
                     </ul>
 
                     <h2>Papers</h2>
@@ -58,6 +60,11 @@
                         <li><a href="project1.pdf" target="_blank">Analysis of Fibich's Piano Quintet, movement 1</a></li>
                         <li><a href="project2.pdf" target="_blank">Narrative in the third movement of Bloch's Concerto Grosso No. 1</a></li>
                     </ul>
+
+                    <br>
+
+                    <input onclick="lightdark()" type="button" value="LIGHT" id="themebutton"/>
+
                 </main>
             </div>
             <footer>
