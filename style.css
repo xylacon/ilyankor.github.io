@@ -270,7 +270,6 @@ body a:visited {
 
 /* LIGHT DARK BUTTON */
 
-
 .theme-button {
     display: flex;
 }
@@ -285,6 +284,8 @@ body a:visited {
 
     border-color: var(--color-blue);
     border-style: solid;
+    border-radius: none;
+    
     background-color: var(--background-button);
 
     display: inline-block;
@@ -296,7 +297,7 @@ body a:visited {
 
 @media only screen and (max-width: 700px)  {
     .theme-button {
-        position: fixed;
+        position: absolute;
         top: 20px;
         right: 3vw;
     }
