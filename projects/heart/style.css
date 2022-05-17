@@ -20,6 +20,7 @@ path {
 
 @-webkit-keyframes animate {
     0% {
+        stroke-dasharray: 3300;
         opacity: 0;
         stroke-dashoffset: 3300;
     }
