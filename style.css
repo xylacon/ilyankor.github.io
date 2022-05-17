@@ -171,23 +171,21 @@ nav a:visited {
     opacity: 90%;
 }
 
-.dark-mode .inline-link {
-    color: rgb(100,160,200);
-    text-decoration: none;
-}
-
-.dark-mode .inline-link a:visited {
-    color: rgb(100,160,200);
-}
-
-
 .dark-mode a {
     color: #7BE0AD;
 }
 
 .dark-mode a:visited {
     color: #DEF6CA;
-    
+}
+
+.dark-mode .inline-link {
+    color: rgb(100,160,200);
+    text-decoration: none;
+}
+
+.dark-mode .inline-link:visited {
+    color: rgb(100,160,200);
 }
 
 .dark-mode nav a {
