@@ -225,6 +225,10 @@ main {
     margin: 0 15vw;
 }
 
+p {
+    line-height: 1.5;
+}
+
 .inline-link {
     color: var(--color-blue);
     text-decoration: none;
