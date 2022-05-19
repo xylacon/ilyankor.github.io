@@ -1,10 +1,25 @@
-function lightdark() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
+const currentTheme = localStorage.getItem("theme");
 
+if (currentTheme == "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+}
+
+function lightdark() {
+    var temptheme = document.documentElement.getAttribute("data-theme");
     var elem = document.getElementById("themebutton");
-    if (elem.value=="DARK") elem.value = "LIGHT";
-    else elem.value = "DARK";
+
+    if (temptheme=="dark") {
+        document.documentElement.setAttribute("data-theme","light");
+        elem.value = "light";
+        theme = "light"
+    }
+    else { 
+        document.documentElement.setAttribute("data-theme", "dark");
+        elem.value = "dark";
+        theme = "dark"
+    }
+
+    localStorage.setItem("theme", theme);
 }
 
 function removeColor(event) {
